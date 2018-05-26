@@ -23,4 +23,4 @@ grailsw
 gradlew
 /.nb-gradle/
 build/
-grails-app/views/a_test
+/grails-app/views/a_test

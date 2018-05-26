@@ -4,7 +4,7 @@ class Address {
 
     String village
     String wordNo
-    String union = "Charbata"
+    String unionName = "Charbata"
     String upazilla = "Subarnachar"
     String district = "Noakhali"
     String country = "Bangladesh"

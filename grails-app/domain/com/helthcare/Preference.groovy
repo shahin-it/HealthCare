@@ -2,12 +2,12 @@ package com.helthcare
 
 class Preference {
 
-    String key
+    String configKey
     String value
     String type
 
     static constraints = {
-        key(unique: true)
+        configKey(unique: true)
         value(nullable: true)
     }
 }

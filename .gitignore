@@ -21,6 +21,7 @@ readme.md
 /gradle
 grailsw
 gradlew
+grails-wrapper.jar
 /.nb-gradle/
 build/
 /grails-app/views/a_test

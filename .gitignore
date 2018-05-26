@@ -19,9 +19,7 @@ pom.xml
 readme.md
 .gradle/
 /gradle
-grailsw
-gradlew
-grails-wrapper.jar
+/.gradletasknamecache
 /.nb-gradle/
 build/
 /grails-app/views/a_test

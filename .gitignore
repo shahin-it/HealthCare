@@ -18,7 +18,6 @@ nbactions.xml
 pom.xml
 readme.md
 .gradle/
-/gradle
 /.gradletasknamecache
 /.nb-gradle/
 build/

@@ -1,9 +1,5 @@
 package com.helthcare
 
-import com.sun.org.apache.xpath.internal.operations.Bool
-
-import javax.servlet.http.HttpSession
-
 class DashboardController {
 
     UserService userService
@@ -13,11 +9,11 @@ class DashboardController {
     }
 
     def login() {
-        if(session.user != null) {
-            redirect(action: "controlPanel")
+        if(session.user == null) {
+            render(view: "/page/login")
             return
         }
-        render(view: "/page/login")
+        redirect(action: "controlPanel")
     }
 
     def doLogin() {
@@ -29,6 +25,7 @@ class DashboardController {
         }
 
         session.user = user.id
+        params.clear()
         redirect(action: "controlPanel")
     }
 

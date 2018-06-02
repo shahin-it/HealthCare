@@ -10,9 +10,9 @@
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Bootstrap dataTables</div>
-        </div>
+        </div>example
         <div class="panel-body">
-            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
+            <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered jq-data-table">
                 <thead>
                 <tr>
                     <th>Rendering engine</th>

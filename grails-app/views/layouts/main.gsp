@@ -60,7 +60,7 @@
                                         class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
                                     <li><a href="profile.html">Profile</a></li>
-                                    <li><a href="login.html">Logout</a></li>
+                                    <li><g:link controller="dashboard" action="doLogout">Logout</g:link></li>
                                 </ul>
                             </li>
                         </ul>
@@ -77,7 +77,7 @@
             <div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="${pageProperty(name: 'page.dashboard')}"><g:link controller="dashboard" action="controlPanel"><i class="glyphicon glyphicon-home"></i> Dashboard</g:link></li>
+                    <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="glyphicon glyphicon-home"></i> Dashboard</g:link></li>
                     <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-calendar"></i> Pathology</g:link></li>
                     <li class=""><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
                     <li class=""><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tables</a></li>

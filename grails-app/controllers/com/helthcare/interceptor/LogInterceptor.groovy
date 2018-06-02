@@ -6,7 +6,7 @@ import com.helthcare.util.AppUtil
 class LogInterceptor {
 
     LogInterceptor() {
-        matchAll()
+        matchAll().excludes(controller: "dashboard", action: "login").excludes(controller: "dashboard", action: "doLogin")
     }
 
     boolean before() {
@@ -15,8 +15,7 @@ class LogInterceptor {
             redirect(controller: "dashboard", action: "login")
             return false
         }
-
-        return true
+        true
     }
 
     boolean after() { true }

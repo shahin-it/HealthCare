@@ -18,5 +18,8 @@ $(document).ready(function(){
   });
 
 
-    $('#example').dataTable();
+  var dataTables = $(".jq-data-table");
+  if(dataTables.length) {
+      dataTables.dataTable();
+  }
 });

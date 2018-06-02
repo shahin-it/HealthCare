@@ -10,7 +10,7 @@ abstract class DomainBase {
         if (!this.created) {
             this.created = new Date().toGMT()
         }
-        if (!this.updated) {
+        if (this.hasProperty("updated")) {
             this.updated = new Date().toGMT()
         }
         if(!this.createdBy) {

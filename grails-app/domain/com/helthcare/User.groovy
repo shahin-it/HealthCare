@@ -20,5 +20,12 @@ class User extends DomainBase {
         email(nullable: true)
         createdBy(nullable: true)
         sex(maxSize: 10)
+        address(nullable: true)
+    }
+
+    static void initialize() {
+        if(User.count == 0) {
+            new User(name: "HelthCare Admin", email: "admin@helthcare.com", phone: "01920489953", username: "admin", password: "admin", role: "admin").save()
+        }
     }
 }

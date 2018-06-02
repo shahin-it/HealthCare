@@ -17,8 +17,8 @@ static init() {
 
     Date.metaClass.with {
         toGMT = { timeZone = null ->
-            long time = delegate.getTime() - (timeZone ?: TimeZone.default).getOffset(delegate);
-            return new Date(time);
+            long time = delegate.getTime() - (timeZone ?: TimeZone.default).getOffset(delegate)
+            return new Date(time)
         }
 
         toAdminFormat = { showTime, showZone, timeZone ->

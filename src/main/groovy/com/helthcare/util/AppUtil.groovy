@@ -2,6 +2,9 @@ package com.helthcare.util
 
 import grails.gsp.PageRenderer
 import grails.util.Holders
+import grails.web.mvc.FlashScope
+import grails.web.servlet.mvc.GrailsHttpSession
+import grails.web.servlet.mvc.GrailsParameterMap
 import org.grails.web.servlet.mvc.GrailsWebRequest
 import org.springframework.web.context.request.RequestContextHolder
 import org.w3c.dom.Node
@@ -76,7 +79,7 @@ class AppUtil {
         return request
     }
 
-    public static grails.web.servlet.mvc.GrailsParameterMap getParams() {
+    public static GrailsParameterMap getParams() {
         try {
             currentRequest.params;
         } catch (Throwable t) {
@@ -84,7 +87,7 @@ class AppUtil {
         }
     }
 
-    public static grails.web.servlet.mvc.GrailsHttpSession getSession() {
+    public static GrailsHttpSession getSession() {
         try {
             currentRequest.session;
         } catch (Throwable t) {
@@ -108,7 +111,7 @@ class AppUtil {
         }
     }
 
-    public static grails.web.mvc.FlashScope getFlash() {
+    public static FlashScope getFlash() {
         try {
             currentRequest.flashScope;
         } catch (Throwable t) {

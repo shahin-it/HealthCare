@@ -18,15 +18,12 @@ class DashboardController {
 
     def doLogin() {
         User user = User.findByUsernameAndPassword(params.userName, params.password)
-
-        if(!user) {
+        if(user) {
+            userService.registerAdminSession(user)
+            redirect(action: "controlPanel")
+        } else {
             redirect(action: "login")
-            return
         }
-
-        session.user = user.id
-        params.clear()
-        redirect(action: "controlPanel")
     }
 
     def doLogout() {

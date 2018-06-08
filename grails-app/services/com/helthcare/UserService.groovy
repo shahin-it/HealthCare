@@ -13,4 +13,9 @@ class UserService {
     void logout() {
         AppUtil.session.removeAttribute("user")
     }
+
+    void registerAdminSession(User user) {
+        def session = AppUtil.session
+        session.user = user.id
+    }
 }

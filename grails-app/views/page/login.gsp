@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login to HelthCare</title>
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="vendor/bootstrap.min.css"/>
     <asset:stylesheet src="vendor/styles.css"/>
 

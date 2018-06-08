@@ -24,50 +24,14 @@ class AppUtil {
     private static ConcurrentHashMap site_config = null
     private static final ThreadLocal<GrailsWebRequest> requestCache = new ThreadLocal<GrailsWebRequest>()
 
-    public static String getProductImageSize(Integer size) {
-        if(size <= 150) {
-            return "150";
-        } else if (size > 150 && size <= 300) {
-            return "300";
-        } else if (size > 300 && size <= 450) {
-            return "450";
-        } else if (size > 450 && size <= 600) {
-            return "600";
-        } else if (size > 600) {
-            return "900";
-        }
-    }
-
-    public static String getCategoryImageSize(Integer size) {
-        if(size <= 150) {
-            return "150";
-        } else if (size > 150 && size <= 300) {
-            return "300";
-        } else if (size > 300 && size <= 450) {
-            return "450";
-        } else if (size > 450 && size <= 600) {
-            return "600";
-        } else if (size > 600) {
-            return "900";
-        }
-    }
-
-    public static String geBrandManufacturerImageSize(Integer size) {
-        if(size <= 150) {
-            return "thumb";
-        } else if (size > 150 && size <= 200) {
-            return "200";
-        } else if (size > 200 && size <= 300) {
-            return "300";
-        } else if (size > 300) {
-            return "400";
-        }
-    }
-
     public static clearConfig() {
         site_config = null;
     }
-    
+
+    static String getBaseUrl() {
+        return "/";
+    }
+
     private static GrailsWebRequest getCurrentRequest() {
         GrailsWebRequest request = requestCache.get()
         if(!request) {

@@ -12,7 +12,7 @@ class LogInterceptor {
     boolean before() {
         def session = AppUtil.session
         if(session.user == null) {
-            redirect(controller: "dashboard", action: "login")
+            redirect(uri: "/dashboard/login")
             return false
         }
         true

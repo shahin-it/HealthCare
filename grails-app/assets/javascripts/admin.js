@@ -19,7 +19,13 @@ $(document).ready(function(){
 
 
   var dataTables = $(".jq-data-table");
-  if(dataTables.length) {
-      dataTables.dataTable();
-  }
+  dataTables.each(function () {
+      var table = this.jq;
+      table.dataTable({
+          "processing": true,
+          "serverSide": true,
+          "ajax": table.attr("data-processing-url"),
+          "deferLoading": 57
+      });
+  })
 });

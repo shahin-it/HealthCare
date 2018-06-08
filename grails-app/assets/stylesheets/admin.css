@@ -1,0 +1,7 @@
+.page-content .tab-action-container {
+    float: right;
+}
+.sui-create-edit-panel .close {
+    font-size: 25px;
+    color: red;
+}

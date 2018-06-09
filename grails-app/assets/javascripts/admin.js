@@ -25,7 +25,7 @@ $(document).ready(function(){
           "processing": true,
           "serverSide": true,
           "ajax": table.attr("data-processing-url"),
-          "deferLoading": 57
+          "deferLoading": 1
       });
   })
 });

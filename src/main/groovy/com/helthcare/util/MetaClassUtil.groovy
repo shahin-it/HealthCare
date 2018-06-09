@@ -21,10 +21,10 @@ static init() {
             return new Date(time)
         }
 
-        toAdminFormat = { showTime, showZone, timeZone ->
+        toAdminFormat = { timeZone = AppUtil.timeZone, showTime = true, showZone = false ->
             long time = delegate.getTime() + timeZone.getOffset(delegate);
-            String dateFormat = "dd-mm-yyyy"
-            String timeFormat = "hh:mm:ss"
+            String dateFormat = "dd-MM-yyyy"
+            String timeFormat = "hh:mm:ss a"
             return new Date(time).toFormattedString(dateFormat, showTime, timeFormat, showZone, timeZone);
         }
 

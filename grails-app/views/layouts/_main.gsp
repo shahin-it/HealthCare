@@ -25,13 +25,15 @@
         }
     </script>
 
-    <asset:javascript src="vendor/jquery-2.2.0.min.js"/>
+    <asset:javascript src="vendor/jquery-3.3.1.js"/>
     <asset:javascript src="vendor/jquery.form.js"/>
     <asset:javascript src="vendor/jquery-ui.js"/>
     <asset:javascript src="vendor/bootstrap.min.js"/>
+    <asset:javascript src="vendor/bootstrap-notify.min.js"/>
     <asset:javascript src="vendor/jquery.dataTables.min.js"/>
     <asset:javascript src="vendor/dataTables.bootstrap.js"/>
     <asset:javascript src="vendor/sweetalert.min.js"/>
+    <asset:javascript src="vendor/jquery.twbsPagination.min.js"/>
     <asset:javascript src="sui/utility.js"/>
     <asset:javascript src="sui/common-ui.js"/>
     <asset:javascript src="sui/table.js"/>

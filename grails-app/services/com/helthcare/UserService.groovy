@@ -11,11 +11,11 @@ class UserService {
 
     @NotTransactional
     void logout() {
-        AppUtil.session.removeAttribute("user")
+        AppUtil.session.removeAttribute("admin")
     }
 
     void registerAdminSession(User user) {
         def session = AppUtil.session
-        session.user = user.id
+        session.admin = user.id
     }
 }

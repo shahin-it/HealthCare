@@ -2,7 +2,7 @@
 <html>
 <parameter name="pathology" value="current"/>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="_main"/>
 </head>
 
 <body>

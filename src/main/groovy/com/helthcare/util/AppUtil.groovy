@@ -10,6 +10,7 @@ import org.springframework.web.context.request.RequestContextHolder
 import org.w3c.dom.Node
 
 import javax.servlet.ServletContext
+import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import javax.xml.transform.Transformer
@@ -177,7 +178,7 @@ class AppUtil {
     }
 
     public static Long getLoggedUser() {
-        return isApiRequest() ? request.getAttribute("admin") : session.admin
+        return session.admin
     }
 
     public static Integer getIntervalInMinute(Map config) {
@@ -188,5 +189,9 @@ class AppUtil {
         } else {
             return config.interval.toInteger()
         }
+    }
+
+    public static getTimeZone() {
+        return new SimpleTimeZone(6*60*60000, "admin")
     }
 }

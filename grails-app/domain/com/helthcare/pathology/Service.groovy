@@ -18,5 +18,7 @@ class Service extends DomainBase {
     static constraints = {
         instruction(nullable: true)
         description(nullable: true, maxSize: 1000)
+        costPrice(nullable: true)
+        discount(nullable: true)
     }
 }

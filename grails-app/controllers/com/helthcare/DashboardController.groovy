@@ -1,5 +1,7 @@
 package com.helthcare
 
+import com.helthcare.util.AppUtil
+
 class DashboardController {
 
     UserService userService
@@ -9,7 +11,7 @@ class DashboardController {
     }
 
     def login() {
-        if(session.user == null) {
+        if(AppUtil.loggedUser == null) {
             render(view: "/page/login")
             return
         }

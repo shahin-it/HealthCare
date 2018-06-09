@@ -1,6 +1,7 @@
 package com.helthcare.model
 
 import com.helthcare.User
+import com.helthcare.util.AppUtil
 
 abstract class DomainBase {
     User createdBy
@@ -14,7 +15,7 @@ abstract class DomainBase {
             this.updated = new Date().toGMT()
         }
         if(!this.createdBy) {
-
+            this.createdBy = User.findById(AppUtil.loggedUser)
         }
     }
 }

@@ -14,7 +14,7 @@ class SettingController {
         [profile: "current"]
     }
 
-    def editService() {
+    def editServices() {
 
     }
 

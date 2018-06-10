@@ -1,6 +1,7 @@
 package com.helthcare
 
 import grails.util.Holders
+import org.springframework.core.io.ClassPathResource
 
 import javax.annotation.PostConstruct
 
@@ -25,6 +26,10 @@ class ApplicationTagLib {
                 url: app.baseUrl()
         ]
         out << systemResourceUrl.url
+    }
+
+    def featureScript = { attrs, body ->
+
     }
 
     def javascript = { attrs, body ->

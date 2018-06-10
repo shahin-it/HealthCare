@@ -1,10 +1,9 @@
 <%@ page import="com.helthcare.util.AppUtil" %>
-<head>
+<g:if test="${!params.ajax}">
     <meta name="layout" content="_main"/>
-    <title>Manage Service</title>
-    <asset:javascript src="feature/manage-service.js"/>
-</head>
-<div class="page-content service">
+    <asset:javascript src="feature/feature.service.js"/>
+</g:if>
+<div class="page-content services">
     <div class="content-box-large sui-tabular-content" id="service-setting-tab">
         <div class="panel-heading">
             <div class="panel-title">Manage Pathologies</div>

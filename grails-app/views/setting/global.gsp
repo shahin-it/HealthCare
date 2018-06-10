@@ -1,5 +1,7 @@
-<meta name="layout" content="_main"/>
-<div class="page-content pathology">
+<g:if test="${!params.ajax}">
+    <meta name="layout" content="_main"/>
+</g:if>
+<div class="page-content global-settings">
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Horizontal Form</div>

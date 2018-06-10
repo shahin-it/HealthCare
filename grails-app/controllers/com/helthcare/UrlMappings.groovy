@@ -20,6 +20,7 @@ class UrlMappings {
         }
 
         "/"(controller: "dashboard", action: "controlPanel")
+        "/$controller/index"()
         "/$controller/$action"()
         "500"(view:'/error')
         "404"(view:'/notFound')

@@ -56,7 +56,7 @@ var sui = {
             if(before == false) {
                 return;
             }
-            var reqData = $.extend({reload: true}, data, reloadData);
+            var reqData = $.extend({ajax: true}, data, reloadData);
             container.loader();
             sui.ajax({
                 url: config.url,
@@ -70,7 +70,7 @@ var sui = {
                     if(resp.length) {
                         $.extend(container.data, reloadData);
                         var tableBody = container.find(".tabular-body");
-                        tableBody.html(resp.html());
+                        tableBody.html(resp.find(".tabular-body").html());
                         tableBody.updateUi();
                         container.find(".search-form").prev("input").val(reqData.searchText);
                         _self.pagination(container);
@@ -174,9 +174,16 @@ var sui = {
         $.notify({
             title: type.toUpperCase() + ": ",
             message: message,
-            icon: 'fa fa-check'
+            icon: 'glyphicon glyphicon-ok-circle'
         },{
-            type: type
+            type: type,
+            placement: {
+                from: "top",
+                align: "center"
+            },
+            animate: {
+                enter: 'animated fadeInDown'
+            }
         });
     },
     renderCreateEdit: function (url, data, config) {
@@ -362,7 +369,7 @@ var sui = {
             cancelButtonText: "No",
             closeOnConfirm: true,
             closeOnCancel: true
-        }, function(isConfirm) {
+        }).then((isConfirm) => {
             if (isConfirm) {
                 yes && yes();
                 // swal("Deleted!", "Your imaginary file has been deleted.", "success");

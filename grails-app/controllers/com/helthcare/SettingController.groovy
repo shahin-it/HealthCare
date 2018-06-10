@@ -1,10 +1,12 @@
 package com.helthcare
 
 import com.helthcare.pathology.Service
+import com.helthcare.util.AppUtil
 import grails.converters.JSON
 
 class SettingController {
     DomainService domainService
+    SettingService settingService
 
     def global() {
         [global: "current"]
@@ -16,15 +18,12 @@ class SettingController {
 
     def services() {
         Map data = domainService.dataTableElement(Service, params)
-        if(params.dataTable) {
-            render([:] as JSON)
-        } else {
-            [service: "current", items: data.items, count: data.count]
-        }
+        [service: "current", items: data.items, count: data.count]
     }
 
     def profile() {
-        [profile: "current"]
+        User user = params.custom ? User.get(params.custom) : User.get(AppUtil.loggedUser)
+        [profile: "current", user: user]
     }
 
     def saveProfile() {
@@ -37,12 +36,12 @@ class SettingController {
     }
 
     def saveService(Service service) {
-        service.save(flash: true)
+        domainService.save(service, params)
         render([message: "Successfully saved", status: "success"] as JSON)
     }
 
     def deleteService(Service service) {
-        service.delete()
+        domainService.delete(service)
         render([message: "Successfully deleted", status: "success"] as JSON)
     }
 }

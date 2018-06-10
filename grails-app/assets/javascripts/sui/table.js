@@ -3,9 +3,9 @@
  */
 $(function() {
     var content = $(".sui-tabular-content")
-    $.each(app.tab, function(k, v) {
+    $.each(app.tab, function(k, _processor) {
         var tab = {createEditUrl: "", removeUrl: ""};
-        var base = v.apply(tab);
+        var base = _processor.apply(tab);
         tab = $.extend(base.processor, tab);
         tab.body = content.filter("#"+tab.id);
         if(!tab.body.length) {
@@ -41,7 +41,6 @@ $(function() {
         tab.reload = table.reload;
         tab.beforeLoad = table.beforeLoad;
         tab.afterLoad = table.afterLoad;
-
 
         tab.init();
     })

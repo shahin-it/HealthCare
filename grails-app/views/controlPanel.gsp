@@ -1,11 +1,6 @@
-<!doctype html>
-<html>
-<head>
+<g:if test="${!params.ajax}">
     <meta name="layout" content="_main"/>
-</head>
-
-<body>
-<parameter name="dashboard" value="current"/>
+</g:if>
 <div class="col-md-10">
     <div class="row">
         <div class="col-md-6">
@@ -87,5 +82,3 @@
         </div>
     </div>
 </div>
-</body>
-</html>

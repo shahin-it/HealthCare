@@ -1,6 +1,6 @@
 var _ps = {};
-app.tab._serviceSetting = function() {
-    this.loading_url = app.base + "setting/service";
+app.tab.serviceSetting = function() {
+    this.loading_url = app.base + "setting/services";
     this.id = "service-setting-tab";
     this.createEditUrl = app.base + "setting/editServices";
     this.removeUrl = app.base + "setting/deleteService";

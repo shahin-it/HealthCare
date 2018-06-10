@@ -32,7 +32,7 @@
     <asset:javascript src="vendor/bootstrap-notify.min.js"/>
     <asset:javascript src="vendor/jquery.dataTables.min.js"/>
     <asset:javascript src="vendor/dataTables.bootstrap.js"/>
-    <asset:javascript src="vendor/sweetalert.min.js"/>
+    <asset:javascript src="vendor/sweetalert2.js"/>
     <asset:javascript src="vendor/jquery.twbsPagination.min.js"/>
     <asset:javascript src="sui/utility.js"/>
     <asset:javascript src="sui/common-ui.js"/>
@@ -123,7 +123,7 @@
 
             </div>
         </div>
-        <div class="col-md-10">
+        <div class="loayout-body col-md-10">
             <g:layoutBody/>
         </div>
     </div>

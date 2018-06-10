@@ -39,7 +39,7 @@
         </div>
         <label class="col-md-2 control-label">Discount Type</label>
         <div class="col-md-4">
-            <g:select name="discountType" class="form-control" from="${['%', 'TK']}" value="${service.discountType}"></g:select>
+            <g:select name="discountType" class="form-control" from="['%', 'TK']" value="${service.discountType}"/>
         </div>
     </div>
     <div class="form-group">

@@ -26,8 +26,9 @@ class SettingController {
         [profile: "current", user: user]
     }
 
-    def saveProfile() {
-
+    def saveProfile(User user) {
+        domainService.save(user, params)
+        render([message: "Successfully saved", status: "success"] as JSON)
     }
 
     def editServices(Service service) {

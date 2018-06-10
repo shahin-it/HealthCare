@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Gender</label>
                     <div class="col-sm-10">
-                        <g:radioGroup name="sex" labels="${['Male', 'Female']}" values="${[M: 'Male', F: 'Female']}" value="${user.sex}"/>
+                        <g:radioGroup name="sex" labels="['Male', 'Female']" values="['M', 'F']" value="${user.sex}"><span>${it.radio} ${it.label}</span></g:radioGroup>
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,7 +42,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label">Role</label>
                     <div class="col-md-4">
-                        <g:select name="discountType" class="form-control" from="${['ADMIN', 'MANAGER', 'USER']}" value="${user.role}"></g:select>
+                        <g:select name="discountType" class="form-control" from="['ADMIN', 'MANAGER', 'USER']" value="${user.role}"></g:select>
                     </div>
                 </div>
                 <div class="form-group">
@@ -54,7 +54,6 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button class="btn btn-danger cancel">Cancel</button>
                     </div>
                 </div>
             </g:form>

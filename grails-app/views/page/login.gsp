@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login to HelthCare</title>
+    <title>Login to HealthCare</title>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="vendor/bootstrap.min.css"/>
     <asset:stylesheet src="vendor/styles.css"/>
@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><a href="#">Helth Care</a></h1>
+                    <h1><a href="#">Health Care</a></h1>
                 </div>
             </div>
         </div>

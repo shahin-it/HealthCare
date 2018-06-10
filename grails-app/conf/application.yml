@@ -2,7 +2,7 @@
 grails:
     profile: web
     codegen:
-        defaultPackage: com.helthcare
+        defaultPackage: com.healthcare
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
@@ -101,14 +101,14 @@ environments:
     development:
         dataSource:
             dbCreate: update
-            url: jdbc:mysql://localhost/helthcare?characterEncoding=utf8&autoReconnect=true
+            url: jdbc:mysql://localhost/healthcare?characterEncoding=utf8&autoReconnect=true
             logSql: true
     production:
         dataSource:
             username: root
             password: ''
             dbCreate: none
-            url: jdbc:mysql://localhost/helthcare?characterEncoding=utf8&autoReconnect=true
+            url: jdbc:mysql://localhost/healthcare?characterEncoding=utf8&autoReconnect=true
             properties:
                 jmxEnabled: true
                 initialSize: 5

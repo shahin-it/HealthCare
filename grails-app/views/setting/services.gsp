@@ -1,4 +1,4 @@
-<%@ page import="com.helthcare.util.AppUtil" %>
+<%@ page import="com.healthcare.util.AppUtil" %>
 <g:if test="${!params.ajax}">
     <meta name="layout" content="_main"/>
     <asset:javascript src="feature/feature.service.js"/>

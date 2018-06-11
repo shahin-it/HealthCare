@@ -133,10 +133,11 @@
     <div class="container">
 
         <div class="copy text-center">
-            Copyright &copy; 2018 <a href='https://www.fb.com/shahin31' target="_blank">Shahin</a>
+            Copyright &copy; ${AppUtil.getCurrentDate()} <a href='https://www.fb.com/shahin31' target="_blank">Shahin</a>
         </div>
 
     </div>
 </footer>
+<asset:javascript src="application.js"/>
 </body>
 </html>

@@ -9,7 +9,7 @@ class User extends DomainBase {
     String phone
     String sex = "M" // M, F
 
-    String userName
+    String userId
     String password
 
     String role = "USER" //ADMIN, MANAGER, USER
@@ -17,7 +17,9 @@ class User extends DomainBase {
     Address address
 
     static constraints = {
-        email(nullable: true)
+        userId(unique: true)
+        email(nullable: true, unique: true)
+        phone(unique: true)
         createdBy(nullable: true)
         sex(maxSize: 10)
         address(nullable: true)
@@ -25,7 +27,7 @@ class User extends DomainBase {
 
     static void initialize() {
         if(User.count == 0) {
-            new User(name: "HealthCare Admin", email: "admin@healthcare.com", phone: "01920489953", userName: "admin", password: "admin", role: "admin").save()
+            new User(name: "HealthCare Admin", email: "admin@healthcare.com", phone: "01920489953", userId: "admin", password: "admin", role: "admin").save()
         }
     }
 }

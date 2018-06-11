@@ -5,6 +5,9 @@
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Customize Account Information</div>
+            <div class="tab-action-container">
+                <g:select class="form-control user-selection" name="user" from="${users.collect {it.userId + ' [' +it.name+ ']'}}" keys="${users.collect {it.id}}" value="${user.id}"/>
+            </div>
         </div>
         <div class="panel-body">
             <g:form class="form-horizontal create-edit-form" role="form" controller="setting" action="saveProfile" method="post">
@@ -36,7 +39,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">User Name</label>
                     <div class="col-sm-10">
-                        <span class="form-control">${user.userName}</span>
+                        <span class="form-control">${user.userId}</span>
                     </div>
                 </div>
                 <div class="form-group">

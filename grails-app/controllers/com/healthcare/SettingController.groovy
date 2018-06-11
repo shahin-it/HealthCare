@@ -22,8 +22,13 @@ class SettingController {
     }
 
     def profile() {
-        User user = params.custom ? User.get(params.custom) : User.get(AppUtil.loggedUser)
-        [profile: "current", user: user]
+        List<User> users = User.list()
+        User currentUser = User.get(AppUtil.loggedUser)
+        User user = params.selected ? User.get(params.selected) : User.get(AppUtil.loggedUser)
+        if(currentUser.role != "ADMIN") {
+            user = currentUser
+        }
+        [profile: "current", user: user, users: users]
     }
 
     def saveProfile(User user) {

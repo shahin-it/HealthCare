@@ -193,4 +193,9 @@ class AppUtil {
     public static getTimeZone() {
         return new SimpleTimeZone(6*60*60000, "admin")
     }
+
+    static String getCurrentDate(int type = Calendar.YEAR) {
+        Calendar calendar = Calendar.instance
+        return String.valueOf(calendar.get(type))
+    }
 }

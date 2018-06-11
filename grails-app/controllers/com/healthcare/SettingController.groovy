@@ -9,12 +9,13 @@ class SettingController {
     SettingService settingService
 
     def global() {
-        [global: "current"]
+        Map config = settingService.getConfig("global")
+        [global: "current", config: config]
     }
 
     def saveGlobalConfig() {
-
-        render([message: "on dev", status: "error"] as JSON)
+        settingService.saveConfig(params)
+        render([message: "Successfully saved", status: "success"] as JSON)
     }
 
     def services() {

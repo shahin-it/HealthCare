@@ -4,59 +4,49 @@
 <div class="page-content global-settings">
     <div class="content-box-large">
         <div class="panel-heading">
-            <div class="panel-title">Horizontal Form</div>
-
+            <div class="panel-title">Application Preference</div>
             <div class="panel-options">
-                <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
-                <a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>
+                <g:link controller="setting" action="global" data-rel="collapse" title="Reload"><i class="glyphicon glyphicon-refresh"></i></g:link>
             </div>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form">
+            <g:form class="create-edit-form form-horizontal" controller="setting" action="saveGlobalConfig" role="form" method="post">
                 <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-2 control-label">Text Field</label>
+                    <label class="col-sm-2 control-label">Clinic Name</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        <input type="text" name="name" class="form-control" placeholder="Clinic Name" required maxlength="250" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-2 control-label">Password Field</label>
+                    <label class="col-sm-2 control-label">Banner</label>
                     <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        <input type="file" accept="image/*" class="form-control" placeholder="Invoice Banner" max="${2*1024*1024}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Textarea</label>
+                    <label class="col-sm-2 control-label">Address Line1</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" placeholder="Textarea" rows="3"></textarea>
+                        <input type="text" name="address1" class="form-control" placeholder="Address line1" required maxlength="250" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Readonly</label>
+                    <label class="col-sm-2 control-label">Address Line2</label>
                     <div class="col-sm-10">
-                        <span class="form-control">Read only text</span>
+                        <input type="text" name="address2" class="form-control" placeholder="Address line2" maxlength="250" value="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">About us</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" placeholder="About us" rows="3" maxlength="500"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Checkbox
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Checkbox
-                            </label>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                    </div>
-                </div>
-            </form>
+            </g:form>
         </div>
     </div>
 </div>

@@ -25,17 +25,17 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Base Price</label>
         <div class="col-sm-4">
-            <input type="number" name="basePrice" class="form-control" placeholder="Base Price" min="0" maxlength="9" required value="${service.basePrice}">
+            <input type="number" name="basePrice" class="form-control" placeholder="Base Price" min="0" max="999999999" required value="${service.basePrice}">
         </div>
         <label class="col-sm-2 control-label">Cost Price</label>
         <div class="col-sm-4">
-            <input type="number" name="costPrice" class="form-control" placeholder="Cost Price" min="0" maxlength="9" value="${service.costPrice}">
+            <input type="number" name="costPrice" class="form-control" placeholder="Cost Price" min="0" max="999999999" value="${service.costPrice}">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Discount</label>
         <div class="col-sm-4">
-            <input type="number" name="discount" class="form-control" placeholder="Discount" min="0" maxlength="9" value="${service.discount}">
+            <input type="number" name="discount" class="form-control" placeholder="Discount" min="0" max="999999999" value="${service.discount}">
         </div>
         <label class="col-md-2 control-label">Discount Type</label>
         <div class="col-md-4">

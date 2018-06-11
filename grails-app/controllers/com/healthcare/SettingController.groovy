@@ -14,6 +14,7 @@ class SettingController {
 
     def saveGlobalConfig() {
 
+        render([message: "on dev", status: "error"] as JSON)
     }
 
     def services() {

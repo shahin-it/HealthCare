@@ -370,7 +370,7 @@ var sui = {
             closeOnConfirm: true,
             closeOnCancel: true
         }).then((isConfirm) => {
-            if (isConfirm) {
+            if (isConfirm.value) {
                 yes && yes();
                 // swal("Deleted!", "Your imaginary file has been deleted.", "success");
             } else {

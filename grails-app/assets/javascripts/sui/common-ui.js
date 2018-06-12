@@ -75,6 +75,9 @@ $.extend($.prototype, {
         this.find(".sui-accordion-panel").each(function() {
             sui.accordion(this.jq);
         })
+        this.find(".sui-image-chooser").each(function () {
+            sui.imageInput(this.jq);
+        })
     },
     updateSiteUi: function() {
         var _self = this;

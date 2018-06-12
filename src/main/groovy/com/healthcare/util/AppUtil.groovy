@@ -20,6 +20,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 class AppUtil {
     static ServletContext servletContext
+    static webRootDir = "/"
     static Long api_monthly_hit_count = 0
     private static ConcurrentHashMap site_config = null
     private static final ThreadLocal<GrailsWebRequest> requestCache = new ThreadLocal<GrailsWebRequest>()

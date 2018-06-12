@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $(".submenu > a").click(function (e) {
+    var page = $("body")
+    page.find(".submenu > a").click(function (e) {
         e.preventDefault();
         var $li = $(this).parent("li");
         var $ul = $(this).next("ul");
@@ -16,7 +17,7 @@ $(document).ready(function () {
     });
 
 
-    var dataTables = $(".jq-data-table");
+    var dataTables = page.find(".jq-data-table");
     dataTables.each(function () {
         var table = this.jq;
         table.dataTable({
@@ -26,4 +27,6 @@ $(document).ready(function () {
             "deferLoading": 1
         });
     })
+
+    page.updateUi();
 });

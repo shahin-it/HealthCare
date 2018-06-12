@@ -22,9 +22,9 @@ class DashboardController {
         User user = User.findByUserIdAndPassword(params.userName, params.password)
         if(user) {
             userService.registerAdminSession(user)
-            redirect(action: "controlPanel")
+            redirect(action: "controlPanel", method: 'POST')
         } else {
-            redirect(action: "login")
+            redirect(action: "login", method: 'POST')
         }
     }
 

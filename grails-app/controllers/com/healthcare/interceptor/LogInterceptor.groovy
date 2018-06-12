@@ -14,6 +14,7 @@ class LogInterceptor {
             redirect(uri: "/dashboard/login")
             return false
         }
+        AppUtil.servletContext = servletContext
         true
     }
 

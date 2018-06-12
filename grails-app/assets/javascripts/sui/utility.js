@@ -415,6 +415,22 @@ var sui = {
             panel.expand(this.jq);
         })
         return panel;
-    }
+    },
+    imageInput: function (inputControl) {
+        var fileInput = inputControl.find("input[type=file]")
+        var imgPrev = inputControl.find(".sui-image-preview")
 
+        fileInput.on("change", function (evt) {
+            var files = evt.target.files
+            if(!files.length) {
+                return
+            }
+            var reader = new FileReader()
+            reader.onload = function(frEvent) {
+                imgPrev.attr("src", frEvent.target.result)
+            }
+            reader.readAsDataURL(files[0])
+        })
+        var imgData = fileInput
+    }
 }

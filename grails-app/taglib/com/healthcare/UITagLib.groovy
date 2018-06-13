@@ -9,7 +9,7 @@ class UITagLib {
                     <div class="col-sm-4">
                         <input class="form-control ${attrs.clazz}" type="file" name="${attrs.name}" accept="image/*" placeholder="Invoice Banner" max="${attrs.max ?: (5*1024*1024)}" value="${attrs.value}">
                     </div>
-                    <div class="col-sm-6">${asset.image(src: "system/banner.jpg", class: "sui-image-preview", height: "35")}</div>
+                    <div class="col-sm-6"><img src="${attrs.value ? (app.baseUrl() + attrs.value) : ''}" class="sui-image-preview" height="35"></div>
                 </div>"""
     }
 }

@@ -18,7 +18,7 @@
                         <input type="text" name="global.name" class="form-control" placeholder="Clinic Name" required maxlength="250" value="${config.name}">
                     </div>
                 </div>
-                <ui:imageUpload name="global.banner" label="Banner" max="${2*1024*1024}"></ui:imageUpload>
+                <ui:imageUpload name="global.banner" label="Banner" max="${2*1024*1024}" value="${config.banner}"></ui:imageUpload>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Address Line1</label>
                     <div class="col-sm-10">

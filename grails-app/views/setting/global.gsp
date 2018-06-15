@@ -1,6 +1,5 @@
-<g:if test="${!params.ajax}">
-    <meta name="layout" content="_main"/>
-</g:if>
+<meta name="layout" content="_main">
+<title>- Global Settings</title>
 <div class="page-content global-settings">
     <div class="content-box-large">
         <div class="panel-heading">

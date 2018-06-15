@@ -1,5 +1,6 @@
 package com.healthcare
 
+import com.healthcare.pathology.Order
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -17,30 +18,49 @@ class DomainService {
         }
     }
 
-    Map dataTableElement(def domain, Map params) {
+    Map dataTableElement(def domainClass, Map _params) {
+        Map params = _params.clone()
+        params.remove("controller")
+        params.remove("action")
         Map data = [:]
         int max = params.max ? params.max.toInteger() : 100
-        int offset = params.offset ? params.offset.toInteger() : 0;
+        int offset = params.offset ? params.offset.toInteger() : 0
+        String sort = params.sort ?: null
         String dir = params.dir ?: "asc"
-        String sort = params.sort ?: "name"
         Map listMap = [max: max, offset: offset]
 
-        data.count = domain.createCriteria().count {
+        data.count = domainClass.createCriteria().count {
             and getCriteriaClosure(params)
         }
-        data.items = domain.createCriteria().list(listMap) {
+        data.items = domainClass.createCriteria().list(listMap) {
             and getCriteriaClosure(params)
-            order(sort, dir)
+            if(sort) {
+                order(sort, dir)
+            }
         }
 
         return data
     }
 
-    def save(def domainObj, Map params = [:]) {
+    def save(def domainObj, Map _params = [:]) {
+        Map params = _params.clone()
+        params.remove("controller")
+        params.remove("action")
         return domainObj.save()
     }
 
     def delete(def domain, Map params = [:]) {
         return domain.delete()
+    }
+
+    Map getKeyValue(def domainclass, String valProp, Closure closure = {}) {
+        List items = domainclass.createCriteria().list {
+            projections {
+                property("id")
+                property(valProp)
+            }
+            and closure
+        }
+        return items.collectEntries {[(it[0]): it[1]]}
     }
 }

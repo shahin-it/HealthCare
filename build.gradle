@@ -13,7 +13,7 @@ buildscript {
 version "1.0"
 group "com.healthcare"
 
-apply plugin: 'java'
+apply plugin:"eclipse"
 apply plugin:"idea"
 apply plugin:"war"
 apply plugin:"org.grails.grails-web"
@@ -25,12 +25,16 @@ repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
 
-idea {
+/*idea {
     module {
         inheritOutputDirs = false
         outputDir = file("$buildDir/classes/main/")
     }
 }
+
+grails {
+    exploded = true
+}*/
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-logging"
@@ -58,6 +62,7 @@ dependencies {
     profile "org.grails.profiles:web"
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "mysql:mysql-connector-java"
+    runtime "org.apache.tomcat:tomcat-jdbc"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.8"
     testCompile "org.grails:grails-gorm-testing-support"
     testCompile "org.grails:grails-web-testing-support"

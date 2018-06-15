@@ -17,6 +17,8 @@ class Consultant extends DomainBase {
 
     Double visitingFee = 0.0
 
+    Boolean isInTrash = false
+
     static constraints = {
         designation(nullable: true)
         worksAt(nullable: true)

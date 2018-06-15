@@ -20,7 +20,7 @@ class Preference {
     }
 
     static _global = [
-            name: "Helth Care Admin",
+            name: "Health Care Admin",
             banner: null,
             address1: "",
             address2: null,

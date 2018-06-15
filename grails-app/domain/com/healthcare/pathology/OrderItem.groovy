@@ -6,8 +6,9 @@ class OrderItem {
     String instruction
     String note
 
-    Integer count = 1
+    Integer quantity = 1
     Double basePrice = 0.0
+    Double discount = 0.0
 
     Order order
 
@@ -16,9 +17,11 @@ class OrderItem {
         note(nullable: true, maxSize: 1000)
     }
 
+    static belongsTo = [order: Order]
+
     static transients = ["getGrandTotal"]
 
     Double getGrandTotal() {
-        return basePrice * count
+        return basePrice * quantity
     }
 }

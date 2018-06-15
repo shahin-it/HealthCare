@@ -23,7 +23,7 @@ class ApplicationTagLib {
         if(request.always_absolute_url) {
             out << baseUrl(attrs)
         } else {
-            out << getContextPath() + "/"
+            out << getContextPath() + "/static/"
         }
     }
 

@@ -61,7 +61,7 @@ class SettingController {
     }
 
     def deleteService(Service service) {
-        domainService.delete(service)
+        //domainService.delete(service)
         render([message: "Successfully deleted", status: "success"] as JSON)
     }
 }

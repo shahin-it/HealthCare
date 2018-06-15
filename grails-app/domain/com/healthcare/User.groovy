@@ -16,6 +16,8 @@ class User extends DomainBase {
 
     Address address
 
+    Boolean isInTrash = false
+
     static constraints = {
         userId(unique: true)
         email(nullable: true, unique: true)

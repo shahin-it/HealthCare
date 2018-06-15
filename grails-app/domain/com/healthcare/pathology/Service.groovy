@@ -15,6 +15,9 @@ class Service extends DomainBase {
 
     String discountType = "%" //eg. %, tk
 
+    Boolean isInTrash = false
+    Boolean isActive = true
+
     static constraints = {
         instruction(nullable: true)
         description(nullable: true, maxSize: 1000)

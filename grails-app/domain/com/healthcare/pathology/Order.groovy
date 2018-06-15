@@ -16,7 +16,11 @@ class Order extends DomainBase {
     Double discount = 0.0
     Double paid = 0.0
 
+    String note
+    Boolean active = true
+
     static constraints = {
+        note(nullable: true, maxSize: 500)
     }
 
     static transients = ["getTotal", "getGrandTotal", "getDue"]

@@ -1,13 +1,14 @@
 <%@ page import="com.healthcare.util.AppUtil" %>
 <g:if test="${!params.ajax}">
     <meta name="layout" content="_main"/>
+    <title>- Manage Pathologies</title>
     <asset:javascript src="feature/feature.service.js"/>
 </g:if>
 <div class="page-content services">
     <div class="content-box-large sui-tabular-content" id="service-setting-tab">
         <div class="panel-heading">
             <div class="panel-title">Manage Pathologies</div>
-            <div class="tab-action-container">
+            <div class="panel-options tab-action-container">
                 <div class="search-form">
                     <input class="form-control" placeholder="Search anything"/><button class="btn btn-primary glyphicon glyphicon-search"></button>
                 </div>

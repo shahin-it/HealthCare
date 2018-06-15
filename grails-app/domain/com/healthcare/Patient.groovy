@@ -14,6 +14,8 @@ class Patient extends DomainBase {
     String sex = "m" // m, f
     Address address
 
+    Boolean isInTrash = false
+
     static constraints = {
         spouseName(nullable: true)
         email(nullable: true)

@@ -7,7 +7,8 @@ class DashboardController {
     UserService userService
 
     def controlPanel() {
-        render(view: "/controlPanel", model: [dashboard: "current"])
+        Map config = AppUtil.getConfig("global")
+        render(view: "/controlPanel", model: [dashboard: "current", config: config])
     }
 
     def login() {

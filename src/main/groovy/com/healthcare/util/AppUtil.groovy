@@ -1,5 +1,7 @@
 package com.healthcare.util
 
+import com.healthcare.Preference
+import com.healthcare.User
 import grails.gsp.PageRenderer
 import grails.util.Holders
 import grails.web.mvc.FlashScope
@@ -42,6 +44,14 @@ class AppUtil {
             }
         }
         return request
+    }
+
+    static getConfig(String type, String key = null) {
+        if(key) {
+            return Preference.findByTypeAndConfigKey(type, key).value
+        } else {
+            return Preference.findAllByType(type).collectEntries{[(it.configKey): it.value]}
+        }
     }
 
     public static GrailsParameterMap getParams() {
@@ -177,8 +187,12 @@ class AppUtil {
         return properties
     }
 
-    public static Long getLoggedUser() {
+    static Long getLoggedUser() {
         return session.admin
+    }
+
+    static User getCurrentUser() {
+        return User.get(loggedUser)
     }
 
     public static Integer getIntervalInMinute(Map config) {

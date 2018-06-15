@@ -4,20 +4,17 @@ import com.healthcare.pathology.Service
 import com.healthcare.util.AppUtil
 import grails.converters.JSON
 
-import javax.servlet.http.Part
-
 class SettingController {
     DomainService domainService
     SettingService settingService
     CommonService commonService
 
     def global() {
-        Map config = settingService.getConfig("global")
+        Map config = AppUtil.getConfig("global")
         [global: "current", config: config]
     }
 
     def saveGlobalConfig() {
-        def banner = request.getPart("global.banner")
         params.global['banner'] = Constant.BANNER_IMAGE_PATH
         try {
             settingService.saveConfig(params)
@@ -26,7 +23,10 @@ class SettingController {
             e.printStackTrace()
             return
         }
-        commonService.uploadImage(banner, Constant.BANNER_IMAGE_PATH)
+        if(!params.global['banner']) {
+            def banner = request.getPart("global.banner")
+            commonService.uploadImage(banner, Constant.BANNER_IMAGE_PATH)
+        }
         render([message: "Successfully saved", status: "success"] as JSON)
     }
 

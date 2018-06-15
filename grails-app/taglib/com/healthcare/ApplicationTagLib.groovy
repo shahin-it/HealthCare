@@ -1,5 +1,6 @@
 package com.healthcare
 
+import com.healthcare.util.AppUtil
 import grails.util.Holders
 
 import javax.annotation.PostConstruct
@@ -18,14 +19,28 @@ class ApplicationTagLib {
         out << "/"
     }
 
+    def relativeBaseUrl = { attrs, body ->
+        if(request.always_absolute_url) {
+            out << baseUrl(attrs)
+        } else {
+            out << getContextPath() + "/"
+        }
+    }
+
     def systemResourceBaseUrl = { attrs, body ->
-        String scheme = request.scheme;
+        String scheme = request.scheme
         Map systemResourceUrl = [
                 scheme: scheme,
-                url: app.baseUrl()
+                url: app.relativeBaseUrl()
         ]
         out << systemResourceUrl.url
     }
+
+    def getContextPath = {attrs, body ->
+        String contextPath = AppUtil.servletContext.contextPath
+        out << (contextPath == "/" ? "" : contextPath)
+    }
+
 
     def featureScript = { attrs, body ->
 

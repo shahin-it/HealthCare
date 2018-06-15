@@ -5,12 +5,12 @@ import com.healthcare.model.DomainBase
 
 class Order extends DomainBase {
 
-    String status = "unpaid"// paid, unpaid, delivered, canceled
+    String status = "UNPAID"// PAID, UNPAID, DELIVERED, CANCELED
 
     Patient patient
 
     Date delivery
-    Date upated
+    Date updated
 
     Collection<OrderItem> items
     Double discount = 0.0

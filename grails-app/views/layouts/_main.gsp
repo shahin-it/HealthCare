@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
-        HEALTHCARE::<g:layoutTitle/>
+        HEALTHCARE<g:layoutTitle/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
@@ -46,13 +46,14 @@
 </head>
 
 <body>
+<g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
 <div class="header">
     <div class="container">
         <div class="row">
             <div class="col-md-5">
                 <!-- Logo -->
                 <div class="logo">
-                    <h1><g:link controller="dashboard" action="controlPanel">Bootstrap Admin Theme</g:link></h1>
+                    <h1><g:link controller="dashboard" action="controlPanel">${name}</g:link></h1>
                 </div>
             </div>
 
@@ -77,7 +78,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b
                                         class="caret"></b></a>
                                 <ul class="dropdown-menu animated fadeInUp">
-                                    <li><g:link controller="setting" action="profile">Profile</g:link></li>
+                                    <li><g:link controller="setting" action="profile">Profile [${AppUtil.currentUser.userId}]</g:link></li>
                                     <li><g:link controller="setting" action="global">Settings</g:link></li>
                                     <li><g:link controller="dashboard" action="doLogout">Logout</g:link></li>
                                 </ul>
@@ -133,7 +134,7 @@
     <div class="container">
 
         <div class="copy text-center">
-            Copyright &copy; ${AppUtil.getCurrentDate()} <a href='https://www.fb.com/shahin31' target="_blank">Shahin</a>
+            Copyright &copy; ${AppUtil.getCurrentDate()} || <a href='https://www.fb.com/shahin31' target="_blank">${name}</a>
         </div>
 
     </div>

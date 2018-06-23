@@ -104,23 +104,11 @@
                     <ul class="nav">
                         <!-- Main menu -->
                         <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="glyphicon glyphicon-home"></i> Dashboard</g:link></li>
-                        <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-calendar"></i> Pathology</g:link></li>
-                        <li class=""><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Charts</a></li>
-                        <li class=""><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
+                        <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-plane"></i> Pathology</g:link></li>
+                        <li class="${patient}"><g:link controller="page" action="patient"><i class="glyphicon glyphicon-gift"></i> Patients</g:link></li>
+                        <li class="${consultant}"><g:link controller="page" action="consultant"><i class="glyphicon glyphicon-plus"></i> Consultants</g:link></li>
                         <li class=""><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
                         <li class=""><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
-                        <li class=""><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
-                        <li class="submenu">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-list"></i> Pages
-                                <span class="caret pull-right"></span>
-                            </a>
-                            <!-- Sub menu -->
-                            <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="signup.html">Signup</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </g:else>
 

@@ -96,7 +96,7 @@
         <div class="col-md-2">
             <div class="sidebar content-box" style="display: block;">
                 <g:if test="${controllerName == 'setting'}">
-                    <g:include view="layouts/settingsNav.gsp"/>
+                    <g:include view="layouts/_settingsNav.gsp"/>
                 </g:if>
                 <g:else>
                     <ul class="nav">

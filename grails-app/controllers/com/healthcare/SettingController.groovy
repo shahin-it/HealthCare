@@ -64,4 +64,19 @@ class SettingController {
         //domainService.delete(service)
         render([message: "Successfully deleted", status: "success"] as JSON)
     }
+
+    def userManager() {
+        Map data = domainService.dataTableElement(User, params)
+        [users: "current", items: data.items, count: data.count]
+    }
+
+    def editUser(User user) {
+        user = user ?: new User()
+        render(view: "/setting/profile", model: [user: user])
+    }
+
+    def deleteUser(User user) {
+        //domainService.delete(user)
+        render([message: "Successfully deleted", status: "success"] as JSON)
+    }
 }

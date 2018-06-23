@@ -5,9 +5,9 @@
     <asset:javascript src="feature/feature.setting.js"/>
 </g:if>
 <div class="page-content services">
-    <div class="content-box-large sui-tabular-content" id="service-setting-tab">
+    <div class="content-box-large sui-tabular-content" id="user-setting-tab">
         <div class="panel-heading">
-            <div class="panel-title">Manage Pathologies</div>
+            <div class="panel-title">Manage Users</div>
             <div class="panel-options tab-action-container">
                 <div class="search-form">
                     <input class="form-control" placeholder="Search anything"/><button class="btn btn-primary glyphicon glyphicon-search"></button>
@@ -17,28 +17,27 @@
         </div>
         <div class="panel-body table-responsive tabular-body">
             <span class="label label-info">Showing ${items.size()} of ${count}</span>
-            <table data-processing-url="${app.baseUrl()}setting/services" class="table">
+            <table data-processing-url="${app.baseUrl()}setting/userManager" class="table">
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Instruction</th>
+                    <th>Email</th>
                     <th>Created</th>
-                    <th>Price</th>
-                    <th>Cost</th>
-                    <th>Discount</th>
-                    <th>Actions</th>
+                    <th>Phone</th>
+                    <th>User Id</th>
+                    <th>Role</th>
                 </tr>
                 </thead>
                 <tbody>
-                <g:each in="${items}" var="service">
+                <g:each in="${items}" var="user">
                     <tr class="odd gradeX">
-                        <td><span class="value">${service.name}</span></td>
-                        <td><span class="value">${service.instruction}</span></td>
-                        <td><span class="value">${service.created.toAdminFormat()}</span></td>
-                        <td><span class="value">${service.basePrice}</span></td>
-                        <td class="center"><span class="value">${service.costPrice}</span></td>
-                        <td class="center"><span class="value">${service.discount ?: 0}${service.discountType}</span></td>
-                        <td class="action-navigator btn-group center" data-id="${service.id}">
+                        <td><span class="value">${user.name}</span></td>
+                        <td><span class="value">${user.email}</span></td>
+                        <td><span class="value">${user.created.toAdminFormat()}</span></td>
+                        <td><span class="value">${user.phone}</span></td>
+                        <td class="center"><span class="value">${user.userId}</span></td>
+                        <td class="center"><span class="value">${user.role}</span></td>
+                        <td class="action-navigator btn-group center" data-id="${user.id}">
                             <span class="btn btn-xs btn-info edit"><i class="glyphicon glyphicon-edit"></i></span>
                             <span class="btn btn-xs btn-warning remove"><i class="glyphicon glyphicon-trash"></i></span>
                         </td>

@@ -2,6 +2,11 @@
     font-size: 25px;
     color: red;
 }
+.header .logo {
+    background-image: url(/static/resources/system/banner.jpg);
+    background-size: 460px 50px;
+    background-repeat: no-repeat;
+}
 .overlay {
     position: absolute;
     top: 0;

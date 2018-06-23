@@ -17,3 +17,24 @@ app.tab.serviceSetting = function() {
     }
 
 })()
+
+
+var _us = {};
+app.tab.userSetting = function() {
+    this.loading_url = app.base + "setting/userManager";
+    this.id = "user-setting-tab";
+    this.createEditUrl = app.base + "setting/editUser";
+    this.removeUrl = app.base + "setting/deleteUser";
+    this.processor = _us;
+    return this;
+};
+
+(function () {
+    _us.init = function() {
+        var _self = this;
+    }
+    _us.onCreateEditLoad = function (panel) {
+        var _self = this;
+    }
+
+})()

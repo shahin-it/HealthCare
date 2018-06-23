@@ -1,11 +1,15 @@
-<meta name="layout" content="_main">
-<title>- Customer Profile</title>
+<g:if test="${!params.ajax}">
+    <meta name="layout" content="_main">
+    <title>- Customer Profile</title>
+</g:if>
 <div class="page-content profile">
     <div class="content-box-large">
         <div class="panel-heading">
             <div class="panel-title">Customize Account Information</div>
             <div class="panel-options tab-action-container">
-                <g:select class="form-control user-selection" name="user" from="${users.collect {it.userId + ' [' +it.name+ ']'}}" keys="${users.collect {it.id}}" value="${user.id}"/>
+                <g:if test="${users}">
+                    <g:select class="form-control user-selection" name="user" from="${users.collect {it.userId + ' [' +it.name+ ']'}}" keys="${users.collect {it.id}}" value="${user.id}"/>
+                </g:if>
             </div>
         </div>
         <div class="panel-body">

@@ -1,6 +1,8 @@
 package com.healthcare
 
+import com.healthcare.crm.Consultant
 import com.healthcare.pathology.Order
+import com.healthcare.pathology.OrderItem
 import com.healthcare.pathology.Service
 import grails.converters.JSON
 
@@ -9,17 +11,23 @@ class OrderController {
 
     def edit(Order order) {
         order = order ?: new Order()
+        List<Consultant> consultants = domainService.getKeyValueProp(Consultant)
+        List<Patient> patients = domainService.getKeyValueProp(Patient)
         Map tests = domainService.getKeyValue(Service, "name", {eq("isActive", true)})
-        [order: order, services: tests]
+        [order: order, services: tests, consultants: consultants, patients: patients]
     }
 
-    def itemRow(Order order) {
-        [item: order]
+    def itemRow(OrderItem orderItem) {
+        [item: orderItem]
+    }
+
+    def serviceRow(Service service) {
+        [service: service]
     }
 
     def save(Order order) {
         domainService.save(order, params)
-        render([message: "Successfully saved", status: "success"] as JSON)
+        render([messagparamse: "Successfully saved", status: "success"] as JSON)
     }
 
     def delete(Order order) {

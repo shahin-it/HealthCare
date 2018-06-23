@@ -1,6 +1,7 @@
 package com.healthcare.pathology
 
 import com.healthcare.Patient
+import com.healthcare.crm.Consultant
 import com.healthcare.model.DomainBase
 
 class Order extends DomainBase {
@@ -8,6 +9,7 @@ class Order extends DomainBase {
     String status = "UNPAID"// PAID, UNPAID, DELIVERED, CANCELED
 
     Patient patient
+    Consultant consultant
 
     Date delivery
     Date updated
@@ -21,6 +23,7 @@ class Order extends DomainBase {
 
     static constraints = {
         note(nullable: true, maxSize: 500)
+        Consultant(nullable: true)
     }
 
     static transients = ["getTotal", "getGrandTotal", "getDue"]

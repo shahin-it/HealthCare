@@ -78,6 +78,13 @@ $.extend($.prototype, {
         this.find(".sui-image-chooser").each(function () {
             sui.imageInput(this.jq);
         })
+        this.find(".editable").editable({
+            validate: function(value) {
+                if(this.jq.data("required") && $.trim(value) == '') {
+                    return 'This field is required';
+                }
+            }
+        });
     },
     updateSiteUi: function() {
         var _self = this;

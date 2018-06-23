@@ -15,6 +15,7 @@
     <asset:stylesheet src="vendor/styles.css"/>
     <asset:stylesheet src="admin.css"/>
     <asset:stylesheet src="vendor/dataTables.bootstrap.css"/>
+    <asset:stylesheet src="vendor/bootstrap-editable.css"/>
     %{--<asset:stylesheet src="application.css"/>--}%
 
     <script type="text/javascript">
@@ -32,6 +33,7 @@
     <asset:javascript src="vendor/bootstrap-notify.min.js"/>
     <asset:javascript src="vendor/jquery.dataTables.min.js"/>
     <asset:javascript src="vendor/dataTables.bootstrap.js"/>
+    <asset:javascript src="vendor/bootstrap-editable.min.js"/>
     <asset:javascript src="vendor/sweetalert2.js"/>
     <asset:javascript src="vendor/jquery.twbsPagination.min.js"/>
     <asset:javascript src="sui/utility.js"/>

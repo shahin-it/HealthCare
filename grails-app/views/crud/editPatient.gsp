@@ -2,7 +2,7 @@
 <g:form class="create-edit-form form-horizontal" role="form" controller="crud" action="savePatient" method="post">
     <input type="hidden" name="id" value="${patient.id}">
     <div class="panel-heading">
-        <div class="panel-title">EDIT PATIENT INFO</div>
+        <div class="panel-title">Create/Edit Patient Info</div>
         <div class="panel-options"></div>
     </div>
     <div class="form-group">
@@ -41,7 +41,7 @@
             <g:select name="sex" class="form-control" from="['MALE', 'FEMALE']" value="${patient.sex}"/>
         </div>
     </div>
-    <ui:addressFieldSet domain="${patient.address}" prefix="address"/>
+    <ui:addressFieldSet domain="${patient.address}" prefix="address."/>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>

@@ -43,7 +43,7 @@ app.tab.patient = function() {
 
 var _consultant = {};
 app.tab.consultant = function() {
-    this.loading_url = app.base + "page/customer";
+    this.loading_url = app.base + "page/consultant";
     this.id = "consultant-tab";
     this.createEditUrl = app.base + "crud/editConsultant";
     this.removeUrl = app.base + "crud/deleteConsultant";

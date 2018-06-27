@@ -1,3 +1,4 @@
+<%@ page import="com.healthcare.DomainConstant" %>
 <meta name="layout" content="_main">
 <title>- Global Settings</title>
 <div class="page-content global-settings">
@@ -34,6 +35,16 @@
                     <label class="col-sm-2 control-label">Phone Numbers</label>
                     <div class="col-sm-10">
                         <input type="text" name="global.contact" class="form-control" placeholder="Phone numbers" maxlength="250" value="${config.contact}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Time Formate</label>
+                    <div class="col-sm-4">
+                        <g:select name="global.timeFormate" class="form-control" from="${DomainConstant.TIME_FORMATE}" value="${config.timeFormate}"/>
+                    </div>
+                    <label class="col-sm-2 control-label">Date Formate</label>
+                    <div class="col-sm-4">
+                        <g:select name="global.dateFormate" class="form-control" from="${DomainConstant.DATE_FORMATE}" value="${config.dateFormate}"/>
                     </div>
                 </div>
                 <div class="form-group">

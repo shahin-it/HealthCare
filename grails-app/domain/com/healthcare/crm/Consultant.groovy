@@ -7,9 +7,9 @@ class Consultant extends DomainBase {
     String name
     String qualification
     String designation
-    String medicalCollage
+    String lastInstitute
     String worksAt
-    String sex = "m" // m, f
+    String sex = "MALE" // MALE, FEMALE
 
     String email
     String mobile
@@ -20,11 +20,11 @@ class Consultant extends DomainBase {
     Boolean isInTrash = false
 
     static constraints = {
-        designation(nullable: true)
         worksAt(nullable: true)
         email(nullable: true)
         mobile2(nullable: true)
         sex(maxSize: 10)
+        visitingFee(nullable: true)
     }
 
 }

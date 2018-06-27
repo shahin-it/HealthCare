@@ -12,7 +12,7 @@ class Patient extends DomainBase {
     String mobile
     String mobile2
     String sex = "MALE" // MALE, FEMALE
-    Address address = new Address()
+    Address address
 
     Boolean isInTrash = false
 

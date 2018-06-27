@@ -54,6 +54,14 @@ class AppUtil {
         }
     }
 
+    static getDateFormate() {
+        return AppUtil.getConfig("global", "dateFormate")
+    }
+
+    static getTimeFormate() {
+        return AppUtil.getConfig("global", "timeFormate")
+    }
+
     public static GrailsParameterMap getParams() {
         try {
             currentRequest.params;

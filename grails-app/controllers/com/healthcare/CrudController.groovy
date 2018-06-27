@@ -8,7 +8,7 @@ class CrudController {
     DomainService domainService
 
     def editPatient(Patient patient) {
-        patient = patient ?: new Patient()
+        patient = patient ?: new Patient(address: new Address())
         [patient: patient]
     }
 
@@ -31,6 +31,7 @@ class CrudController {
     }
 
     def saveConsultant(Consultant consultant) {
-
+        domainService.save(consultant)
+        render([message: "Successfully saved", status: "success"] as JSON)
     }
 }

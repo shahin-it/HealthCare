@@ -25,6 +25,8 @@ class Preference {
             address1: "",
             address2: null,
             contact: null,
+            dateFormate: "dd-MM-yyyy",
+            timeFormate: "hh:mm:ss a",
             details: ""
     ]
 }

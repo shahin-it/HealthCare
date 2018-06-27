@@ -23,8 +23,8 @@ static init() {
 
         toAdminFormat = { timeZone = AppUtil.timeZone, showTime = true, showZone = false ->
             long time = delegate.getTime() + timeZone.getOffset(delegate);
-            String dateFormat = "dd-MM-yyyy"
-            String timeFormat = "hh:mm:ss a"
+            String dateFormat = AppUtil.dateFormate ?: "dd-MM-yyyy"
+            String timeFormat = AppUtil.timeFormate ?: "hh:mm:ss a"
             return new Date(time).toFormattedString(dateFormat, showTime, timeFormat, showZone, timeZone);
         }
 

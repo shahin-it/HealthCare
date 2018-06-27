@@ -1,47 +1,47 @@
-<g:form class="create-edit-form form-horizontal" role="form" controller="setting" action="saveService" method="post">
-    <input type="hidden" name="id" value="${service.id}">
+<%@ page import="com.healthcare.Address" %>
+<g:form class="create-edit-form form-horizontal" role="form" controller="crud" action="savePatient" method="post">
+    <input type="hidden" name="id" value="${patient.id}">
     <div class="panel-heading">
-        <div class="panel-title">EDIT PATHOLOGY SERVICE</div>
+        <div class="panel-title">EDIT PATIENT INFO</div>
         <div class="panel-options"></div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" placeholder="Name" required maxlength="250" value="${service.name}">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Instruction</label>
-        <div class="col-sm-10">
-            <input type="text" name="instruction" class="form-control" placeholder="Instruction" maxlength="250" value="${service.instruction}">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
-            <textarea class="form-control" name="description" placeholder="Description" rows="3" maxlength="1000">${service.description}</textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Base Price</label>
         <div class="col-sm-4">
-            <input type="number" name="basePrice" class="form-control" placeholder="Base Price" min="0" max="999999999" required value="${service.basePrice}">
+            <input type="text" name="name" class="form-control" placeholder="Name" required maxlength="250" value="${patient.name}">
         </div>
-        <label class="col-sm-2 control-label">Cost Price</label>
+        <label class="col-sm-2 control-label">Father Name</label>
         <div class="col-sm-4">
-            <input type="number" name="costPrice" class="form-control" placeholder="Cost Price" min="0" max="999999999" value="${service.costPrice}">
+            <input type="text" name="fatherName" class="form-control" placeholder="Father Name" maxlength="250" required value="${patient.fatherName}">
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-2 control-label">Discount</label>
+        <label class="col-sm-2 control-label">Is Married</label>
         <div class="col-sm-4">
-            <input type="number" name="discount" class="form-control" placeholder="Discount" min="0" max="999999999" value="${service.discount}">
+            <g:select name="isMarried" class="form-control" from="['YES', 'NO']" keys="[true, false]" value="${patient.isMarried}"/>
         </div>
-        <label class="col-md-2 control-label">Discount Type</label>
-        <div class="col-md-4">
-            <g:select name="discountType" class="form-control" from="['%', 'TK']" value="${service.discountType}"/>
+        <label class="col-sm-2 control-label">Spouse Name</label>
+        <div class="col-sm-4">
+            <input type="text" name="spouseName" class="form-control" placeholder="Spouse Name" maxlength="250" value="${patient.spouseName}">
         </div>
     </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-4">
+            <input type="email" name="email" class="form-control" placeholder="Email" value="${patient.email}">
+        </div>
+        <label class="col-sm-2 control-label">Mobile Number</label>
+        <div class="col-sm-4">
+            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" value="${patient.mobile}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Gender</label>
+        <div class="col-md-10">
+            <g:select name="sex" class="form-control" from="['MALE', 'FEMALE']" value="${patient.sex}"/>
+        </div>
+    </div>
+    <ui:addressFieldSet domain="${patient.address}" prefix="address"/>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>

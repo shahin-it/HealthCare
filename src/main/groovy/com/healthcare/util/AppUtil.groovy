@@ -188,7 +188,7 @@ class AppUtil {
     }
 
     static Long getLoggedUser() {
-        return session.admin
+        return session ? session.admin : null
     }
 
     static User getCurrentUser() {

@@ -15,7 +15,7 @@ class SettingController {
     }
 
     def saveGlobalConfig() {
-        params.global['banner'] = Constant.BANNER_IMAGE_PATH
+        params.global['banner'] = DomainConstant.BANNER_IMAGE_PATH
         try {
             settingService.saveConfig(params)
         } catch (Exception e) {
@@ -25,7 +25,7 @@ class SettingController {
         }
         if(!params.global['banner']) {
             def banner = request.getPart("global.banner")
-            commonService.uploadImage(banner, Constant.BANNER_IMAGE_PATH)
+            commonService.uploadImage(banner, DomainConstant.BANNER_IMAGE_PATH)
         }
         render([message: "Successfully saved", status: "success"] as JSON)
     }

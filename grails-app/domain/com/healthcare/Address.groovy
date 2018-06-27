@@ -2,16 +2,15 @@ package com.healthcare
 
 class Address {
 
-    String village
-    String wordNo
-    String unionName = "Charbata"
-    String upazilla = "Subarnachar"
-    String district = "Noakhali"
+    String city
+    String unionName
     String country = "Bangladesh"
+    String district = "Noakhali"
+    String upazila = "Subarnachar"
 
     static constraints = {
-        wordNo(nullable: true, maxSize: 10)
-        upazilla(maxSize: 100)
+        unionName(nullable: true)
+        upazila(maxSize: 100)
         district(maxSize: 100)
         country(maxSize: 100)
     }

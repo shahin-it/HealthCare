@@ -12,4 +12,14 @@ class UITagLib {
                     <div class="col-sm-6"><img src="${attrs.value ? app.systemResourceBaseUrl() + attrs.value : ''}" class="sui-image-preview" height="35"></div>
                 </div>"""
     }
+
+    def addressFieldSet = { attrs, body ->
+        out << g.include(view: "/template/addressField.gsp", model: [domain: attrs.domain, perfix: attrs.prefix])
+    }
+
+    def fieldSet = { attrs, body ->
+        out << """<fieldset><legend>${attrs.legend}</legend>"""
+        out << body()
+        out << """</fieldset>"""
+    }
 }

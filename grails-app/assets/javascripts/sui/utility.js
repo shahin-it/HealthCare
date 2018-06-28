@@ -238,10 +238,13 @@ var sui = {
                 type: "POST",
                 dataType: "json",
                 beforeSubmit: function(arr, $form, options) {
-                    form.loader();
                     if(config.preSubmit) {
                         return config.preSubmit.apply(this, arguments);
                     }
+                    if(form.triggerHandler("preSubmit") == false) {
+                        return false;
+                    }
+                    form.loader();
                 },
                 success: function(resp, type) {
                     form.loader(false);
@@ -449,9 +452,9 @@ var sui = {
 
             if(input.is("select")) {
                 input.change(function () {
-                    container.find("[class^='" + target + "-']").hide();
-                    container.find("." + target + "-" + input.val()).show();
-                })
+                    container.find("[class^='" + target + "-']").hide().find("input, select, textarea").attr("disabled", true);
+                    container.find("." + target + "-" + input.val()).show().find("input, select, textarea").removeAttr("disabled");
+                }).trigger("change")
             }
         })
     }

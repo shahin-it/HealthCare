@@ -23,13 +23,12 @@ class Order extends DomainBase {
 
     static constraints = {
         note(nullable: true, maxSize: 500)
-        consultant(nullable: true)
-        patient(nullable: true)
     }
 
     static transients = ["getTotal", "getGrandTotal", "getDue"]
 
     def beforeValidate() {
+        super.beforeValidate()
         if (!this.delivery) {
             this.delivery = new Date().toGMT().plus(24)
         }

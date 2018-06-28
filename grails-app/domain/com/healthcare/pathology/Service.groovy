@@ -19,6 +19,7 @@ class Service extends DomainBase {
     Boolean isActive = true
 
     static constraints = {
+        name(unique: true)
         instruction(nullable: true)
         description(nullable: true, maxSize: 1000)
         costPrice(nullable: true)

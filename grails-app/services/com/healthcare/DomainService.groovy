@@ -42,11 +42,12 @@ class DomainService {
         return data
     }
 
-    def save(def domainObj, Map _params = [:]) {
+    Boolean save(def domainObj, Map _params = [:]) {
         Map params = _params.clone()
         params.remove("controller")
         params.remove("action")
-        return domainObj.save()
+        domainObj.save()
+        return !domainObj.hasErrors()
     }
 
     def delete(def domain, Map params = [:]) {

@@ -6,6 +6,7 @@ import grails.converters.JSON
 class CrudController {
 
     DomainService domainService
+    CrudService crudService
 
     def editPatient(Patient patient) {
         patient = patient ?: new Patient(address: new Address())

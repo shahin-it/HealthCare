@@ -1,6 +1,6 @@
 <%@ page import="com.healthcare.DomainConstant" %>
 <ui:fieldSet legend="Address:">
-    <input type="hidden" name="${perfix}id" value="${domain.id}">
+    <input type="hidden" name="${perfix.replace(".", "")}Id" value="${domain.id}">
     <div class="form-group">
         <label class="col-sm-2 control-label">Village/City</label>
         <div class="col-sm-4">

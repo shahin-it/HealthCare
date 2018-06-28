@@ -7,7 +7,7 @@ class User extends DomainBase {
     String name
     String email
     String mobile
-    String sex = "M" // M, F
+    String sex = "MALE" // MALE, FEMALE
 
     String userId
     String password

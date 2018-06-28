@@ -2,6 +2,7 @@ package com.healthcare.model
 
 import com.healthcare.User
 import com.healthcare.util.AppUtil
+import org.grails.datastore.mapping.validation.ValidationErrors
 
 abstract class DomainBase {
     User createdBy
@@ -16,6 +17,12 @@ abstract class DomainBase {
         }
         if(!this.createdBy) {
             this.createdBy = User.findById(AppUtil.loggedUser)
+        }
+    }
+
+    def afterValidate() {
+        if(this.hasErrors()) {
+
         }
     }
 }

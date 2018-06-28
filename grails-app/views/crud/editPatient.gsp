@@ -43,7 +43,7 @@
             <g:select name="sex" class="form-control" from="['MALE', 'FEMALE']" value="${patient.sex}"/>
         </div>
     </div>
-    <ui:addressFieldSet domain="${patient.address}" prefix="address."/>
+    <ui:addressFieldSet domain="${patient.address ?: [:]}" prefix="address."/>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>

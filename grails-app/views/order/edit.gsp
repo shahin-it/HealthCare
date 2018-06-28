@@ -20,28 +20,28 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Patient</label>
                         <div class="col-sm-10">
-                            <g:select name="patient.id" data-toggle-target="patient-info" class="form-control" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
+                            <g:select name="patientId" data-toggle-target="patient-info" class="form-control" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
                         </div>
                     </div>
                     <div class="patient-info-">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-4">
-                                <input type="text" name="patient.name" class="form-control" placeholder="Name" required maxlength="250" value="${patient.name}">
+                                <input type="text" name="patient.name" class="form-control" placeholder="Name" required maxlength="250">
                             </div>
                             <label class="col-sm-2 control-label">Father Name</label>
                             <div class="col-sm-4">
-                                <input type="text" name="patient.fatherName" class="form-control" placeholder="Father Name" maxlength="250" required value="${patient.fatherName}">
+                                <input type="text" name="patient.fatherName" class="form-control" placeholder="Father Name" maxlength="250" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Gender</label>
                             <div class="col-md-4">
-                                <g:select name="patient.sex" class="form-control" from="['MALE', 'FEMALE']" value="${patient.sex}"/>
+                                <g:select name="patient.sex" class="form-control" from="['MALE', 'FEMALE']"/>
                             </div>
                             <label class="col-sm-2 control-label">Mobile Number</label>
                             <div class="col-sm-4">
-                                <input type="text" name="patient.mobile" class="form-control" placeholder="Mobile Number" value="${patient.mobile}">
+                                <input type="text" name="patient.mobile" class="form-control" placeholder="Mobile Number">
                             </div>
                         </div>
                     </div>
@@ -51,28 +51,28 @@
                     <div class="form-group">
                         <label class="col-md-2 control-label">Consultant</label>
                         <div class="col-md-10">
-                            <g:select name="consultant.id" data-toggle-target="consultant-info" class="form-control" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
+                            <g:select name="consultantId" data-toggle-target="consultant-info" class="form-control" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
                         </div>
                     </div>
                     <div class="consultant-info-">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-4">
-                                <input type="text" name="consultant.name" class="form-control" placeholder="Name" required maxlength="250" value="${consultant.name}">
+                                <input type="text" name="consultant.name" class="form-control" placeholder="Name" required maxlength="250">
                             </div>
                             <label class="col-sm-2 control-label">Designation</label>
                             <div class="col-sm-4">
-                                <input type="text" name="consultant.designation" class="form-control" placeholder="Designation" maxlength="250" required value="${consultant.designation}">
+                                <input type="text" name="consultant.designation" class="form-control" placeholder="Designation" maxlength="250" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">Gender</label>
                             <div class="col-md-4">
-                                <g:select name="consultant.sex" class="form-control" from="['MALE', 'FEMALE']" value="${consultant.sex}"/>
+                                <g:select name="consultant.sex" class="form-control" from="['MALE', 'FEMALE']"/>
                             </div>
                             <label class="col-sm-2 control-label">Mobile Number</label>
                             <div class="col-sm-4">
-                                <input type="text" name="consultant.mobile" class="form-control" placeholder="Mobile Number" value="${consultant.mobile}">
+                                <input type="text" name="consultant.mobile" class="form-control" placeholder="Mobile Number">
                             </div>
                         </div>
                     </div>
@@ -85,9 +85,9 @@
                         <th>#</th>
                         <th>Test Name</th>
                         <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Discount</th>
-                        <th>Subtotal</th>
+                        <th>Rate</th>
+                        <th>Discount(-)</th>
+                        <th>Total</th>
                         <th>Action</th>
                     </tr>
                     </thead>

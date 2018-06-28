@@ -15,37 +15,51 @@ app.tab.order = function() {
     _o.onCreateEditLoad = function (panel) {
         var _self = this;
         var popup = panel.parents(".sui-create-edit-panel");
+        var cartTable = popup.find(".cart-table");
         var serviceSelection = popup.find(".service-select");
         var select = serviceSelection.find("select");
         serviceSelection.find(".add-button").click(function () {
             if(select.val()) {
-                panel.loader()
-                sui.ajax({
-                    dataType: "html",
-                    url: app.base + "order/serviceRow",
-                    data: {id: select.val()},
-                    response: function () {
-                        panel.loader(false)
-                    },
-                    success: function (resp) {
-                        resp = $(resp);
-                        panel.find(".cart-table tbody .summary-row").first().before(resp);
-                        resp.updateUi();
-                        _self.calculatePrice(popup);
-                    },
-                    error: function() {
-                        var x = 0;
-                    }
-                })
+                var duplicateItem = cartTable.find(".order-item.service-" + select.val())
+                if(duplicateItem.length) {
+                    var quantity = duplicateItem.find(".quantity input")
+                    quantity.val((quantity.val() * 1) + 1)
+                    _self.calculatePrice(cartTable);
+                } else {
+                    panel.loader()
+                    sui.ajax({
+                        dataType: "html",
+                        url: app.base + "order/serviceRow",
+                        data: {id: select.val()},
+                        response: function () {
+                            panel.loader(false)
+                        },
+                        success: function (resp) {
+                            resp = $(resp);
+                            panel.find(".cart-table tbody .summary-row").first().before(resp);
+                            resp.updateUi();
+                            _self.calculatePrice(cartTable);
+                        },
+                        error: function() {
+                            var x = 0;
+                        }
+                    })
+                }
+
             }
         })
 
-        popup.on("change", "input", function () {
-            _self.calculatePrice(popup);
+        cartTable.on("change", "input", function () {
+            _self.calculatePrice(cartTable);
         })
-        popup.on("click", ".action-navigator .remove", function () {
+        cartTable.on("click", ".action-navigator .remove", function () {
             this.jq.parents(".order-item").remove();
-            _self.calculatePrice(popup);
+            _self.calculatePrice(cartTable);
+        })
+        popup.find(".create-edit-form").on("preSubmit", function (evt) {
+            if(!cartTable.find(".order-item").length) {
+                return false;
+            }
         })
     }
 
@@ -58,11 +72,10 @@ app.tab.order = function() {
             var quantity = row.find(".quantity input").val() || 1
             var rate = row.find(".rate input").val() || 0.00
             var discount = row.find(".discount input").val() * 1 || 0.00
-            var subTotalDisp = row.find(".price") || 0.00
+            var totalDisp = row.find(".price") || 0.00
             var subTotal = (rate * quantity) || 0.00;
             var grandTotal = ((rate * quantity) - discount) || 0.00;
-            subTotalDisp.find("input").val(subTotal)
-            subTotalDisp.find(".value").html(subTotal.toFixed(2))
+            totalDisp.find(".value").html(subTotal.toFixed(2))
 
             _subTotal += subTotal
             _discount += discount
@@ -84,7 +97,7 @@ app.tab.order = function() {
         grandTotalDisp.find(".value").html(_grandTotal.toFixed(2))
 
         var _due = _grandTotal - _paidTotal;
-        dueTotalDisp.find(".value").html((-1 * _due).toFixed(2))
+        dueTotalDisp.find(".value").html(_due.toFixed(2))
         if(_due > 0) {
             dueTotalDisp.removeClass("paid")
         } else {

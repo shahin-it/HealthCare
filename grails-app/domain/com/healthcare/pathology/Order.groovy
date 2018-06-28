@@ -14,7 +14,7 @@ class Order extends DomainBase {
     Date delivery
     Date updated
 
-    Collection<OrderItem> items
+    Collection<OrderItem> items = []
     Double discount = 0.0
     Double paid = 0.0
 
@@ -23,13 +23,20 @@ class Order extends DomainBase {
 
     static constraints = {
         note(nullable: true, maxSize: 500)
-        Consultant(nullable: true)
+        consultant(nullable: true)
+        patient(nullable: true)
     }
 
     static transients = ["getTotal", "getGrandTotal", "getDue"]
 
+    def beforeValidate() {
+        if (!this.delivery) {
+            this.delivery = new Date().toGMT().plus(24)
+        }
+    }
+
     Double getTotal() {
-        return items.sum {it.grandTotal}
+        return items.sum {it.total} ?: 0.0
     }
 
     Double getGrandTotal() {

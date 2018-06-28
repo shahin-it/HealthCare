@@ -19,9 +19,13 @@ class OrderItem {
 
     static belongsTo = [order: Order]
 
-    static transients = ["getGrandTotal"]
+    static transients = ["getGrandTotal", "getTotal"]
+
+    Double getTotal() {
+        return basePrice * quantity
+    }
 
     Double getGrandTotal() {
-        return basePrice * quantity
+        return (basePrice * quantity) - discount
     }
 }

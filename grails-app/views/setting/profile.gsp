@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Phone/Mobile No</label>
                     <div class="col-sm-10">
-                        <input name="phone" type="text" class="form-control" placeholder="Mobile/Phone Number" required maxlength="20" value="${user.phone}">
+                        <input name="phone" type="text" class="form-control" placeholder="Mobile/Phone Number" required maxlength="20" value="${user.mobile}">
                     </div>
                 </div>
                 <div class="form-group">

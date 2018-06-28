@@ -21,6 +21,8 @@ class Patient extends DomainBase {
         email(nullable: true)
         mobile2(nullable: true)
         sex(maxSize: 10)
+        address(nullable: true)
+        mobile(unique: true)
     }
 
 }

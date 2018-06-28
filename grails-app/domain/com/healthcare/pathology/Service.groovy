@@ -24,4 +24,13 @@ class Service extends DomainBase {
         costPrice(nullable: true)
         discount(nullable: true)
     }
+
+    static transients = ['getPlainDiscount']
+
+    Double getPlainDiscount() {
+        if(this.discountType == "%") {
+            return (this.basePrice * this.discount) / 100
+        }
+        return this.discount
+    }
 }

@@ -20,11 +20,14 @@ class Consultant extends DomainBase {
     Boolean isInTrash = false
 
     static constraints = {
+        qualification(nullable: true)
         worksAt(nullable: true)
+        lastInstitute(nullable: true)
         email(nullable: true)
         mobile2(nullable: true)
         sex(maxSize: 10)
         visitingFee(nullable: true)
+        mobile(unique: true)
     }
 
 }

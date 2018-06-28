@@ -8,6 +8,7 @@ import grails.converters.JSON
 
 class OrderController {
     DomainService domainService
+    OrderService orderService
 
     def edit(Order order) {
         order = order ?: new Order()
@@ -26,7 +27,7 @@ class OrderController {
     }
 
     def save(Order order) {
-        domainService.save(order, params)
+        orderService.save(order, params)
         render([messagparamse: "Successfully saved", status: "success"] as JSON)
     }
 

@@ -48,3 +48,12 @@
 .sui-tabular-content .table-footer .right {
     float: right;
 }
+.cart-table .summary-row {
+    font-weight: bold;
+}
+.summary-row.due-total {
+    color: red;
+}
+.due-total.paid {
+    color: green;
+}

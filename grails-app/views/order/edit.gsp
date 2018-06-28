@@ -96,33 +96,32 @@
                         <g:include view="order/itemRow.gsp" model="[item: item]"/>
                     </g:each>
                     <tr class="summary-row sub-total">
-                        <td colspan="5"></td>
-                        <td>Sub Total</td>
-                        <td><span class="value">0.0</span></td>
+                        <td colspan="4"></td>
+                        <td colspan="2">Sub Total</td>
+                        <td><span class="value">${order.total.toPrice()}</span><input type="hidden" name="subTotal" value="${order.total}"></td>
                     </tr>
                     <tr class="summary-row discount">
-                        <td colspan="5"></td>
-                        <td>Discount</td>
-                        <td>-<span class="value">0.0</span></td>
+                        <td colspan="4"></td>
+                        <td colspan="2">Discount(-)</td>
+                        <td><span class="value">${order.discount.toPrice()}</span><input type="hidden" name="discount" value="${order.discount}"></td>
                     </tr>
                     <tr class="summary-row grand-total">
-                        <td colspan="5"></td>
-                        <td>Grand Total</td>
-                        <td><span class="value">0.0</span></td>
+                        <td colspan="4"></td>
+                        <td colspan="2">Grand Total</td>
+                        <td><span class="value">${order.grandTotal.toPrice()}</span><input type="hidden" name="grandTotal" value="${order.grandTotal}"></td>
+                    </tr>
+                    <tr class="summary-row paid-total">
+                        <td colspan="4"></td>
+                        <td colspan="2">Paid Total(-)</td>
+                        <td><input type="text" min="0" maxlength="9" required name="paid" value="${order.paid.toPrice()}"></td>
+                    </tr>
+                    <tr class="summary-row due-total ${order.due > 0 ? '' : 'paid'}">
+                        <td colspan="4"></td>
+                        <td colspan="2">Total Due</td>
+                        <td><span class="value">${order.due.toPrice()}</span></td>
                     </tr>
                     </tbody>
                 </table>
-                <div class="tr-template" style="display: none">
-                    <tr>
-                        <td>#id#</td>
-                        <td>#name#</td>
-                        <td>#quantity#</td>
-                        <td><a href="#" id="basePrice" data-type="text" data-pk="1" data-title="Enter price" class="editable editable-click editable-open" data-original-title="" title="">#basePrice#</a></td>
-                        <td>#discount#</td>
-                        <td>#grandTotal#</td>
-                        <td>@mdo</td>
-                    </tr>
-                </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Save</button>

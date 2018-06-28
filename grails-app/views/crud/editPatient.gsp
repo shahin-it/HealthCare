@@ -18,11 +18,13 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Is Married</label>
         <div class="col-sm-4">
-            <g:select name="isMarried" class="form-control" from="['YES', 'NO']" keys="[true, false]" value="${patient.isMarried}"/>
+            <g:select name="isMarried" class="form-control" from="['YES', 'NO']" keys="[true, false]" value="${patient.isMarried}" data-toggle-target="is-married"/>
         </div>
-        <label class="col-sm-2 control-label">Spouse Name</label>
-        <div class="col-sm-4">
-            <input type="text" name="spouseName" class="form-control" placeholder="Spouse Name" maxlength="250" value="${patient.spouseName}">
+        <div class="is-married-true">
+            <label class="col-sm-2 control-label">Spouse Name</label>
+            <div class="col-sm-4">
+                <input type="text" name="spouseName" class="form-control" placeholder="Spouse Name" maxlength="250" value="${patient.spouseName}">
+            </div>
         </div>
     </div>
     <div class="form-group">

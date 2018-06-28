@@ -432,5 +432,27 @@ var sui = {
             reader.readAsDataURL(files[0])
         })
         var imgData = fileInput
+    },
+    toggle: function (container) {
+        var inputs = container.find("[data-toggle-target]");
+        if(!inputs.length) {
+            return
+        }
+
+        inputs.each(function () {
+            var input = this.jq;
+            var target = input.attr("data-toggle-target");
+            var selected = container.find("[class^='" + target + "-']")
+            if(!selected.hasClass(target + "-" + input.val())) {
+                selected.hide();
+            }
+
+            if(input.is("select")) {
+                input.change(function () {
+                    container.find("[class^='" + target + "-']").hide();
+                    container.find("." + target + "-" + input.val()).show();
+                })
+            }
+        })
     }
 }

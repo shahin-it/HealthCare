@@ -85,6 +85,7 @@ $.extend($.prototype, {
                 }
             }
         });
+        sui.toggle(this);
     },
     updateSiteUi: function() {
         var _self = this;

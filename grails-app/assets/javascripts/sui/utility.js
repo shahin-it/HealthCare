@@ -217,7 +217,7 @@ var sui = {
                 success: function(resp) {
                     resp = resp.jq;
                     panelLoaded(resp);
-                    config.popupLoad && config.popupLoad.call(_self, resp);
+                    config.popupLoad && config.popupLoad.call(panel, resp);
                 }
             });
         }

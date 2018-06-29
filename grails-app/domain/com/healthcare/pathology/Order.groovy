@@ -3,6 +3,7 @@ package com.healthcare.pathology
 import com.healthcare.Patient
 import com.healthcare.crm.Consultant
 import com.healthcare.model.DomainBase
+import com.healthcare.util.AppUtil
 
 class Order extends DomainBase {
 
@@ -30,7 +31,7 @@ class Order extends DomainBase {
     def beforeValidate() {
         super.beforeValidate()
         if (!this.delivery) {
-            this.delivery = new Date().toGMT().plus(24)
+            this.delivery = new Date().toGMT().plus((int)AppUtil.getConfig("global", "deliver_order_within"))
         }
     }
 

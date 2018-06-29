@@ -55,11 +55,11 @@ class AppUtil {
     }
 
     static getDateFormate() {
-        return AppUtil.getConfig("global", "dateFormate")
+        return AppUtil.getConfig("global", "date_formate")
     }
 
     static getTimeFormate() {
-        return AppUtil.getConfig("global", "timeFormate")
+        return AppUtil.getConfig("global", "time_formate")
     }
 
     public static GrailsParameterMap getParams() {

@@ -25,4 +25,9 @@ class Patient extends DomainBase {
         mobile(unique: true)
     }
 
+    static transients = ['getFlatAddress']
+
+    String getFlatAddress() {
+        return address ? "${address.city} - ${address.unionName}, ${address.upazila}, ${address.district}" : ""
+    }
 }

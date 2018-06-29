@@ -42,7 +42,7 @@
                         <td class="center"><span class="value status ${order.status}">${order.status}</span></td>
                         <td class="action-navigator btn-group center" data-id="${order.id}">
                             <span class="btn btn-xs btn-info edit" title="Edit"><i class="glyphicon glyphicon-edit"></i></span>
-                            <span class="btn btn-xs btn-warning view" title="view"><i class="glyphicon glyphicon-eye-open"></i></span>
+                            <span class="btn btn-xs btn-warning view" title="View/Print"><i class="glyphicon glyphicon-print"></i></span>
                             <g:if test="${order.active && order.status != 'PAID'}">
                                 <span class="btn btn-xs btn-warning cancel" title="Cancel"><i class="glyphicon glyphicon-eye-close"></i></span>
                             </g:if>

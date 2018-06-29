@@ -36,7 +36,7 @@ $(function() {
                     _self.reload();
                 });
             });
-            _init && _init();
+            _init && _init.call(_self);
         }
         tab.reload = table.reload;
         tab.beforeLoad = table.beforeLoad;

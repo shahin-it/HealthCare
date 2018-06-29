@@ -22,11 +22,15 @@ class Preference {
     static _global = [
             name: "Health Care Admin",
             banner: "/static/resources/system/banner.jpg",
+            logo: "/static/resources/system/logo.png",
             address1: "",
             address2: null,
-            contact: null,
-            dateFormate: "dd-MM-yyyy",
-            timeFormate: "hh:mm:ss a",
-            details: ""
+            contact: "+8801",
+            email: "",
+            web: "",
+            deliver_order_within: "2",
+            details: "",
+            date_formate: "dd-MM-yyyy",
+            time_formate: "hh:mm:ss a"
     ]
 }

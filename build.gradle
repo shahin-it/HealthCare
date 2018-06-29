@@ -25,7 +25,7 @@ repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
 
-/*idea {
+idea {
     module {
         inheritOutputDirs = false
         outputDir = file("$buildDir/classes/main/")
@@ -34,7 +34,7 @@ repositories {
 
 grails {
     exploded = true
-}*/
+}
 
 dependencies {
     compile "org.springframework.boot:spring-boot-starter-logging"

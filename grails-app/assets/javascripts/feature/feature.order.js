@@ -11,6 +11,11 @@ app.tab.order = function() {
 (function () {
     _o.init = function() {
         var _self = this;
+
+        _self.body.on("click", ".action-navigator .view", function() {
+            var data = $.extend(this.jq.parent().data(), {ajax: true});
+            _self.printPreview(data);
+        })
     }
     _o.onCreateEditLoad = function (panel) {
         var _self = this;
@@ -106,4 +111,28 @@ app.tab.order = function() {
 
     }
 
+    _o.printPreview = function (data) {
+        var _self = this;
+        sui.renderCreateEdit.call(_self, app.base + "order/view", data, {
+            target: _self.body,
+            popupLoad: function(resp) {
+                var popup = this
+                popup.find(".print-button").click(function () {
+                    resp.find("#invoice-frame")[0].contentWindow.print();
+                })
+            },
+            success: function() {
+                _self.reload();
+            }
+        });
+    }
+
 })()
+
+function invoiceIframeLoaded() {
+    var iFrameID = document.getElementById('invoice-frame');
+    if(iFrameID) {
+        // iFrameID.height = "";
+        iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 10 + "px";
+    }
+}

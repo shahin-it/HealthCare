@@ -36,6 +36,10 @@ class ApplicationTagLib {
         out << systemResourceUrl.url
     }
 
+    def resourceUrl = { attrs, body ->
+        out << systemResourceBaseUrl() + "resources/"
+    }
+
     def getContextPath = {attrs, body ->
         String contextPath = AppUtil.servletContext.contextPath
         out << (contextPath == "/" ? "" : contextPath)

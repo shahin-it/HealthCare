@@ -4,6 +4,7 @@ import com.healthcare.crm.Consultant
 import com.healthcare.pathology.Order
 import com.healthcare.pathology.OrderItem
 import com.healthcare.pathology.Service
+import com.healthcare.util.AppUtil
 import grails.converters.JSON
 
 class OrderController {
@@ -35,11 +36,12 @@ class OrderController {
         render([message: "Successfully deleted", status: "success"] as JSON)
     }
 
-    def view(Order order) {
-        [order: order]
+    def view() {
+        [id: params.id]
     }
 
-    def print() {
-
+    def print(Order order) {
+        Map config = AppUtil.getConfig("global")
+        [order: order, global: config]
     }
 }

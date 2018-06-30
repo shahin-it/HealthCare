@@ -89,8 +89,8 @@
     <div id="thanks">Thank you!</div>
     <div id="notices">
         <div>PREPARED BY: ${order.createdBy.name}</div>
-        <div>NOTICE:</div>
-        <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+        <div>Advice#${order.consultant.id}: Dr. ${order.consultant.name}</div>
+        <div class="notice">NOTICE: A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
     </div>
 </main>
 <footer>

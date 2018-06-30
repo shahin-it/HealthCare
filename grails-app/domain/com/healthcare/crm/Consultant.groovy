@@ -23,10 +23,9 @@ class Consultant extends DomainBase {
         qualification(nullable: true)
         worksAt(nullable: true)
         lastInstitute(nullable: true)
-        email(nullable: true)
+        email(nullable: true, unique: true)
         mobile2(nullable: true)
         sex(maxSize: 10)
-        visitingFee(nullable: true)
         mobile(unique: true)
     }
 

@@ -16,6 +16,7 @@ class SettingController {
 
     def saveGlobalConfig() {
         params.global['banner'] = DomainConstant.BANNER_IMAGE_PATH
+        params.global['logo'] = DomainConstant.LOGO_IMAGE_PATH
         try {
             settingService.saveConfig(params)
         } catch (Exception e) {
@@ -26,6 +27,10 @@ class SettingController {
         if(!params.global['banner']) {
             def banner = request.getPart("global.banner")
             commonService.uploadImage(banner, DomainConstant.BANNER_IMAGE_PATH)
+        }
+        if(!params.global['logo']) {
+            def logo = request.getPart("global.logo")
+            commonService.uploadImage(logo, DomainConstant.LOGO_IMAGE_PATH)
         }
         render([message: "Successfully saved", status: "success"] as JSON)
     }
@@ -42,7 +47,7 @@ class SettingController {
         if(currentUser.role != "ADMIN") {
             user = currentUser
         }
-        [profile: "current", user: user, users: users]
+        render(view: "/setting/editUser", model: [profile: "current", user: user, users: users])
     }
 
     def saveProfile(User user) {
@@ -67,12 +72,12 @@ class SettingController {
 
     def userManager() {
         Map data = domainService.dataTableElement(User, params)
-        [users: "current", items: data.items, count: data.count]
+        [users: "current", items: data.items as List<User>, count: data.count]
     }
 
     def editUser(User user) {
         user = user ?: new User()
-        render(view: "/setting/profile", model: [user: user])
+        [user: user]
     }
 
     def deleteUser(User user) {

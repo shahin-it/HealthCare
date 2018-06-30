@@ -6,6 +6,9 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CommonService {
     void uploadImage(def sourceFile, String destination, Map params = [:]) {
+        if(!sourceFile) {
+            return
+        }
         String filename = params.fileName
         String folderPath = destination
         def folder = new File(AppUtil.servletContext.getRealPath(folderPath))

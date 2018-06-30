@@ -21,15 +21,15 @@ class Preference {
 
     static _global = [
             name: "Health Care Admin",
-            banner: "/static/resources/system/banner.jpg",
-            logo: "/static/resources/system/logo.png",
-            address1: "",
+            banner: "system/banner.jpg",
+            logo: "system/logo.png",
+            address1: "GP-GA 88/1, Middle Badda, Dhaka",
             address2: null,
-            contact: "+8801",
-            email: "",
-            web: "",
+            contact: "+8801700000000",
+            email: "admin@example.com",
+            web: "http://www.example.com",
             deliver_order_within: "2",
-            details: "",
+            details: "Service First",
             date_formate: "dd-MM-yyyy",
             time_formate: "hh:mm:ss a"
     ]

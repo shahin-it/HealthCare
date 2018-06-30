@@ -19,6 +19,7 @@
                     </div>
                 </div>
                 <ui:imageUpload name="global.banner" label="Banner" max="${2*1024*1024}" value="${config.banner}"></ui:imageUpload>
+                <ui:imageUpload name="global.logo" label="Logo" max="${2*1024*1024}" value="${config.logo}"></ui:imageUpload>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Address Line1</label>
                     <div class="col-sm-10">
@@ -33,18 +34,32 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Phone Numbers</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-4">
                         <input type="text" name="global.contact" class="form-control" placeholder="Phone numbers" maxlength="250" value="${config.contact}">
+                    </div>
+                    <label class="col-sm-2 control-label">Order Delivery Within (Days)</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="global.deliver_order_within" class="form-control" placeholder="Day example 1" required maxlength="250" value="${config.deliver_order_within}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Web Address</label>
+                    <div class="col-sm-4">
+                        <input type="url" name="global.web" class="form-control" placeholder="Website Address" maxlength="250" value="${config.web}">
+                    </div>
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="global.email" class="form-control" placeholder="Email Address" maxlength="250" value="${config.email}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Time Formate</label>
                     <div class="col-sm-4">
-                        <g:select name="global.timeFormate" class="form-control" from="${DomainConstant.TIME_FORMATE}" value="${config.timeFormate}"/>
+                        <g:select name="global.time_formate" class="form-control" from="${DomainConstant.TIME_FORMATE}" value="${config.time_formate}"/>
                     </div>
                     <label class="col-sm-2 control-label">Date Formate</label>
                     <div class="col-sm-4">
-                        <g:select name="global.dateFormate" class="form-control" from="${DomainConstant.DATE_FORMATE}" value="${config.dateFormate}"/>
+                        <g:select name="global.date_formate" class="form-control" from="${DomainConstant.DATE_FORMATE}" value="${config.date_formate}"/>
                     </div>
                 </div>
                 <div class="form-group">

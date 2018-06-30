@@ -1,5 +1,7 @@
 package com.healthcare
 
+import com.healthcare.util.AppUtil
+
 class UITagLib {
     static namespace = "ui"
 
@@ -14,12 +16,18 @@ class UITagLib {
     }
 
     def addressFieldSet = { attrs, body ->
-        out << g.include(view: "/template/addressField.gsp", model: [domain: attrs.domain, perfix: attrs.prefix])
+        out << g.include(view: "/template/addressField.gsp", model: [domain: attrs.domain ?: [:], perfix: attrs.prefix])
     }
 
     def fieldSet = { attrs, body ->
         out << """<fieldset><legend>${attrs.legend}</legend>"""
         out << body()
         out << """</fieldset>"""
+    }
+
+    def isAdmin = { attrs, body ->
+        if(AppUtil.currentUser.isAdmin) {
+            out << body()
+        }
     }
 }

@@ -2,6 +2,7 @@ package com.healthcare
 
 class DomainConstant {
     static final BANNER_IMAGE_PATH = "resources/system/banner.jpg"
+    static final LOGO_IMAGE_PATH = "resources/system/logo.png"
 
     static DISTRICT = ['Noakhali', 'Feni', 'Laxmipur', 'Vhola', 'Barisal', 'Comilla', 'Chittagong']
 

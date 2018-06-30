@@ -133,6 +133,6 @@ function invoiceIframeLoaded() {
     var iFrameID = document.getElementById('invoice-frame');
     if(iFrameID) {
         // iFrameID.height = "";
-        iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 10 + "px";
+        iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + 4 + "px";
     }
 }

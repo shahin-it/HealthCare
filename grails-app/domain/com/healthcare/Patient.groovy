@@ -18,7 +18,7 @@ class Patient extends DomainBase {
 
     static constraints = {
         spouseName(nullable: true)
-        email(nullable: true)
+        email(nullable: true, unique: true)
         mobile2(nullable: true)
         sex(maxSize: 10)
         address(nullable: true)

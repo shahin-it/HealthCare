@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Example 2</title>
+    <title>Customer Receipt #${order.patient.id}</title>
     <asset:stylesheet src="invoice/invoice.css" media="all"/>
 </head>
 <body>
 <header class="clearfix">
     <div id="logo">
-        <img src="${global.logo}">
+        <img src="${app.systemResourceBaseUrl() + global.logo}">
     </div>
     <div id="company">
         <h2 class="name">${global.name}</h2>
@@ -32,7 +32,7 @@
         <div id="invoice">
             <h1>INVOICE #${order.id}</h1>
             <div class="date">Date of Invoice: ${order.created.toAdminFormat()}</div>
-            <div class="date">Delivery Date: ${order.created.toAdminFormat()}</div>
+            <div class="date">Delivery Date: ${order.delivery.toAdminFormat()}</div>
         </div>
     </div>
     <table border="0" cellspacing="0" cellpadding="0">

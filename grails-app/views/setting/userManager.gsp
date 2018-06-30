@@ -34,7 +34,7 @@
                         <td><span class="value">${user.name}</span></td>
                         <td><span class="value">${user.email}</span></td>
                         <td><span class="value">${user.created.toAdminFormat()}</span></td>
-                        <td><span class="value">${user.phone}</span></td>
+                        <td><span class="value">${user.mobile}</span></td>
                         <td class="center"><span class="value">${user.userId}</span></td>
                         <td class="center"><span class="value">${user.role}</span></td>
                         <td class="action-navigator btn-group center" data-id="${user.id}">

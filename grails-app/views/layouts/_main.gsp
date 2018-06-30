@@ -105,11 +105,11 @@
                         <ul class="nav">
                             <!-- Main menu -->
                             <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="glyphicon glyphicon-home"></i> Dashboard</g:link></li>
-                            <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-plane"></i> Pathology</g:link></li>
+                            <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-tree-deciduous"></i> Pathology</g:link></li>
                             <li class="${patient}"><g:link controller="page" action="patient"><i class="glyphicon glyphicon-gift"></i> Patients</g:link></li>
                             <li class="${consultant}"><g:link controller="page" action="consultant"><i class="glyphicon glyphicon-plus"></i> Consultants</g:link></li>
-                            <li class=""><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
-                            <li class=""><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
+                            <li class=""><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Bills</a></li>
+                            <li class=""><a href="#"><i class="glyphicon glyphicon-hdd"></i> Inventory</a></li>
                         </ul>
                     </g:else>
 

@@ -19,7 +19,7 @@ class User extends DomainBase {
     Boolean isInTrash = false
 
     static constraints = {
-        userId(unique: true)
+        userId(unique: true, maxSize: 50)
         email(nullable: true, unique: true)
         mobile(unique: true)
         createdBy(nullable: true)
@@ -27,9 +27,15 @@ class User extends DomainBase {
         address(nullable: true)
     }
 
+    static transients = ['getIsAdmin']
+
     static void initialize() {
         if(User.count == 0) {
             new User(name: "HealthCare Admin", email: "admin@healthcare.com", mobile: "01920489953", userId: "admin", password: "admin", role: "admin").save()
         }
+    }
+
+    Boolean getIsAdmin() {
+        return this.role == "ADMIN"
     }
 }

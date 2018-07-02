@@ -18,16 +18,10 @@ import javax.xml.transform.Transformer
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
-import java.util.concurrent.ConcurrentHashMap
 
 class AppUtil {
     static ServletContext servletContext
-    private static ConcurrentHashMap site_config = null
     private static final ThreadLocal<GrailsWebRequest> requestCache = new ThreadLocal<GrailsWebRequest>()
-
-    public static clearConfig() {
-        site_config = null;
-    }
 
     static String getBaseUrl() {
         return "/";

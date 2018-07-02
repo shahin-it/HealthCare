@@ -23,5 +23,5 @@ readme.md
 build/
 /grails-app/views/a_test
 /src/main/webapp/resources
-/gradle/wrapper/gradle-4.7-bin.zip
+/gradle/wrapper/gradle-3.5-bin.zip
 !/src/main/webapp/resources/system

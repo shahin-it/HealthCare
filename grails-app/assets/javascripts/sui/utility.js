@@ -12,6 +12,7 @@ var sui = {
         delete settings.error;
         settings = $.extend({
             dataType: "json",
+            data: {ajax: true},
             success: function() {
                 response && response.call(this);
                 success && success.apply(this, arguments);
@@ -93,68 +94,16 @@ var sui = {
         if(!count) {return}
         if(data.max == count) { data.offset = 0 }
         pagination.twbsPagination({
-            startPage: data.offset + 1,
+            startPage: (data.offset/data.max) + 1,
             visiblePages: 3,
             initiateStartPageClick: false,
             totalPages: Math.ceil(count/data.max),
             prev: "Prev",
             onPageClick: function (evt, offset) {
-                data.offset = offset - 1;
+                data.offset = (offset-1) * data.max;
                 container.reload(data);
             }
         });
-    },
-    _pagination: function (container) {
-        var pagination = container.find("pagination");
-        var dom = $('<ul class="pagination pagination-sm" data-count="'+pagination.data('count')+'">' +
-            '           <li class="item prev"><span>«</span></li>' +
-            '           <li class="item next"><span>»</span></li>' +
-            '       </ul>');
-        pagination.replaceWith(dom);
-        pagination = dom;
-        var data = $.extend({offset: 0, max: 10, count: parseInt(pagination.data("count"))}, container.data);
-        data.offset = data.offset < 0 ? 0 : data.offset;
-        var _max = (data.offset + 1) * data.max;
-
-        for (var i = 1; i <= Math.ceil(data.count/data.max); i++) {
-            pagination.find(".item.next").before('<li class="item '+(data.offset == (i-1) ? 'active' : '')+'" data-offset="'+(i-1)+'"><span>'+i+'</span></li>');
-        }
-
-        var items = pagination.find(".item");
-        if(data.count == 0) {
-            items.addClass("disabled");
-            return;
-        }
-        items.removeClass("disabled");
-        if(data.offset == 0) {
-            items.filter(".prev").addClass("disabled");
-        }
-        if(_max > data.count || _max == data.count) {
-            items.filter(".next").addClass("disabled");
-        }
-
-        items.click(function () {
-            var $this = $(this);
-            var _data = $.extend({}, data);
-            if($this.is(".disabled")) {
-                return;
-            }
-            if($this.is(".prev")) {
-                _data.offset = _data.offset - 1;
-            } else if($this.is(".next")) {
-                _data.offset = _data.offset + 1;
-            } else {
-                _data.offset = parseInt($this.data("offset"))
-            }
-            container.reload(_data);
-        })
-        return {
-            data: data,
-            goto: function (offset) {
-                data.offset = offset;
-                container.reload(data);
-            }
-        };
     },
     highlight: function (item, time, blink) {
         item.addClass("highlight-row" + (blink ? " blink" : ""));
@@ -382,7 +331,7 @@ var sui = {
             }
         });
     },
-    confirmDelete: function(url, title, data, success) {
+    confirmAjax: function(url, title, data, success) {
         this.confirm(title, function() {
             "body".jq.loader();
             sui.ajax({

@@ -1,3 +1,4 @@
+<%@ page import="com.healthcare.util.AppUtil" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,8 +89,9 @@
     </table>
     <div id="thanks">Thank you!</div>
     <div id="notices">
-        <div>PREPARED BY: ${order.createdBy.name}</div>
-        <div>Advice#${order.consultant.id}: Dr. ${order.consultant.name}</div>
+        <div>PREPARED BY#${order.createdBy.id}: ${order.createdBy.name}</div>
+        <div>PRINTED BY#${AppUtil.loggedUser}: ${AppUtil.currentUser.name}</div>
+        <div>Referred By#${order.consultant.id}: Dr. ${order.consultant.name}</div>
         <div class="notice">NOTICE: A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
     </div>
 </main>

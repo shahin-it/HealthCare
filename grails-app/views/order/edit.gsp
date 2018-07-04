@@ -92,8 +92,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${order.items}" var="item">
-                        <g:include view="order/itemRow.gsp" model="[item: item]"/>
+                    <g:each in="${order.items}" var="item" status="idx">
+                        <g:include view="order/itemRow.gsp" model="[item: item, idx: idx]"/>
                     </g:each>
                     <tr class="summary-row sub-total">
                         <td colspan="4"></td>

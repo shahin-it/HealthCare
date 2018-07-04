@@ -31,6 +31,7 @@ class Preference {
             deliver_order_within: "2",
             details: "Service First",
             date_formate: "dd-MM-yyyy",
-            time_formate: "hh:mm:ss a"
+            time_formate: "hh:mm:ss a",
+            item_per_page: "15"
     ]
 }

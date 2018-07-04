@@ -63,9 +63,13 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Display Item per Page</label>
+                    <div class="col-sm-4">
+                        <input type="number" min="5" required name="global.item_per_page" class="form-control" placeholder="Item per Page" maxlength="500" value="${config.item_per_page}">
+                    </div>
                     <label class="col-sm-2 control-label">About us</label>
-                    <div class="col-sm-10">
-                        <textarea name="global.details" class="form-control" placeholder="About us" rows="3" maxlength="500">${config.details}</textarea>
+                    <div class="col-sm-4">
+                        <textarea name="global.details" class="form-control" placeholder="About us" rows="2" maxlength="250">${config.details}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

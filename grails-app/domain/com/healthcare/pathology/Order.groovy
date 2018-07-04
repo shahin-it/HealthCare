@@ -7,7 +7,8 @@ import com.healthcare.util.AppUtil
 
 class Order extends DomainBase {
 
-    String status = "UNPAID"// PAID, UNPAID, DELIVERED, CANCELED
+    String deliveryStatus = "PENDING"// PENDING, DELIVERED, CANCELED
+    String paymentStatus = "UNPAID"// PAID, UNPAID, PARTIAL
 
     Patient patient
     Consultant consultant
@@ -22,11 +23,25 @@ class Order extends DomainBase {
     String note
     Boolean active = true
 
+    static hasMany = [items: OrderItem]
+
     static constraints = {
         note(nullable: true, maxSize: 500)
+        paymentStatus(maxSize: 20)
+        deliveryStatus(maxSize: 20)
     }
 
-    static transients = ["getTotal", "getGrandTotal", "getDue"]
+    int week
+    int month
+    int year
+
+    static mapping = {
+        week formula: 'WEEK(created)'
+        month formula: 'MONTH(created)'
+        year formula: 'YEAR(created)'
+    }
+
+    static transients = ["getTotal", "getGrandTotal", "getDue", "getIsPaid"]
 
     def beforeValidate() {
         super.beforeValidate()
@@ -45,5 +60,9 @@ class Order extends DomainBase {
 
     Double getDue() {
         return grandTotal - paid
+    }
+
+    Boolean getIsPaid() {
+        return this.due <= 1
     }
 }

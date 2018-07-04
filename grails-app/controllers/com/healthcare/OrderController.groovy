@@ -44,4 +44,9 @@ class OrderController {
         Map config = AppUtil.getConfig("global")
         [order: order, global: config]
     }
+
+    def changeStatus() {
+        orderService.changeStatus(params)
+        render([messagparamse: "Successfully chaged", status: "success"] as JSON)
+    }
 }

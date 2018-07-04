@@ -8,7 +8,7 @@ class PageController {
     DomainService domainService
 
     def pathology() {
-        Map data = domainService.dataTableElement(Order, params)
+        Map data = domainService.dataTableElement(Order, [sort: "id", dir: "desc"] + params)
         [pathology: "current", items: data.items as List<Order>, count: data.count]
     }
 

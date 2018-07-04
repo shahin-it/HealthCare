@@ -20,6 +20,13 @@ $(function() {
         var _init = tab.init;
         tab.init = function () {
             var _self = this;
+            _self.body.on("click", ".action-navigator [data-action]", function() {
+                var $this = this.jq
+                var data = $.extend($this.parent().data() || {}, $this.data())
+                var action = data.action
+                delete data.action
+                _self.onActionClick && _self.onActionClick.call(_self, action, data)
+            });
             _self.body.on("click", ".add-new-button, .action-navigator .edit", function() {
                 var data = $.extend(this.jq.parent().data(), {ajax: true});
                 sui.renderCreateEdit.call(_self, tab.createEditUrl, data, {
@@ -32,7 +39,7 @@ $(function() {
             });
             _self.body.on("click", ".action-navigator .remove", function() {
                 var data = this.jq.parent().data() || {};
-                sui.confirmDelete(tab.removeUrl, "Are you confirm to remove?", data, function() {
+                sui.confirmAjax(tab.removeUrl, "Are you confirm to remove?", data, function() {
                     _self.reload();
                 });
             });

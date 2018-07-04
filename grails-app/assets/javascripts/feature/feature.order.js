@@ -11,14 +11,28 @@ app.tab.order = function() {
 (function () {
     _o.init = function() {
         var _self = this;
-
-        _self.body.on("click", ".action-navigator .view", function() {
-            var data = $.extend(this.jq.parent().data(), {ajax: true});
-            _self.printPreview(data);
-        })
     }
-    _o.onCreateEditLoad = function (panel) {
+
+    _o.onActionClick = function(action, data) {
         var _self = this;
+        switch (action) {
+            case "view":
+                data = $.extend(data, {ajax: true});
+                _self.printPreview(data);
+                break;
+            case "delivery":
+            case "cancel":
+            case "activate":
+                data = $.extend(data, {type: action});
+                sui.confirmAjax(app.base + "order/changeStatus", "Are you confirm to change?", data, function() {
+                    _self.reload();
+                });
+                break;
+        }
+    }
+
+    _o.onCreateEditLoad = function (panel) {
+        var _self = _o;
         var popup = panel.parents(".sui-create-edit-panel");
         var cartTable = popup.find(".cart-table");
         var serviceSelection = popup.find(".service-select");
@@ -76,7 +90,7 @@ app.tab.order = function() {
             var row = this.jq;
             var quantity = row.find(".quantity input").val() || 1
             var rate = row.find(".rate input").val() || 0.00
-            var discount = row.find(".discount input").val() * 1 || 0.00
+            var discount = row.find(".discount input").val() * quantity || 0.00
             var totalDisp = row.find(".price") || 0.00
             var subTotal = (rate * quantity) || 0.00;
             var grandTotal = ((rate * quantity) - discount) || 0.00;

@@ -23,13 +23,13 @@ class DomainService {
         params.remove("controller")
         params.remove("action")
         Map data = [:]
-        int max = params.max ? params.max.toInteger() : 100
+        int max = params.max ? params.max.toInteger() : DomainConstant.MAX_RESULT
         int offset = params.offset ? params.offset.toInteger() : 0
         String sort = params.sort ?: null
         String dir = params.dir ?: "asc"
         Map listMap = [max: max, offset: offset]
 
-        data.count = domainClass.createCriteria().count {
+        data.count = domainClass.createCriteria().count() {
             and getCriteriaClosure(params)
         }
         data.items = domainClass.createCriteria().list(listMap) {

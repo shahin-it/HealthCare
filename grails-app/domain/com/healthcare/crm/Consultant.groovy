@@ -17,6 +17,7 @@ class Consultant extends DomainBase {
 
     Double visitingFee = 0.0
 
+    Boolean isInHouse = false
     Boolean isInTrash = false
 
     static constraints = {

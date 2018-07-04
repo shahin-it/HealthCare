@@ -5,10 +5,17 @@ import com.healthcare.util.AppUtil
 class DashboardController {
 
     UserService userService
+    DashboardService dashboardService
 
     def controlPanel() {
         Map config = AppUtil.getConfig("global")
-        render(view: "/controlPanel", model: [dashboard: "current", config: config])
+        Map reports = [:]
+        reports.sellByMonth = dashboardService.sellByMonth
+        reports.testChart = dashboardService.testChart
+        reports.orderStatus = dashboardService.orderStatus
+        reports.overAllStatus = dashboardService.overAllStatus
+        reports.latestOrder = dashboardService.latestOrder
+        render(view: "/controlPanel", model: [dashboard: "current", config: config, reports: reports])
     }
 
     def login() {

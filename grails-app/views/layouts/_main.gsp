@@ -1,4 +1,4 @@
-<%@ page import="com.healthcare.util.AppUtil" %>
+<%@ page import="com.healthcare.DomainConstant; com.healthcare.util.AppUtil" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -21,7 +21,7 @@
     <script type="text/javascript">
         var app = {
             base: '${AppUtil.baseUrl}',
-            maxResult: 5,
+            maxResult: ${DomainConstant.MAX_RESULT},
             tab: {}
         }
     </script>

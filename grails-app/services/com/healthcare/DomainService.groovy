@@ -1,15 +1,33 @@
 package com.healthcare
 
-import com.healthcare.pathology.Order
 import grails.gorm.transactions.Transactional
 
 @Transactional
 class DomainService {
 
-    private Closure getCriteriaClosure(Map params) {
+    private Closure getCriteriaClosure(def domainClass, Map params) {
         return {
             if (params.searchText) {
-                ilike("name", "%${params.searchText}%")
+                or {
+                    if(params.searchText.isNumber()) {
+                        eq("id", params.searchText as long)
+                    } else {
+                        if(domainClass.hasDeclaration("name")) {
+                            ilike("name", "%${params.searchText}%")
+                        }
+                        if(params.searchcriteria) {
+                            searchCriteria
+                        }
+                    }
+                }
+            }
+            if(params.createdFrom) {
+                Date date = params.createdFrom.dayStart.toGMT()
+                ge("created", date)
+            }
+            if(params.createdTo) {
+                Date date = params.createdTo.dayEnd.toGMT()
+                le("created", date);
             }
             if(params.ids) {
                 inList("id", params.list("ids").collect {it.toLong()})
@@ -18,7 +36,7 @@ class DomainService {
         }
     }
 
-    Map dataTableElement(def domainClass, Map _params) {
+    Map dataTableElement(def domainClass, Map _params, Closure criteria = {}) {
         Map params = _params.clone()
         params.remove("controller")
         params.remove("action")
@@ -30,10 +48,12 @@ class DomainService {
         Map listMap = [max: max, offset: offset]
 
         data.count = domainClass.createCriteria().count() {
-            and getCriteriaClosure(params)
+            and getCriteriaClosure(domainClass, params)
+            and criteria
         }
         data.items = domainClass.createCriteria().list(listMap) {
-            and getCriteriaClosure(params)
+            and getCriteriaClosure(domainClass, params)
+            and criteria
             if(sort) {
                 order(sort, dir)
             }

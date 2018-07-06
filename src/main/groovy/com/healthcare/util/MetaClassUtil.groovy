@@ -15,6 +15,12 @@ static init() {
         return;
     } //To Prevent Double Initialization
 
+    Class.metaClass.with {
+        hasDeclaration = { name ->
+            return delegate.metaClass.properties.find{it.name == name} != null
+        }
+    }
+
     Date.metaClass.with {
         toGMT = { timeZone = null ->
             long time = delegate.getTime() - (timeZone ?: TimeZone.default).getOffset(delegate)
@@ -283,16 +289,16 @@ static init() {
          * It assumes the format is only a date format
          * default format is yyyy-MM-dd
          */
-        getDayStart = { String format = null ->
-            return (delegate + " 00:00:00").toDate(format ? format + " hh:mm:ss" : null);
+        getDayStart = { String format = "d-mm-yyyy" ->
+            return (delegate + " 00:00:00").toDate(format ? format + " hh:mm:ss" : null)
         }
 
         /**
          * It assumes the format is only a date format
          * default format is yyyy-MM-dd
          */
-        getDayEnd = { String format = null ->
-            return (delegate + " 23:59:59").toDate(format ? format + " hh:mm:ss" : null);
+        getDayEnd = { String format = "dd-mm-yyyy" ->
+            return (delegate + " 23:59:59").toDate(format ? format + " hh:mm:ss" : null)
         }
 
         sanitize = {

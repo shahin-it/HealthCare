@@ -58,7 +58,7 @@ $(function () {
                     chartColors.green,
                     chartColors.orange,
                     chartColors.yellow,
-                    chartColors.blue,
+                    chartColors.grey,
                     chartColors.purple,
                     chartColors.red
                 ],

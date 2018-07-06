@@ -78,14 +78,13 @@ $.extend($.prototype, {
         this.find(".sui-image-chooser").each(function () {
             sui.imageInput(this.jq);
         })
-        this.find(".editable").editable({
-            validate: function(value) {
-                if(this.jq.data("required") && $.trim(value) == '') {
-                    return 'This field is required';
-                }
-            }
-        });
         sui.toggle(this);
+        this.find('.date-picker').datepicker({
+            format: app.dateFormat
+        });
+        /*this.find('.date-time-picker').datetimepicker({
+            format: app.dateFormat + " " + app.timeFormat
+        });*/
     },
     updateSiteUi: function() {
         var _self = this;

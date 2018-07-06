@@ -12,28 +12,27 @@
 
     <asset:stylesheet src="vendor/jquery-ui.css"/>
     <asset:stylesheet src="vendor/bootstrap.min.css"/>
+    <asset:stylesheet src="vendor/bootstrap-datepicker3.standalone.min.css"/>
     <asset:stylesheet src="vendor/styles.css"/>
     <asset:stylesheet src="admin.css"/>
-    <asset:stylesheet src="vendor/dataTables.bootstrap.css"/>
-    <asset:stylesheet src="vendor/bootstrap-editable.css"/>
     %{--<asset:stylesheet src="application.css"/>--}%
 
     <script type="text/javascript">
         var app = {
             base: '${AppUtil.baseUrl}',
             maxResult: ${DomainConstant.MAX_RESULT},
-            tab: {}
+            tab: {},
+            dateFormat: 'dd-mm-yyyy',
+            timeFormat: 'hh:mm:ss a',
         }
     </script>
 
-    <asset:javascript src="vendor/jquery-3.3.1.js"/>
-    <asset:javascript src="vendor/jquery.form.js"/>
+    <asset:javascript src="vendor/jquery-3.3.1.min.js"/>
+    <asset:javascript src="vendor/jquery.form.min.js"/>
     <asset:javascript src="vendor/jquery-ui.js"/>
     <asset:javascript src="vendor/bootstrap.min.js"/>
     <asset:javascript src="vendor/bootstrap-notify.min.js"/>
-    <asset:javascript src="vendor/jquery.dataTables.min.js"/>
-    <asset:javascript src="vendor/dataTables.bootstrap.js"/>
-    <asset:javascript src="vendor/bootstrap-editable.min.js"/>
+    <asset:javascript src="vendor/bootstrap-datepicker.min.js"/>
     <asset:javascript src="vendor/sweetalert2.js"/>
     <asset:javascript src="vendor/jquery.twbsPagination.min.js"/>
     <asset:javascript src="sui/utility.js"/>

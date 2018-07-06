@@ -34,20 +34,10 @@
     font-size: 24px;
     margin-top: 15px;
 }
-.search-form {
-    display: inline-flex;
-    padding-right: 5px;
-}
-.search-form input {
+/*.filter-form input {
     max-width: 150px;
     margin-right: -5px;
-}
-.sui-tabular-content .page-title .tab-action-container {
-    display: flex;
-}
-.sui-tabular-content .table-footer .right {
-    float: right;
-}
+}*/
 .cart-table .summary-row {
     font-weight: bold;
 }

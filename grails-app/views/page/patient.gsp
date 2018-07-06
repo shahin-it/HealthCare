@@ -9,7 +9,7 @@
         <div class="panel-heading">
             <div class="panel-title">Manage Patients</div>
             <div class="panel-options tab-action-container">
-                <div class="search-form">
+                <div class="filter-form">
                     <input type="text" class="form-control" placeholder="Search anything"/><button class="btn btn-primary glyphicon glyphicon-search"></button>
                 </div>
                 <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>

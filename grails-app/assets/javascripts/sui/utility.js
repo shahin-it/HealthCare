@@ -29,11 +29,12 @@ var sui = {
         if(!container.is(".sui-tabular-content")) {
             return;
         }
+        var filterForm = container.find(".filter-form");
         data = container.data = $.extend({
             offset: 0,
             max: app.maxResult,
             searchText: ""
-        }, data);
+        }, data, filterForm.serializeObject());
 
         config = $.extend({
             url: "#",
@@ -43,12 +44,12 @@ var sui = {
         container.on("click", ".tab-reload", function() {
             container.reload();
         });
-        container.on("click", ".search-form button", function() {
-            container.reload({searchText: this.jq.prev("input").val()});
+        container.on("click", ".filter-form button", function() {
+            container.reload(filterForm.serializeObject());
         });
-        container.on("keypress", ".search-form input", function (e) {
+        container.on("keypress", ".filter-form input", function (e) {
             if (e.which == 13) {
-                container.reload({searchText: this.jq.val()});
+                container.reload(filterForm.serializeObject());
             }
         });
 
@@ -73,7 +74,7 @@ var sui = {
                         var tableBody = container.find(".tabular-body");
                         tableBody.html(resp.find(".tabular-body").html());
                         tableBody.updateUi();
-                        container.find(".search-form").prev("input").val(reqData.searchText);
+                        container.find(".filter-form").prev("input").val(reqData.searchText);
                         _self.pagination(container);
                         config.afterLoad.apply(this, arguments);
                     }

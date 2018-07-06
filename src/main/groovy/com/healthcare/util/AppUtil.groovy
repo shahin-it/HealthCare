@@ -38,20 +38,21 @@ class AppUtil {
         return request
     }
 
-    static getConfig(String type, String key = null) {
+    static getConfig(String type, String key = null, def _default = null) {
         if(key) {
-            return Preference.findByTypeAndConfigKey(type, key).value
+            Preference preference = Preference.findByTypeAndConfigKey(type, key)
+            return preference ? preference.value : _default
         } else {
             return Preference.findAllByType(type).collectEntries{[(it.configKey): it.value]}
         }
     }
 
-    static getDateFormate() {
-        return AppUtil.getConfig("global", "date_formate")
+    static String getDateFormate() {
+        return AppUtil.getConfig("global", "date_formate", "dd-MM-yyyy")
     }
 
-    static getTimeFormate() {
-        return AppUtil.getConfig("global", "time_formate")
+    static String getTimeFormate() {
+        return AppUtil.getConfig("global", "time_formate", "hh:mm:ss a")
     }
 
     public static GrailsParameterMap getParams() {

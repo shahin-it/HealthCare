@@ -8,6 +8,18 @@ class PageController {
     DomainService domainService
 
     def pathology() {
+        if(params.searchText) {
+            params.searchCriteria = {
+                patient {
+                    or {
+                        ilike("name", "%${params.searchText}%")
+                        ilike("mobile", "%${params.searchText}%")
+                        ilike("email", "%${params.searchText}%")
+                        ilike("spouseName", "%${params.searchText}%")
+                    }
+                }
+            }
+        }
         Map data = domainService.dataTableElement(Order, [sort: "id", dir: "desc"] + params)
         [pathology: "current", items: data.items as List<Order>, count: data.count]
     }

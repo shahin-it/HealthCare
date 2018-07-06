@@ -8,11 +8,11 @@
     <div class="content-box-large sui-tabular-content" id="order-manager-tab">
         <div class="panel-heading">
             <div class="panel-title">Manage Test Report</div>
-            <div class="panel-options tab-action-container">
-                <div class="search-form">
-                    <input type="text" class="form-control" placeholder="Search anything"/><button class="btn btn-primary glyphicon glyphicon-search"></button>
+            <div class="panel-options row tab-action-container">
+                <ui:basicTableFilter/>
+                <div class="col-sm-1">
+                    <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
                 </div>
-                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">

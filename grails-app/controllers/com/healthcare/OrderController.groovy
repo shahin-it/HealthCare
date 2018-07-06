@@ -29,7 +29,7 @@ class OrderController {
 
     def save(Order order) {
         orderService.save(order, params)
-        render([messagparamse: "Successfully saved", status: "success"] as JSON)
+        render([message: "Successfully saved", status: "success"] as JSON)
     }
 
     def delete(Order order) {
@@ -47,6 +47,6 @@ class OrderController {
 
     def changeStatus() {
         orderService.changeStatus(params)
-        render([messagparamse: "Successfully chaged", status: "success"] as JSON)
+        render([message: "Successfully chaged", status: "success"] as JSON)
     }
 }

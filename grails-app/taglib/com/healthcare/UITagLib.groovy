@@ -30,4 +30,24 @@ class UITagLib {
             out << body()
         }
     }
+
+    def basicTableFilter = { attrs, body ->
+        out << """<div class="col-sm-11">
+                    <form class="form-inline create-edit-form filter-form" role="form">
+                        <div class="form-group col-sm-2"><label>Created From=>To</label></div>
+                        <div class="form-group col-sm-2">
+                            <input name="createdFrom" readonly class="from form-control date-picker" placeholder="Date from">
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <input name="createdTo" readonly class="to form-control date-picker" id="exampleInputPassword2" placeholder="Date to">
+                        </div>
+                        <div class="input-group col-sm-3">
+                            <input type="text" name="searchText" class="search-text form-control" placeholder="Search anything"/>
+                            <div class="input-group-btn">
+                                <button class="btn submit-button btn-primary" type="button">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>"""
+    }
 }

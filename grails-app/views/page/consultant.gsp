@@ -9,9 +9,7 @@
         <div class="panel-heading">
             <div class="panel-title">Manage Consultants</div>
             <div class="panel-options tab-action-container">
-                <div class="filter-form">
-                    <input type="text" class="form-control" placeholder="Search anything"/><button class="btn btn-primary glyphicon glyphicon-search"></button>
-                </div>
+                <ui:basicTableFilter/>
                 <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
             </div>
         </div>

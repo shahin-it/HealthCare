@@ -10,9 +10,7 @@
             <div class="panel-title">Manage Test Report</div>
             <div class="panel-options row tab-action-container">
                 <ui:basicTableFilter/>
-                <div class="col-sm-1">
-                    <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
-                </div>
+                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">

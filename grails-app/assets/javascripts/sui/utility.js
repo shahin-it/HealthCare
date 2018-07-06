@@ -45,6 +45,9 @@ var sui = {
             container.reload();
         });
         container.on("click", ".filter-form button", function() {
+            if(this.jq.is(".clear-button")) {
+                filterForm[0].reset();
+            }
             container.reload(filterForm.serializeObject());
         });
         container.on("keypress", ".filter-form input", function (e) {

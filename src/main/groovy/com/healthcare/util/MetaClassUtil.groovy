@@ -289,7 +289,7 @@ static init() {
          * It assumes the format is only a date format
          * default format is yyyy-MM-dd
          */
-        getDayStart = { String format = "d-mm-yyyy" ->
+        getDayStart = { String format = "d-MM-yyyy" ->
             return (delegate + " 00:00:00").toDate(format ? format + " hh:mm:ss" : null)
         }
 
@@ -297,7 +297,7 @@ static init() {
          * It assumes the format is only a date format
          * default format is yyyy-MM-dd
          */
-        getDayEnd = { String format = "dd-mm-yyyy" ->
+        getDayEnd = { String format = "dd-MM-yyyy" ->
             return (delegate + " 23:59:59").toDate(format ? format + " hh:mm:ss" : null)
         }
 

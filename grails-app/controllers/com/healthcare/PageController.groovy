@@ -1,6 +1,7 @@
 package com.healthcare
 
 import com.healthcare.crm.Consultant
+import com.healthcare.crm.Employee
 import com.healthcare.pathology.Order
 
 class PageController {
@@ -32,5 +33,10 @@ class PageController {
     def consultant() {
         Map data = domainService.dataTableElement(Consultant, params)
         [consultant: "current", items: data.items as List<Consultant>, count: data.count]
+    }
+
+    def employee() {
+        Map data = domainService.dataTableElement(Employee, params)
+        [employee: "current", items: data.items as List<Employee>, count: data.count]
     }
 }

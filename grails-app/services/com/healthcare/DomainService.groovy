@@ -27,7 +27,7 @@ class DomainService {
             }
             if(params.createdTo) {
                 Date date = params.createdTo.dayEnd.toGMT()
-                le("created", date);
+                le("created", date)
             }
             if(params.ids) {
                 inList("id", params.list("ids").collect {it.toLong()})

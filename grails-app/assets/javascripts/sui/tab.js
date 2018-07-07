@@ -11,7 +11,7 @@ var suiTab = {
                 url: app.base + data.url,
                 data: {ajax: true},
                 dataType: "html",
-                complete: function(resp) {
+                response: function(resp) {
                     panel.loader(false)
                 },
                 success: function(resp) {

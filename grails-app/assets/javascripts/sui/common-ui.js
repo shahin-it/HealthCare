@@ -80,7 +80,30 @@ $.extend($.prototype, {
         })
         sui.toggle(this);
         this.find('.date-picker').datepicker({
-            format: app.dateFormat
+            format: app.dateFormat,
+            autoclose: true,
+            clearBtn: true,
+            daysOfWeekHighlighted: [5],
+            todayBtn: true,
+            todayHighlight: true,
+            weekStart: 6,
+
+        });
+        var form = this.find(".ajax-submit")
+        sui.ajaxForm(form, {
+            type: "POST",
+            dataType: "json",
+            beforeSubmit: function(arr, $form, options) {
+                form.loader();
+            },
+            response: function() {
+                form.loader(false);
+            },
+            success: function(resp, type) {
+                if(resp && resp.message) {
+                    sui.notify(resp.message, resp.status);
+                }
+            }
         });
         /*this.find('.date-time-picker').datetimepicker({
             format: app.dateFormat + " " + app.timeFormat

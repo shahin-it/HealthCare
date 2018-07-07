@@ -1,6 +1,7 @@
 package com.healthcare
 
 import com.healthcare.util.AppUtil
+import grails.converters.JSON
 
 class DashboardController {
 
@@ -30,7 +31,13 @@ class DashboardController {
         User user = User.findByUserIdAndPassword(params.userName, params.password)
         if(user) {
             userService.registerAdminSession(user)
-            redirect(action: "controlPanel", method: 'POST')
+            if(params.ajax == "true") {
+                render([status: "success"] as JSON)
+            } else if(params.referrer) {
+                redirect(uri: params.referrer, method: "POST")
+            } else {
+                redirect(action: "controlPanel", method: 'POST')
+            }
         } else {
             redirect(action: "login", method: 'POST')
         }

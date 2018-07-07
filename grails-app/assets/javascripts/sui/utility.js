@@ -10,19 +10,63 @@ var sui = {
         delete settings.response;
         delete settings.success;
         delete settings.error;
+        $.extend(settings.data, {ajax: true})
         settings = $.extend({
             dataType: "json",
-            data: {ajax: true},
-            success: function() {
+            success: function(resp) {
                 response && response.call(this);
-                success && success.apply(this, arguments);
+                if(sui.silentLogin(resp)) {
+                    success && success.apply(this, arguments);
+                }
             },
-            error: function() {
+            error: function(errorObj) {
                 response && response.call(this);
-                error && error.apply(this, arguments);
+                if(sui.silentLogin(errorObj.responseText)) {
+                    error && error.apply(this, arguments);
+                }
             }
         }, settings);
         return $.ajax(settings);
+    },
+    ajaxForm: function(form, settings) {
+        if(!settings) {
+            return;
+        }
+        var response = settings.response, beforeSubmit = settings.beforeSubmit, success = settings.success, error = settings.error;
+        delete settings.response;
+        delete settings.beforeSubmit;
+        delete settings.success;
+        delete settings.error;
+        settings = $.extend({
+            type: "POST",
+            dataType: "json",
+            beforeSubmit: function(arr, $form, options) {
+                arr.push({name: "ajax", value: true})
+                if(form.triggerHandler("preSubmit") == false) {
+                    return false;
+                }
+                if(beforeSubmit) {
+                    beforeSubmit = beforeSubmit.apply(this, arguments);
+                    if(beforeSubmit == false) {
+                        return false
+                    }
+                }
+            },
+            success: function(resp, type) {
+                response && response.call(this);
+                if(sui.silentLogin(resp)) {
+                    success && success.apply(this, arguments);
+                }
+            },
+            error: function(errorObj) {
+                response && response.call(this);
+                if(sui.silentLogin(errorObj.responseText)) {
+                    error && error.apply(this, arguments);
+                }
+            }
+        }, settings)
+
+        return form.ajaxForm(settings);
     },
     singleTab: function(container, data, config) {
         var _self = this;
@@ -64,10 +108,11 @@ var sui = {
             var reqData = $.extend({ajax: true}, data, reloadData);
             container.loader();
             sui.ajax({
+                method: "post",
                 url: config.url,
                 data: reqData,
                 dataType: "html",
-                complete: function(resp) {
+                response: function(resp) {
                     container.loader(false);
                 },
                 success: function(resp) {
@@ -164,7 +209,7 @@ var sui = {
                 url: url,
                 data: data,
                 dataType: "html",
-                complete: function() {
+                response: function() {
                     body.loader(false);
                 },
                 success: function(resp) {
@@ -187,10 +232,11 @@ var sui = {
                 saveAndNew = true;
                 form.submit();
             });
-            form.ajaxForm({
+            sui.ajaxForm(form, {
                 type: "POST",
                 dataType: "json",
                 beforeSubmit: function(arr, $form, options) {
+                    arr.push({name: "ajax", value: true})
                     if(config.preSubmit) {
                         return config.preSubmit.apply(this, arguments);
                     }
@@ -200,7 +246,6 @@ var sui = {
                     form.loader();
                 },
                 success: function(resp, type) {
-                    form.loader(false);
                     if(resp && resp.message) {
                         sui.notify(resp.message, resp.status);
                     }
@@ -214,7 +259,7 @@ var sui = {
                         close();
                     }
                 },
-                error: function() {
+                response: function() {
                     form.loader(false);
                 }
             });
@@ -258,7 +303,7 @@ var sui = {
                         url: url,
                         data: data,
                         dataType: "html",
-                        complete: function() {
+                        response: function() {
                             body.loader(false);
                         },
                         success: function(resp) {
@@ -272,7 +317,7 @@ var sui = {
                     content.updateUi();
                     popup.dialog("option", "position", popup.dialog( "option", "position" ));
                     var form = popup.find("form:first");
-                    form.ajaxForm({
+                    sui.ajaxForm(form, {
                         type: "POST",
                         dataType: "json",
                         beforeSubmit: function(arr, $form, options) {
@@ -282,7 +327,6 @@ var sui = {
                             }
                         },
                         success: function(resp, type) {
-                            form.loader(false);
                             if(config.response) {
                                 config.response.apply(this);
                             }
@@ -294,7 +338,7 @@ var sui = {
                             }
                             popup.dialog("close");
                         },
-                        error: function() {
+                        response: function() {
                             form.loader(false);
                             if(config.response) {
                                 config.response.apply(this);
@@ -410,5 +454,36 @@ var sui = {
                 }).trigger("change")
             }
         })
+    },
+    silentLogin: function (resp) {
+        try {
+            resp = $(resp)
+        } catch(ex) {
+            resp = $()
+        }
+        if(resp.is(".silent-login-popup")) {
+            $("body").append(resp);
+            resp.updateUi();
+            resp.modal('show');
+            return false
+        }
+        return true
+    },
+    ajaxGlobalHook: function (hookName, callback) {
+        var origOpen = XMLHttpRequest.prototype.open;
+        hookName = hookName ? hookName : "load"
+        XMLHttpRequest.prototype.open = function(evt) {
+            console.log('request started!');
+            this.addEventListener(hookName, function(_evt) {
+                // console.log('request completed!');
+                // console.log(this.readyState); //will always be 4 (ajax is completed successfully)
+                // console.log(this.responseText); //whatever the response was
+                var resp = callback.call(this)
+                if(resp == false) {
+                    return false
+                }
+            });
+            origOpen.apply(this, arguments);
+        };
     }
 }

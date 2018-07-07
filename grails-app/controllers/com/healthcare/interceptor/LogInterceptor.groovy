@@ -11,7 +11,11 @@ class LogInterceptor {
 
     boolean before() {
         if(AppUtil.loggedUser == null) {
-            redirect(uri: "/dashboard/login")
+            if(params.ajax == "true") {
+                render(view: "/page/silentLogin")
+            } else {
+                redirect(uri: "/dashboard/login?referrer=" + request.requestURI)
+            }
             return false
         }
         AppUtil.servletContext = servletContext

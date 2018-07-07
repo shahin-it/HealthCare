@@ -4,7 +4,7 @@
     }).ajaxStop(function() {
         $('#spinner').fadeOut();
     });*/
-    var layoutBody = $(".loayout-body")
+    var layoutBody = $(".loayout-body");
 
     var profile = layoutBody.find(".page-content.profile")
     profile.find("select.user-selection").change(function () {
@@ -12,20 +12,19 @@
     })
 
     var form = layoutBody.find(".create-edit-form");
-    form.ajaxForm({
+    sui.ajaxForm(form, {
         type: "POST",
         dataType: "json",
         beforeSubmit: function(arr, $form, options) {
             form.loader();
         },
-        success: function(resp, type) {
+        response: function() {
             form.loader(false);
+        },
+        success: function(resp, type) {
             if(resp && resp.message) {
                 sui.notify(resp.message, resp.status);
             }
-        },
-        error: function() {
-            form.loader(false);
         }
     });
 })(jQuery);

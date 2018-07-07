@@ -236,7 +236,6 @@ var sui = {
                 type: "POST",
                 dataType: "json",
                 beforeSubmit: function(arr, $form, options) {
-                    arr.push({name: "ajax", value: true})
                     if(config.preSubmit) {
                         return config.preSubmit.apply(this, arguments);
                     }

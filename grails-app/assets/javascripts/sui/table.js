@@ -28,7 +28,7 @@ $(function() {
                 _self.onActionClick && _self.onActionClick.call(_self, action, data)
             });
             _self.body.on("click", ".add-new-button, .action-navigator .edit", function() {
-                var data = $.extend(this.jq.parent().data(), {ajax: true});
+                var data = this.jq.parent().data();
                 sui.renderCreateEdit.call(_self, tab.createEditUrl, data, {
                     target: _self.body,
                     popupLoad: _self.onCreateEditLoad,

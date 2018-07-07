@@ -103,6 +103,7 @@ $.extend($.prototype, {
                 if(resp && resp.message) {
                     sui.notify(resp.message, resp.status);
                 }
+                form.parents(".silent-login-popup").modal('hide').data('bs.modal', null )
             }
         });
         /*this.find('.date-time-picker').datetimepicker({

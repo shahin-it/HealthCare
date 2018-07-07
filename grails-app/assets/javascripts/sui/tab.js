@@ -9,7 +9,6 @@ var suiTab = {
             panel.loader()
             sui.ajax({
                 url: app.base + data.url,
-                data: {ajax: true},
                 dataType: "html",
                 response: function(resp) {
                     panel.loader(false)

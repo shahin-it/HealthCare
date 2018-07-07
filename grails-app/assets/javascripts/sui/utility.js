@@ -105,7 +105,7 @@ var sui = {
             if(before == false) {
                 return;
             }
-            var reqData = $.extend({ajax: true}, data, reloadData);
+            var reqData = $.extend(data, reloadData);
             container.loader();
             sui.ajax({
                 method: "post",

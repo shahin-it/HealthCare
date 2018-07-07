@@ -17,7 +17,6 @@ app.tab.order = function() {
         var _self = this;
         switch (action) {
             case "view":
-                data = $.extend(data, {ajax: true});
                 _self.printPreview(data);
                 break;
             case "delivery":

@@ -3,25 +3,29 @@
  */
 var sui = {
     ajax: function(settings) {
-        if(!settings) {
+        if (!settings) {
             return;
         }
-        var response = settings.response, success = settings.success, error = settings.error;
+        var response = settings.response
+          , success = settings.success
+          , error = settings.error;
         delete settings.response;
         delete settings.success;
         delete settings.error;
-        $.extend(settings.data, {ajax: true})
+        $.extend(settings.data, {
+            ajax: true
+        })
         settings = $.extend({
             dataType: "json",
             success: function(resp) {
                 response && response.call(this);
-                if(sui.silentLogin(resp)) {
+                if (sui.silentLogin(resp)) {
                     success && success.apply(this, arguments);
                 }
             },
             error: function(errorObj) {
                 response && response.call(this);
-                if(sui.silentLogin(errorObj.responseText)) {
+                if (sui.silentLogin(errorObj.responseText)) {
                     error && error.apply(this, arguments);
                 }
             }
@@ -29,10 +33,13 @@ var sui = {
         return $.ajax(settings);
     },
     ajaxForm: function(form, settings) {
-        if(!settings) {
+        if (!settings) {
             return;
         }
-        var response = settings.response, beforeSubmit = settings.beforeSubmit, success = settings.success, error = settings.error;
+        var response = settings.response
+          , beforeSubmit = settings.beforeSubmit
+          , success = settings.success
+          , error = settings.error;
         delete settings.response;
         delete settings.beforeSubmit;
         delete settings.success;
@@ -41,26 +48,29 @@ var sui = {
             type: "POST",
             dataType: "json",
             beforeSubmit: function(arr, $form, options) {
-                arr.push({name: "ajax", value: true})
-                if(form.triggerHandler("preSubmit") == false) {
+                arr.push({
+                    name: "ajax",
+                    value: true
+                })
+                if (form.triggerHandler("preSubmit") == false) {
                     return false;
                 }
-                if(beforeSubmit) {
+                if (beforeSubmit) {
                     beforeSubmit = beforeSubmit.apply(this, arguments);
-                    if(beforeSubmit == false) {
+                    if (beforeSubmit == false) {
                         return false
                     }
                 }
             },
             success: function(resp, type) {
                 response && response.call(this);
-                if(sui.silentLogin(resp)) {
+                if (sui.silentLogin(resp)) {
                     success && success.apply(this, arguments);
                 }
             },
             error: function(errorObj) {
                 response && response.call(this);
-                if(sui.silentLogin(errorObj.responseText)) {
+                if (sui.silentLogin(errorObj.responseText)) {
                     error && error.apply(this, arguments);
                 }
             }
@@ -70,7 +80,7 @@ var sui = {
     },
     singleTab: function(container, data, config) {
         var _self = this;
-        if(!container.is(".sui-tabular-content")) {
+        if (!container.is(".sui-tabular-content")) {
             return;
         }
         var filterForm = container.find(".filter-form");
@@ -89,12 +99,12 @@ var sui = {
             container.reload();
         });
         container.on("click", ".filter-form button", function() {
-            if(this.jq.is(".clear-button")) {
+            if (this.jq.is(".clear-button")) {
                 filterForm[0].reset();
             }
             container.reload(filterForm.serializeObject());
         });
-        container.on("keypress", ".filter-form input", function (e) {
+        container.on("keypress", ".filter-form input", function(e) {
             if (e.which == 13) {
                 container.reload(filterForm.serializeObject());
             }
@@ -102,7 +112,7 @@ var sui = {
 
         container.reload = function(reloadData) {
             var before = config.beforeLoad.apply(this, [data]);
-            if(before == false) {
+            if (before == false) {
                 return;
             }
             var reqData = $.extend(data, reloadData);
@@ -117,7 +127,7 @@ var sui = {
                 },
                 success: function(resp) {
                     resp = resp.jq;
-                    if(resp.length) {
+                    if (resp.length) {
                         $.extend(container.data, reloadData);
                         var tableBody = container.find(".tabular-body");
                         tableBody.html(resp.find(".tabular-body").html());
@@ -128,7 +138,8 @@ var sui = {
                     }
                 }
             });
-        };
+        }
+        ;
         _self.pagination(container);
         return $.extend(config, {
             reload: function() {
@@ -136,33 +147,40 @@ var sui = {
             }
         });
     },
-    pagination: function (container) {
+    pagination: function(container) {
         var pagination = container.find(".pagination");
         var count = parseInt(pagination.data("count"));
-        var data = $.extend({offset: 0, max: app.maxResult}, container.data);
-        if(!count) {return}
-        if(data.max == count) { data.offset = 0 }
+        var data = $.extend({
+            offset: 0,
+            max: app.maxResult
+        }, container.data);
+        if (!count) {
+            return
+        }
+        if (data.max == count) {
+            data.offset = 0
+        }
         pagination.twbsPagination({
-            startPage: (data.offset/data.max) + 1,
+            startPage: (data.offset / data.max) + 1,
             visiblePages: 3,
             initiateStartPageClick: false,
-            totalPages: Math.ceil(count/data.max),
+            totalPages: Math.ceil(count / data.max),
             prev: "Prev",
-            onPageClick: function (evt, offset) {
-                data.offset = (offset-1) * data.max;
+            onPageClick: function(evt, offset) {
+                data.offset = (offset - 1) * data.max;
                 container.reload(data);
             }
         });
     },
-    highlight: function (item, time, blink) {
+    highlight: function(item, time, blink) {
         item.addClass("highlight-row" + (blink ? " blink" : ""));
-        setTimeout(function () {
+        setTimeout(function() {
             item.removeClass("highlight-row" + (blink ? " blink" : ""));
         }, time ? time : 3000);
     },
     errorHighLight: function(item, time) {
         item.addClass("error-highlight");
-        setTimeout(function () {
+        setTimeout(function() {
             item.removeClass("error-highlight");
         }, time ? time : 1000);
     },
@@ -173,7 +191,7 @@ var sui = {
             title: type.toUpperCase() + ": ",
             message: message,
             icon: 'glyphicon glyphicon-ok-circle'
-        },{
+        }, {
             type: type,
             placement: {
                 from: "top",
@@ -184,7 +202,7 @@ var sui = {
             }
         });
     },
-    renderCreateEdit: function (url, data, config) {
+    renderCreateEdit: function(url, data, config) {
         var content, _self = this;
         config = $.extend({
             target: $(".sui-tabular-content").first(),
@@ -196,12 +214,12 @@ var sui = {
         data = $.extend({
             id: null
         }, data);
-        if(typeof url != "string") {
+        if (typeof url != "string") {
             content = url;
         }
-        var panel = $('<div class="content-box-large sui-create-edit-panel '+config.class+'"><span class="close glyphicon glyphicon-remove"></span><div class="panel-body"></div></div>');
+        var panel = $('<div class="content-box-large sui-create-edit-panel ' + config.class + '"><span class="close glyphicon glyphicon-remove"></span><div class="panel-body"></div></div>');
         var body = panel.find(".panel-body");
-        if(content && content.length) {
+        if (content && content.length) {
             panelLoaded(content);
         } else {
             body.loader();
@@ -228,7 +246,7 @@ var sui = {
             content.updateUi();
             var form = panel.find("form:first");
             var saveAndNew = false;
-            form.find(".save-and-new").click(function () {
+            form.find(".save-and-new").click(function() {
                 saveAndNew = true;
                 form.submit();
             });
@@ -236,22 +254,22 @@ var sui = {
                 type: "POST",
                 dataType: "json",
                 beforeSubmit: function(arr, $form, options) {
-                    if(config.preSubmit) {
+                    if (config.preSubmit) {
                         return config.preSubmit.apply(this, arguments);
                     }
-                    if(form.triggerHandler("preSubmit") == false) {
+                    if (form.triggerHandler("preSubmit") == false) {
                         return false;
                     }
                     form.loader();
                 },
                 success: function(resp, type) {
-                    if(resp && resp.message) {
+                    if (resp && resp.message) {
                         sui.notify(resp.message, resp.status);
                     }
-                    if(config.success) {
+                    if (config.success) {
                         config.success.apply(this, arguments);
                     }
-                    if(saveAndNew) {
+                    if (saveAndNew) {
                         form[0].reset();
                         saveAndNew = false;
                     } else {
@@ -273,87 +291,109 @@ var sui = {
         }
     },
     editPopup: function(url, title, data, config) {
-        var content
+        var content = ""
         config = $.extend({
             class: "",
             title: "",
             width: 600,
-            preSubmit: null
+            size: "modal-lg",
+            preSubmit: undefined,
+            loaded: undefined
         }, config);
+        config.size = config.size == "small" ? "modal-sm" : "modal-lg"
         data = $.extend({
             id: null
         }, data);
-        if(typeof url != "string") {
+        if (typeof url != "string") {
             content = url;
         }
-        var popup = $('<div class="sui-edit-popup '+config.class+'"><div class="popup-body"></div></div>');
-        $("body").append(popup);
-        popup = popup.dialog({
-            title: title ? title : config.title,
-            width: config.width,
-            modal: true,
-            open: function(evt, ui) {
-                var body = popup.find(".popup-body");
-                if(content && content.length) {
-                    popupLoaded(content);
-                } else {
-                    body.loader();
-                    sui.ajax({
-                        url: url,
-                        data: data,
-                        dataType: "html",
-                        response: function() {
-                            body.loader(false);
-                        },
-                        success: function(resp) {
-                            popupLoaded(resp.jq);
-                        }
-                    });
-                }
+        var popup = $('<div class="modal fade sui-edit-popup ' + config.class + '" role="dialog">\
+            <div class="modal-dialog modal-content ' + config.size + '">\
+                   <div class="modal-header">\
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>\
+                        <h4 class="modal-title popup-title">' + config.title + '</h4>\
+                    </div>\
+                    <div class="modal-body popup-body"></div>\
+                    <div class="modal-footer popup-footer">\
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>\
+                    </div>\
+                </div>\
+            </div>');
 
-                function popupLoaded(content) {
-                    body.html(content);
-                    content.updateUi();
-                    popup.dialog("option", "position", popup.dialog( "option", "position" ));
-                    var form = popup.find("form:first");
-                    sui.ajaxForm(form, {
-                        type: "POST",
-                        dataType: "json",
-                        beforeSubmit: function(arr, $form, options) {
-                            form.loader();
-                            if(config.preSubmit) {
-                                return config.preSubmit.apply(this, arguments);
-                            }
-                        },
-                        success: function(resp, type) {
-                            if(config.response) {
-                                config.response.apply(this);
-                            }
-                            if(resp && resp.message) {
-                                sui.notify(resp.message, resp.status);
-                            }
-                            if(config.success) {
-                                config.success.apply(this, arguments);
-                            }
-                            popup.dialog("close");
-                        },
-                        response: function() {
-                            form.loader(false);
-                            if(config.response) {
-                                config.response.apply(this);
-                            }
-                        }
-                    });
-                    form.find(".btn-cancel").click(function() {
-                        popup.dialog("close");
-                    })
-                    config.loaded && config.loaded.apply(popup, body);
-                }
-            },
-            close: function(evt, ui) {
-                config.close && config.close.apply(this, arguments);
-                popup.remove();
+        $("body").append(popup);
+
+        popup.on("show.bs.modal", function() {
+
+            var body = popup.find(".popup-body");
+            if (content && content.length) {
+                popupLoaded(content);
+            } else {
+                body.loader();
+                sui.ajax({
+                    url: url,
+                    data: data,
+                    dataType: "html",
+                    response: function() {
+                        body.loader(false);
+                    },
+                    success: function(resp) {
+                        popupLoaded(resp.jq);
+                    }
+                });
             }
+
+            function popupLoaded(content) {
+
+                var title = content.find(".popup-title");
+                if (title.length) {
+                    popup.find(".popup-title").html(title);
+                } else {
+                    popup.find(".popup-title").html(config.title);
+                }
+                var form = content.find("form:first").attr("id", "edit-popup-form");
+                popup.find(".popup-footer").prepend(content.find(".edit-popup-submit").attr("form", "edit-popup-form"));
+                body.html(content);
+                content.updateUi();
+
+                sui.ajaxForm(form, {
+                    type: "POST",
+                    dataType: "json",
+                    beforeSubmit: function(arr, $form, options) {
+                        form.loader();
+                        if (config.preSubmit) {
+                            return config.preSubmit.apply(this, arguments);
+                        }
+                    },
+                    success: function(resp, type) {
+                        if (resp && resp.message) {
+                            sui.notify(resp.message, resp.status);
+                        }
+                        if (config.success) {
+                            config.success.apply(this, arguments);
+                        }
+                        popup.modal("hide");
+                    },
+                    response: function() {
+                        form.loader(false);
+                        if (config.response) {
+                            config.response.apply(this);
+                        }
+                    }
+                });
+                config.loaded && config.loaded.apply(popup, body);
+            }
+        });
+        popup.on("hidden.bs.modal", function() {
+            var _popup = this.jq;
+            config.close && config.close.apply(this, arguments);
+            _popup.removeData();
+            _popup.remove();
+
+        });
+        popup.modal({
+            backdrop: true,
+            keyboard: true,
+            show: true
         });
         return popup;
     },
@@ -368,7 +408,7 @@ var sui = {
             cancelButtonText: "No",
             closeOnConfirm: true,
             closeOnCancel: true
-        }).then((isConfirm) => {
+        }).then((isConfirm)=>{
             if (isConfirm.value) {
                 yes && yes();
                 // swal("Deleted!", "Your imaginary file has been deleted.", "success");
@@ -376,7 +416,8 @@ var sui = {
                 no && no();
                 // swal("Cancelled", "Your imaginary file is safe :)", "error");
             }
-        });
+        }
+        );
     },
     confirmAjax: function(url, title, data, success) {
         this.confirm(title, function() {
@@ -389,10 +430,10 @@ var sui = {
                     "body".jq.loader(false);
                 },
                 success: function(resp) {
-                    if(resp && resp.message) {
+                    if (resp && resp.message) {
                         sui.notify(resp.message, resp.status);
                     }
-                    if(success) {
+                    if (success) {
                         success.apply(this, arguments);
                     }
                 }
@@ -400,7 +441,7 @@ var sui = {
         });
     },
     accordion: function(panel) {
-        if(!panel.is(".sui-accordion-panel")) {
+        if (!panel.is(".sui-accordion-panel")) {
             return
         }
         panel.expand = function(label) {
@@ -415,13 +456,13 @@ var sui = {
         })
         return panel;
     },
-    imageInput: function (inputControl) {
+    imageInput: function(inputControl) {
         var fileInput = inputControl.find("input[type=file]")
         var imgPrev = inputControl.find(".sui-image-preview")
 
-        fileInput.on("change", function (evt) {
+        fileInput.on("change", function(evt) {
             var files = evt.target.files
-            if(!files.length) {
+            if (!files.length) {
                 return
             }
             var reader = new FileReader()
@@ -432,43 +473,41 @@ var sui = {
         })
         var imgData = fileInput
     },
-    toggle: function (container) {
+    toggle: function(container) {
         var inputs = container.find("[data-toggle-target]");
-        if(!inputs.length) {
+        if (!inputs.length) {
             return
         }
 
-        inputs.each(function () {
+        inputs.each(function() {
             var input = this.jq;
             var target = input.attr("data-toggle-target");
             var selected = container.find("[class^='" + target + "-']")
-            if(!selected.hasClass(target + "-" + input.val())) {
+            if (!selected.hasClass(target + "-" + input.val())) {
                 selected.hide();
             }
 
-            if(input.is("select")) {
-                input.change(function () {
+            if (input.is("select")) {
+                input.change(function() {
                     container.find("[class^='" + target + "-']").hide().find("input, select, textarea").attr("disabled", true);
                     container.find("." + target + "-" + input.val()).show().find("input, select, textarea").removeAttr("disabled");
                 }).trigger("change")
             }
         })
     },
-    silentLogin: function (resp) {
+    silentLogin: function(resp) {
         try {
             resp = $(resp)
-        } catch(ex) {
+        } catch (ex) {
             resp = $()
         }
-        if(resp.is(".silent-login-popup")) {
-            $("body").append(resp);
-            resp.updateUi();
-            resp.modal('show');
+        if (resp.is(".silent-login-popup")) {
+            sui.editPopup(resp)
             return false
         }
         return true
     },
-    ajaxGlobalHook: function (hookName, callback) {
+    ajaxGlobalHook: function(hookName, callback) {
         var origOpen = XMLHttpRequest.prototype.open;
         hookName = hookName ? hookName : "load"
         XMLHttpRequest.prototype.open = function(evt) {
@@ -478,11 +517,12 @@ var sui = {
                 // console.log(this.readyState); //will always be 4 (ajax is completed successfully)
                 // console.log(this.responseText); //whatever the response was
                 var resp = callback.call(this)
-                if(resp == false) {
+                if (resp == false) {
                     return false
                 }
             });
             origOpen.apply(this, arguments);
-        };
+        }
+        ;
     }
 }

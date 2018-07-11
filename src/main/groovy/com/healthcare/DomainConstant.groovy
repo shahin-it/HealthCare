@@ -33,7 +33,7 @@ class DomainConstant {
         return sts[status] ?: "primary"
     }
 
-    static final DATE_PICKER_DATE_FORMATE = "dd-mm-yyyy"
+    static final DATE_PICKER_DATE_FORMATE = "dd-MM-yyyy"
     static final DATE_PICKER_TIME_FORMATE = "hh:mm:ss a"
 
     static final getMAX_RESULT() {

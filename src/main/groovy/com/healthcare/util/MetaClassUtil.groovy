@@ -1,5 +1,6 @@
 package com.healthcare.util
 
+import com.healthcare.DomainConstant
 import groovy.time.BaseDuration
 import groovy.time.TimeCategory
 import org.codehaus.groovy.runtime.NullObject
@@ -39,8 +40,8 @@ static init() {
          */
         toDatePickerFormat = { showTime = false, timeZone = TimeZone.default ->
             long time = delegate.getTime() + timeZone.getOffset(delegate);
-            String dateFormat = "dd-MM-yyyy"
-            return new Date(time).toFormattedString(dateFormat, showTime, "HH:mm:ss", false, timeZone);
+            return new Date(time).toFormattedString(DomainConstant.DATE_PICKER_DATE_FORMATE, showTime,
+                    DomainConstant.DATE_PICKER_TIME_FORMATE, false, timeZone)
         }
 
 

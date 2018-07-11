@@ -1,5 +1,6 @@
 package com.healthcare
 
+import com.healthcare.crm.Employee
 import com.healthcare.pathology.Service
 import com.healthcare.util.AppUtil
 import grails.converters.JSON
@@ -83,5 +84,10 @@ class SettingController {
     def deleteUser(User user) {
         //domainService.delete(user)
         render([message: "Successfully deleted", status: "success"] as JSON)
+    }
+
+    def employee() {
+        Map data = domainService.dataTableElement(Employee, params)
+        render(view: "/crm/employee/listView", model: [employee: "current", items: data.items as List<Employee>, count: data.count])
     }
 }

@@ -3,9 +3,15 @@ package com.healthcare
 import com.healthcare.util.AppUtil
 
 class DomainConstant {
-    static final getMAX_RESULT() {
-        return (AppUtil.getConfig("global", "item_per_page") as int) ?: 15
-    }
+
+    static  final TRANSECTION_TYPES = [
+            ORDER: "ORDER",
+            SERVICE: "SERVICE",
+            SALARY: "SALARY",
+            PURCHASE: "PURCHASE",
+            BILL: "BILL",
+            VISIT: "VISIT"
+    ]
     static final BANNER_IMAGE_PATH = "resources/system/banner.jpg"
     static final LOGO_IMAGE_PATH = "resources/system/logo.png"
 
@@ -26,4 +32,12 @@ class DomainConstant {
         ]
         return sts[status] ?: "primary"
     }
+
+    static final DATE_PICKER_DATE_FORMATE = "dd-mm-yyyy"
+    static final DATE_PICKER_TIME_FORMATE = "hh:mm:ss a"
+
+    static final getMAX_RESULT() {
+        return (AppUtil.getConfig("global", "item_per_page") as int) ?: 15
+    }
+
 }

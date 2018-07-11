@@ -21,8 +21,8 @@ class Preference {
 
     static _global = [
             name: "Health Care Admin",
-            banner: "system/banner.jpg",
-            logo: "system/logo.png",
+            banner: "resources/system/banner.jpg",
+            logo: "resources/system/logo.png",
             address1: "GP-GA 88/1, Middle Badda, Dhaka",
             address2: null,
             contact: "+8801700000000",

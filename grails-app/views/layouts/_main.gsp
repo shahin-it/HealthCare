@@ -22,8 +22,8 @@
             base: '${AppUtil.baseUrl}',
             maxResult: ${DomainConstant.MAX_RESULT},
             tab: {},
-            dateFormat: 'dd-mm-yyyy',
-            timeFormat: 'hh:mm:ss a',
+            dateFormat: '${DomainConstant.DATE_PICKER_DATE_FORMATE}',
+            timeFormat: '${DomainConstant.DATE_PICKER_TIME_FORMATE}',
         }
     </script>
 

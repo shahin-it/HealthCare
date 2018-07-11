@@ -1,6 +1,7 @@
 package com.healthcare
 
 import com.healthcare.crm.Consultant
+import com.healthcare.crm.Employee
 import grails.converters.JSON
 
 class CrudController {
@@ -10,7 +11,7 @@ class CrudController {
 
     def editPatient(Patient patient) {
         patient = patient ?: new Patient(address: new Address())
-        [patient: patient]
+        render(view: "/crud/patient/editPatient", model: [patient: patient])
     }
 
     def deletePatient(Patient patient) {
@@ -24,7 +25,7 @@ class CrudController {
 
     def editConsultant(Consultant consultant) {
         consultant = consultant ?: new Consultant()
-        [consultant: consultant]
+        render(view: "/crud/consultant/editConsultant", model: [consultant: consultant])
     }
 
     def deleteConsultant(Consultant consultant) {
@@ -34,5 +35,20 @@ class CrudController {
     def saveConsultant(Consultant consultant) {
         domainService.save(consultant)
         render([message: "Successfully saved", status: "success"] as JSON)
+    }
+
+    def editEmployee(Employee employee) {
+        employee = employee ?: new Employee()
+        render(view: "/crm/employee/editEmployee", model: [employee: employee])
+    }
+
+    def saveEmployee() {
+        crudService.saveEmployee(params)
+        render([status: "success", message: "Successfully saved"] as JSON)
+    }
+
+    def deleteEmployee(Employee employee) {
+        //domainService.delete(employee)
+        render([status: "success", message: "Successfully deleted"] as JSON)
     }
 }

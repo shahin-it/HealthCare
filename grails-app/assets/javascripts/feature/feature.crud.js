@@ -60,3 +60,24 @@ app.tab.consultant = function() {
     }
 
 })();
+
+
+var _employee = {};
+app.tab.employee = function() {
+    this.loading_url = app.base + "setting/employee";
+    this.id = "employee-tab";
+    this.createEditUrl = app.base + "crud/editEmployee";
+    this.removeUrl = app.base + "crud/deleteEmployee";
+    this.processor = _employee;
+    return this;
+};
+
+(function () {
+    _employee.init = function() {
+        var _self = this;
+    }
+    _employee.onCreateEditLoad = function (panel) {
+        var _self = this;
+    }
+
+})();

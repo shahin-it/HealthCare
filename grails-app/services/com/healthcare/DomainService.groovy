@@ -85,7 +85,7 @@ class DomainService {
         return items.collectEntries {[(it[0]): it[1]]}
     }
 
-    List getKeyValueProp(def domainClass, Closure closure = {}) {
+    public <T> List<T> getKeyValueProp(Class<T> domainClass, Closure closure = {}) {
         return domainClass.createCriteria().list {
             and closure
         }

@@ -37,9 +37,9 @@ static init() {
         /**
          * It assumes that calling date is of GMT+0
          */
-        toDatePickerFormat = { showTime, timeZone ->
+        toDatePickerFormat = { showTime = false, timeZone = TimeZone.default ->
             long time = delegate.getTime() + timeZone.getOffset(delegate);
-            String dateFormat = "yyyy-MM-dd"
+            String dateFormat = "dd-MM-yyyy"
             return new Date(time).toFormattedString(dateFormat, showTime, "HH:mm:ss", false, timeZone);
         }
 

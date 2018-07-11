@@ -35,8 +35,4 @@ class PageController {
         [consultant: "current", items: data.items as List<Consultant>, count: data.count]
     }
 
-    def employee() {
-        Map data = domainService.dataTableElement(Employee, params)
-        [employee: "current", items: data.items as List<Employee>, count: data.count]
-    }
 }

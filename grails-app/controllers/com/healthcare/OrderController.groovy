@@ -13,8 +13,8 @@ class OrderController {
 
     def edit(Order order) {
         order = order ?: new Order()
-        List<Consultant> consultants = domainService.getKeyValueProp(Consultant)
-        List<Patient> patients = domainService.getKeyValueProp(Patient)
+        List consultants = domainService.getKeyValueProp(Consultant)
+        List patients = domainService.getKeyValueProp(Patient)
         Map tests = domainService.getKeyValue(Service, "name", {eq("isActive", true)})
         [order: order, services: tests, consultants: consultants, patients: patients]
     }

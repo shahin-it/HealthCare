@@ -55,7 +55,7 @@ class AppUtil {
         return AppUtil.getConfig("global", "time_formate", "hh:mm:ss a")
     }
 
-    public static GrailsParameterMap getParams() {
+    static GrailsParameterMap getParams() {
         try {
             currentRequest.params;
         } catch (Throwable t) {
@@ -63,7 +63,7 @@ class AppUtil {
         }
     }
 
-    public static GrailsHttpSession getSession() {
+    static GrailsHttpSession getSession() {
         try {
             currentRequest.session;
         } catch (Throwable t) {
@@ -71,7 +71,7 @@ class AppUtil {
         }
     }
 
-    public static HttpServletRequest getRequest() {
+    static HttpServletRequest getRequest() {
         try {
             currentRequest.request;
         } catch (Throwable t) {
@@ -79,7 +79,7 @@ class AppUtil {
         }
     }
 
-    public static HttpServletResponse getResponse() {
+    static HttpServletResponse getResponse() {
         try {
             currentRequest.response;
         } catch (Throwable t) {
@@ -87,7 +87,7 @@ class AppUtil {
         }
     }
 
-    public static FlashScope getFlash() {
+    static FlashScope getFlash() {
         try {
             currentRequest.flashScope;
         } catch (Throwable t) {
@@ -95,7 +95,7 @@ class AppUtil {
         }
     }
 
-    public static String convertToByteNotation(Long size) {
+    static String convertToByteNotation(Long size) {
         if (size < 1024) {
             return size.toString() + " B";
         }
@@ -111,7 +111,7 @@ class AppUtil {
         return size.toString() + " GB";
     }
 
-    public static String pluginPackageCase(string) {
+    static String pluginPackageCase(string) {
         def parts = string.split("-");
         if(parts.size() == 1) {
             return string;
@@ -126,14 +126,14 @@ class AppUtil {
         return string;
     }
 
-    public static waitFor(Object obj, String property, Object compareValue, Long timeout = 30000) {
+    static waitFor(Object obj, String property, Object compareValue, Long timeout = 30000) {
         if(obj."$property" != compareValue && timeout > 0) {
             Thread.sleep(1000)
             waitFor(obj, property, compareValue, timeout - 1000)
         }
     }
 
-    public static GrailsWebRequest initialDummyRequest() {
+    static GrailsWebRequest initialDummyRequest() {
         HttpServletRequest _request = PageRenderer.PageRenderRequestCreator.createInstance("/page/dummy")
         _request.IS_DUMMY = true;
         GrailsWebRequest webRequest = new GrailsWebRequest(_request, PageRenderer.PageRenderResponseCreator.createInstance(new PrintWriter(new StringWriter())), servletContext)
@@ -141,7 +141,7 @@ class AppUtil {
         return webRequest
     }
 
-    public static String getQueryStringFromMap(Map params) {
+    static String getQueryStringFromMap(Map params) {
         if(params.size() == 0) {
             return "";
         }
@@ -152,7 +152,7 @@ class AppUtil {
         return buffer.substring(1);
     }
 
-    public static Map<String, String> getURLQueryMap(String query) {
+    static Map<String, String> getURLQueryMap(String query) {
         String[] params = query.split("&")
         Map<String, String> map = new HashMap<String, String>()
         for (String param: params) {
@@ -163,18 +163,18 @@ class AppUtil {
         return map
     }
 
-    public static XMLNodeToString(Node nd) {
+    static XMLNodeToString(Node nd) {
         Transformer trans = TransformerFactory.newInstance().newTransformer();
         ByteArrayOutputStream serialized = new ByteArrayOutputStream();
         trans.transform(new DOMSource(nd), new StreamResult(serialized))
         return serialized.toString();
     }
 
-    public static String docBaseUrl() {
+    static String docBaseUrl() {
         return Holders.config.kb_server.base_url
     }
 
-    public static Map getResponseMapFromUrl(String url, Map model = null) {
+    static Map getResponseMapFromUrl(String url, Map model = null) {
         URLConnection con = new URL(url).openConnection()
         con.doOutput = true
         con.doInput = true
@@ -196,7 +196,7 @@ class AppUtil {
         return User.get(loggedUser)
     }
 
-    public static Integer getIntervalInMinute(Map config) {
+    static Integer getIntervalInMinute(Map config) {
         if(config.interval_type == "day") {
             return config.interval.toInteger() * 24 * 60
         } else if(config.interval_type == "hr") {
@@ -213,5 +213,13 @@ class AppUtil {
     static String getCurrentDate(int type = Calendar.YEAR) {
         Calendar calendar = Calendar.instance
         return String.valueOf(calendar.get(type))
+    }
+
+    static <T> T getBean(Class<T> requiredType) {
+        return Holders.applicationContext.getBean(requiredType)
+    }
+
+    static Object getBean(String beanName) {
+        return Holders.applicationContext.getBean(beanName)
     }
 }

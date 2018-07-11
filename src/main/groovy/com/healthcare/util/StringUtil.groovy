@@ -2,10 +2,8 @@ package com.healthcare.util
 
 import org.apache.commons.io.FilenameUtils
 
-/**
- * Created by zobair on 19/11/13.*/
 class StringUtil {
-    public static String getCapitalizedAndPluralName(String name) {
+    static String getCapitalizedAndPluralName(String name) {
         String pname = name.capitalize() + "s";
         if(pname.endsWith("ys")) {
             pname = pname.replaceAll(/ys$/, "ies");
@@ -15,11 +13,11 @@ class StringUtil {
         return pname
     }
 
-    public static String getUuid() {
+    static String getUuid() {
         return UUID.randomUUID().toString().toUpperCase()
     }
 
-    public static String RemoveHTMLTag(String html) {
+    static String RemoveHTMLTag(String html) {
         if (html) {
             return html.replaceAll("</?[^>]*>", "");
         } else {
@@ -27,13 +25,13 @@ class StringUtil {
         }
     }
 
-    public static Collection sortInCustomOrder(Collection objs, String matchProperty, List order) {
+    static Collection sortInCustomOrder(Collection objs, String matchProperty, List order) {
         return objs.sort {
             order.indexOf(it[matchProperty])
         }
     }
 
-    public static String fileExtension(String url) {
+    static String fileExtension(String url) {
         String ext = FilenameUtils.getExtension(url)
         if(ext && ext.indexOf((int)('/' as char)) > -1) {
             return null

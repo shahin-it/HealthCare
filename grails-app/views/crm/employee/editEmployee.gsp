@@ -34,11 +34,11 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Joining Date</label>
                     <div class="col-sm-4">
-                        <input name="joiningDate" readonly type="text" class="form-control date-picker" placeholder="Joining date" required value="${employee.joiningDate.toDatePickerFormat()}">
+                        <input name="joiningDate" readonly type="text" class="form-control date-picker" placeholder="Joining date" required value="${employee.joiningDate?.toDatePickerFormat()}">
                     </div>
                     <label class="col-sm-2 control-label">Birth Day</label>
                     <div class="col-sm-4">
-                        <input name="birthDate" readonly type="text" class="form-control date-picker" placeholder="Birth date" required value="${employee.birthDate.toDatePickerFormat()}">
+                        <input name="birthDate" readonly type="text" class="form-control date-picker" placeholder="Birth date" required value="${employee.birthDate?.toDatePickerFormat()}">
                     </div>
                 </div>
                 <div class="form-group">

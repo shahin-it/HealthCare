@@ -2,11 +2,20 @@ package com.healthcare.model
 
 import com.healthcare.User
 import com.healthcare.util.AppUtil
-import org.grails.datastore.mapping.validation.ValidationErrors
 
 abstract class DomainBase {
     User createdBy
     Date created
+
+    int week
+    int month
+    int year
+
+    static mapping = {
+        week formula: 'WEEK(created)'
+        month formula: 'MONTH(created)'
+        year formula: 'YEAR(created)'
+    }
 
     def beforeValidate() {
         if (!this.created) {

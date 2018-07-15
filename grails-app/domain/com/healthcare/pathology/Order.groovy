@@ -31,16 +31,6 @@ class Order extends DomainBase {
         deliveryStatus(maxSize: 20)
     }
 
-    int week
-    int month
-    int year
-
-    static mapping = {
-        week formula: 'WEEK(created)'
-        month formula: 'MONTH(created)'
-        year formula: 'YEAR(created)'
-    }
-
     static transients = ["getTotal", "getGrandTotal", "getDue", "getIsPaid"]
 
     def beforeValidate() {

@@ -5,6 +5,7 @@ import com.healthcare.model.DomainBase
 
 class Transaction extends DomainBase {
 
+    String title
     String type = DomainConstant.TRANSECTION_TYPES.SERVICE
     Boolean isEarned = true
     Long effectiveId
@@ -16,6 +17,7 @@ class Transaction extends DomainBase {
     String note
 
     static constraints = {
+        title(nullable: true)
         type(maxSize: 50)
         effectiveId(nullable: true)
         note(maxSize: 500)

@@ -32,9 +32,13 @@ class OrderService {
             order.items.add(item)
         }
 
-        if(order.due <= 1) {
+        Double newPayment = params.double("newPayment") ?: 0.0
+        order.paid += newPayment
+
+        if(order.due < 1) {
             order.paymentStatus = "PAID"
-        } else if(order.paid > 0) {
+
+        } else if(order.paid >= 1) {
             order.paymentStatus = "PARTIAL"
         }
         order.save()

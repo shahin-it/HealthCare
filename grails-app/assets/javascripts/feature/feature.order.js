@@ -76,6 +76,7 @@ app.tab.order = function() {
         })
         popup.find(".create-edit-form").on("preSubmit", function (evt) {
             if(!cartTable.find(".order-item").length) {
+                sui.notify("Please add test item!", "danger");
                 return false;
             }
         })
@@ -84,7 +85,7 @@ app.tab.order = function() {
     _o.calculatePrice = function (container) {
         var _self = this;
         var _subTotal = 0.00, _discount = 0.00, _grandTotal = 0.00;
-        var _paidTotal = container.find(".summary-row.paid-total input").val() || 0.0;
+        var _paidTotal = 1 * container.find(".summary-row.paid-total input").val();
         container.find(".order-item").each(function () {
             var row = this.jq;
             var quantity = row.find(".quantity input").val() || 1
@@ -114,9 +115,10 @@ app.tab.order = function() {
         grandTotalDisp.find("input").val(_grandTotal)
         grandTotalDisp.find(".value").html(_grandTotal.toFixed(2))
 
-        var _due = _grandTotal - _paidTotal;
+        var newPayment = 1 * container.find(".summary-row.new-payment input").val();
+        var _due = _grandTotal - (_paidTotal + newPayment);
         dueTotalDisp.find(".value").html(_due.toFixed(2))
-        if(_due > 0) {
+        if(_due >= 1) {
             dueTotalDisp.removeClass("paid")
         } else {
             dueTotalDisp.addClass("paid")

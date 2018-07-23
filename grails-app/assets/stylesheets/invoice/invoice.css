@@ -94,19 +94,15 @@ table {
 
 table th,
 table td {
-  padding: 20px;
+  padding: 5px 10px;
   background: #EEEEEE;
   text-align: center;
   border-bottom: 1px solid #FFFFFF;
 }
 
 table th {
-  white-space: nowrap;        
+  white-space: nowrap;
   font-weight: normal;
-}
-
-table td {
-  text-align: right;
 }
 
 table td h3{
@@ -120,6 +116,10 @@ table .no {
   color: #FFFFFF;
   font-size: 1.6em;
   background: #57B223;
+}
+
+table td, table th {
+  text-align: right;
 }
 
 table .desc {
@@ -149,16 +149,16 @@ table tbody tr:last-child td {
 }
 
 table tfoot td {
-  padding: 10px 20px;
+  padding: 10px 10px;
   background: #FFFFFF;
   border-bottom: none;
   font-size: 1.2em;
-  white-space: nowrap; 
-  border-top: 1px solid #AAAAAA; 
+  white-space: nowrap;
+  border-top: 1px solid #AAAAAA;
 }
 
 table tfoot tr:first-child td {
-  border-top: none; 
+  border-top: none;
 }
 
 table tfoot tr:last-child td {

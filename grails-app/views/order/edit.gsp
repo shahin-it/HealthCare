@@ -113,11 +113,16 @@
                     <tr class="summary-row paid-total">
                         <td colspan="4"></td>
                         <td colspan="2">Paid Total(-)</td>
-                        <td><input type="text" min="0" maxlength="9" required name="paid" value="${order.paid.toPrice()}"></td>
+                        <td><input type="hidden" value="${order.paid}"><span class="value">${order.paid.toPrice()}</span></td>
+                    </tr>
+                    <tr class="summary-row new-payment">
+                        <td colspan="4"></td>
+                        <td colspan="2">Add Payment</td>
+                        <td><input type="number" step="0.01" min="0" max="999999999" required name="newPayment" value="0.0"></td>
                     </tr>
                     <tr class="summary-row due-total ${order.due > 0 ? '' : 'paid'}">
                         <td colspan="4"></td>
-                        <td colspan="2">Total Due</td>
+                        <td colspan="2">Due Total</td>
                         <td><span class="value">${order.due.toPrice()}</span></td>
                     </tr>
                     </tbody>

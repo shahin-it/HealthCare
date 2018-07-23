@@ -54,11 +54,11 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Monthly Salary</label>
                     <div class="col-sm-4">
-                        <input name="salary" type="number" class="form-control" minlength="3" maxlength="9" value="${employee.salary}">
+                        <input name="salary" type="number" step="0.01" class="form-control" minlength="3" maxlength="9" value="${employee.salary}">
                     </div>
                     <label class="col-sm-2 control-label">Bonus</label>
                     <div class="col-sm-4">
-                        <input name="bonus" type="number" class="form-control" minlength="3" maxlength="9" value="${employee.bonus}">
+                        <input name="bonus" type="number" step="0.01" class="form-control" minlength="3" maxlength="9" value="${employee.bonus}">
                     </div>
                 </div>
                 <ui:addressFieldSet prefix="address." domain="${employee.address}"/>

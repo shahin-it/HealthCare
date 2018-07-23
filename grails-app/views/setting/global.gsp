@@ -39,7 +39,7 @@
                     </div>
                     <label class="col-sm-2 control-label">Order Delivery Within (Days)</label>
                     <div class="col-sm-4">
-                        <input type="number" name="global.deliver_order_within" class="form-control" placeholder="Day example 1" required maxlength="250" value="${config.deliver_order_within}">
+                        <input type="number" step="0.01" name="global.deliver_order_within" class="form-control" placeholder="Day example 1" required maxlength="250" value="${config.deliver_order_within}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Display Item per Page</label>
                     <div class="col-sm-4">
-                        <input type="number" min="5" required name="global.item_per_page" class="form-control" placeholder="Item per Page" maxlength="500" value="${config.item_per_page}">
+                        <input type="number" step="0.01" min="5" required name="global.item_per_page" class="form-control" placeholder="Item per Page" maxlength="500" value="${config.item_per_page}">
                     </div>
                     <label class="col-sm-2 control-label">About us</label>
                     <div class="col-sm-4">

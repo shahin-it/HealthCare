@@ -48,7 +48,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">Visiting Fee</label>
         <div class="col-sm-10">
-            <input type="number" name="visitingFee" class="form-control" placeholder="Visiting Fee" max="5000" required maxlength="9" value="${consultant.visitingFee}">
+            <input type="number" step="0.01" name="visitingFee" class="form-control" placeholder="Visiting Fee" max="5000" required maxlength="9" value="${consultant.visitingFee}">
         </div>
     </div>
     <div class="form-group button-line">

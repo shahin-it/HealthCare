@@ -49,13 +49,13 @@
 <body>
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
 <div class="header">
-    <div class="container">
+    <div class="logo">
+        <img class="image img-responsive" src="/static/resources/system/banner.jpg" alt="">
+    </div>
+    <div class="container header-info">
         <div class="row">
             <div class="col-md-5">
-                <!-- Logo -->
-                <div class="logo">
-                    <h1><g:link controller="dashboard" action="controlPanel">${name}</g:link></h1>
-                </div>
+                <h2 class="store-name"><g:link controller="dashboard" action="controlPanel">${name}</g:link></h2>
             </div>
 
             <div class="col-md-5">
@@ -123,11 +123,9 @@
 
 <footer>
     <div class="container">
-
         <div class="copy text-center">
             Copyright &copy; ${AppUtil.getCurrentDate()} || <a href='https://www.fb.com/shahin31' target="_blank">${name}</a>
         </div>
-
     </div>
 </footer>
 <asset:javascript src="application.js"/>

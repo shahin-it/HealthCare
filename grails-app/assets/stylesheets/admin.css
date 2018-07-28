@@ -2,10 +2,24 @@
     font-size: 25px;
     color: red;
 }
-.header .logo {
-    background-image: url(/static/resources/system/banner.jpg);
-    background-size: 460px 50px;
-    background-repeat: no-repeat;
+.header .logo .image {
+    width: 100%;
+     max-height: 50px;
+    opacity: .5;
+}
+.header .header-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+.header .store-name {
+    margin: 10px 0;
+    color: white;
+}
+.header .store-name a {
+    text-decoration: none;
+    color: white;
 }
 .overlay {
     position: absolute;

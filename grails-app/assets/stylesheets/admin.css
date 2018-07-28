@@ -1,10 +1,17 @@
-.header-banner{
+/*.header-banner {
     background: url("/static/resources/system/banner.jpg");
-}
-.header .logo .image {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 1;
+}*/
+.header .header-banner .image {
     width: 100%;
-    max-height: 50px;
-    opacity: .5;
+    height: 55px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
 }
 .header .navbar {
     margin: 0;

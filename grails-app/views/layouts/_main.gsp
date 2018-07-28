@@ -48,8 +48,11 @@
 
 <body>
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
-<div class="header header-banner">
-    <div class="container-fluid header-info">
+<div class="header">
+    <div class="header-banner">
+        <img class="image img-responsive" src="/static/resources/system/banner.jpg" alt="">
+    </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-5">
                 <h2 class="store-name"><g:link controller="dashboard" action="controlPanel">${name}</g:link></h2>

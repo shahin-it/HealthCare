@@ -87,16 +87,24 @@
         </tr>
         </tfoot>
     </table>
-    <div id="thanks">Thank you!</div>
-    <div id="notices">
-        <div>PREPARED BY#${order.createdBy.id}: ${order.createdBy.name}</div>
-        <div>PRINTED BY#${AppUtil.loggedUser}: ${AppUtil.currentUser.name}</div>
-        <div>Referred By#${order.consultant.id}: Dr. ${order.consultant.name}</div>
-        <div class="notice">NOTICE: A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
-    </div>
 </main>
 <footer>
-    Invoice was created on a computer and is valid without the signature and seal.
+    <div class="info">
+        <div id="thanks">Thank you!</div>
+        <div id="notices">
+            <div class="left">
+                <div>PREPARED BY#${order.createdBy.id}: ${order.createdBy.name}</div>
+                <div>PRINTED BY#${AppUtil.loggedUser}: ${AppUtil.currentUser.name}</div>
+            </div>
+            <div class="right">
+                <div>Referred By#${order.consultant.id}: Dr. ${order.consultant.name} ${order.consultant.qualification}</div>
+                <div class="notice">NOTICE: A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Invoice was created on a computer and is valid without the signature and seal.
+    </div>
 </footer>
 </body>
 </html>

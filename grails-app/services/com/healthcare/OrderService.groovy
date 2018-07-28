@@ -4,12 +4,14 @@ import com.healthcare.crm.Consultant
 import com.healthcare.pathology.Order
 import com.healthcare.pathology.OrderItem
 import com.healthcare.pathology.Service
+import com.healthcare.util.EventManager
 import grails.gorm.transactions.Transactional
 import grails.web.servlet.mvc.GrailsParameterMap
 
-
 @Transactional
 class OrderService {
+    TransectionService transectionService
+
     void save(Order order, GrailsParameterMap params) {
         List items = params.items = params.list("items").collect { params[it] }
         order.items.findAll {!items.id.contains("" + it.id)}*.delete()
@@ -32,16 +34,16 @@ class OrderService {
             order.items.add(item)
         }
 
-        Double newPayment = params.double("newPayment") ?: 0.0
-        order.paid += newPayment
+        params.newPayment = params.double("newPayment") ?: 0.0
+        order.paid += params.newPayment
 
         if(order.due < 1) {
             order.paymentStatus = "PAID"
-
         } else if(order.paid >= 1) {
             order.paymentStatus = "PARTIAL"
         }
         order.save()
+        EventManager.trigger("after-order-save", order.id, params)
     }
 
     void changeStatus(Map params) {

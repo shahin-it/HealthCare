@@ -48,17 +48,13 @@
 
 <body>
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
-<div class="header">
-    <div class="logo">
-        <img class="image img-responsive" src="/static/resources/system/banner.jpg" alt="">
-    </div>
-    <div class="container header-info">
+<div class="header header-banner">
+    <div class="container-fluid header-info">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-sm-5">
                 <h2 class="store-name"><g:link controller="dashboard" action="controlPanel">${name}</g:link></h2>
             </div>
-
-            <div class="col-md-5">
+            <div class="col-sm-5">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="input-group form">
@@ -70,10 +66,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <nav class="bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b

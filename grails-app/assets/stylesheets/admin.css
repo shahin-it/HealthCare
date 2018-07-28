@@ -1,17 +1,13 @@
-.sui-create-edit-panel .close {
-    font-size: 25px;
-    color: red;
+.header-banner{
+    background: url("/static/resources/system/banner.jpg");
 }
 .header .logo .image {
     width: 100%;
-     max-height: 50px;
+    max-height: 50px;
     opacity: .5;
 }
-.header .header-info {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
+.header .navbar {
+    margin: 0;
 }
 .header .store-name {
     margin: 10px 0;
@@ -47,6 +43,10 @@
 .overlay .l-text {
     font-size: 24px;
     margin-top: 15px;
+}
+.sui-create-edit-panel .close {
+    font-size: 25px;
+    color: red;
 }
 .tab-action-container .filter-form {
     display: inline-block;

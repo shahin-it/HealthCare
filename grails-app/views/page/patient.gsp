@@ -8,9 +8,9 @@
     <div class="content-box-large sui-tabular-content" id="patient-tab">
         <div class="panel-heading">
             <div class="panel-title">Manage Patients</div>
-            <div class="panel-options tab-action-container">
+            <div class="row panel-options tab-action-container">
                 <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                <button class="add-new-button btn btn-default"><i class="fas fa-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">
@@ -37,8 +37,8 @@
                         <td><span class="value">${patient.mobile}</span></td>
                         <td><span class="value">${patient.created.toAdminFormat()}</span></td>
                         <td class="action-navigator btn-group center" data-id="${patient.id}">
-                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="glyphicon glyphicon-edit"></i></span>
-                            <span class="btn btn-xs btn-warning remove" title="Remove"><i class="glyphicon glyphicon-trash"></i></span>
+                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
+                            <span class="btn btn-xs btn-warning remove" title="Remove"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

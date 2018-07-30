@@ -5,13 +5,13 @@
         <div class="panel-title">Create/Edit Patient Info</div>
         <div class="panel-options"></div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-4">
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label>Name</label>
             <input type="text" name="name" class="form-control" placeholder="Name" required maxlength="250" value="${patient.name}">
         </div>
-        <label class="col-sm-2 control-label">Father Name</label>
-        <div class="col-sm-4">
+        <div class="form-group col-sm-6">
+            <label>Father Name</label>
             <input type="text" name="fatherName" class="form-control" placeholder="Father Name" maxlength="250" required value="${patient.fatherName}">
         </div>
     </div>
@@ -45,7 +45,7 @@
     </div>
     <ui:addressFieldSet domain="${patient.address ?: [:]}" prefix="address."/>
     <div class="form-group button-line">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="offset-sm-2 col-sm-10">
             <button type="submit" class="btn btn-primary">Save</button>
             <button class="btn btn-danger cancel">Cancel</button>
         </div>

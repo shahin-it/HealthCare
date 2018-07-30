@@ -7,7 +7,7 @@
     <div class="panel-heading">
         <div class="panel-title">Customize Account Information</div>
 
-        <div class="panel-options tab-action-container">
+        <div class="row panel-options tab-action-container">
             <g:if test="${users}">
                 <g:select class="form-control user-selection" name="user"
                           from="${users.collect { it.userId + ' [' + it.name + ']' }}" keys="${users.collect { it.id }}"
@@ -77,7 +77,7 @@
             </div>
             <ui:addressFieldSet prefix="address." domain="${user.address}"/>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="offset-sm-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>

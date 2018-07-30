@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
+    <asset:stylesheet src="vendor/fontawesome/all.min.css"/>
     <asset:stylesheet src="vendor/jquery-ui.css"/>
     <asset:stylesheet src="vendor/bootstrap.min.css"/>
     <asset:stylesheet src="vendor/bootstrap-datepicker3.standalone.min.css"/>
@@ -48,10 +49,7 @@
 
 <body>
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
-<div class="header">
-    <div class="header-banner">
-        <img class="image img-responsive" src="/static/resources/system/banner.jpg" alt="">
-    </div>
+<div class="header banner">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-5">
@@ -91,32 +89,37 @@
 </div>
 
 <div class="page-content">
-    <div class="row">
-        <g:if test="${!pathology}">
-            <div class="col-md-2">
-                <div class="sidebar content-box" style="display: block;">
-                    <g:if test="${controllerName == 'setting'}">
-                        <g:include view="template/settingsNav.gsp"/>
-                    </g:if>
-                    <g:else>
-                        <ul class="nav">
-                            <!-- Main menu -->
-                            <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="glyphicon glyphicon-home"></i> Dashboard</g:link></li>
-                            <li class="${pathology}"><g:link controller="page" action="pathology"><i class="glyphicon glyphicon-tree-deciduous"></i> Pathology</g:link></li>
-                            <li class="${patient}"><g:link controller="page" action="patient"><i class="glyphicon glyphicon-gift"></i> Patients</g:link></li>
-                            <li class="${consultant}"><g:link controller="page" action="consultant"><i class="glyphicon glyphicon-plus"></i> Consultants</g:link></li>
-                            <li class=""><a href="#"><i class="glyphicon glyphicon-list-alt"></i> Bills</a></li>
-                            <li class=""><a href="#"><i class="glyphicon glyphicon-hdd"></i> Inventory</a></li>
-                        </ul>
-                    </g:else>
+    <g:if test="${!pathology}">
+        <div class="row">
+        <div class="col-md-2">
+            <div class="sidebar content-box" style="display: block;">
+                <g:if test="${controllerName == 'setting'}">
+                    <g:include view="template/settingsNav.gsp"/>
+                </g:if>
+                <g:else>
+                    <ul class="nav">
+                        <!-- Main menu -->
+                        <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="fas fa-home"></i> Dashboard</g:link></li>
+                        <li class="${pathology}"><g:link controller="page" action="pathology"><i class="fas fa-notes-medical"></i> Pathology</g:link></li>
+                        <li class="${patient}"><g:link controller="page" action="patient"><i class="fas fa-file-prescription"></i> Patients</g:link></li>
+                        <li class="${consultant}"><g:link controller="page" action="consultant"><i class="fas fa-user-md"></i> Consultants</g:link></li>
+                        <li class=""><a href="#"><i class="fas fa-list-ul"></i> Bills</a></li>
+                        <li class=""><a href="#"><i class="fas fa-hdd"></i> Inventory</a></li>
+                    </ul>
+                </g:else>
 
-                </div>
             </div>
-        </g:if>
-        <div class="loayout-body ${pathology ? '' : 'col-md-10'}">
+        </div>
+        <div class="loayout-body col-md-10">
             <g:layoutBody/>
         </div>
-    </div>
+        </div>
+    </g:if>
+    <g:else>
+        <div class="loayout-body">
+            <g:layoutBody/>
+        </div>
+    </g:else>
 </div>
 
 <footer>

@@ -10,7 +10,7 @@
             <div class="panel-title">Manage Test Report</div>
             <div class="panel-options row tab-action-container">
                 <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                <button class="add-new-button btn btn-default"><i class="fas fa-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">
@@ -42,17 +42,17 @@
                         <td class="center"><span class="btn-sm value btn-${DomainConstant.statusUiClass(order.deliveryStatus)}">${order.deliveryStatus}</span></td>
                         <td class="action-navigator btn-group center" data-id="${order.id}">
                             <g:if test="${!order.isPaid}">
-                                <span class="btn btn-xs btn-info edit" data-action="edit" title="Edit"><i class="glyphicon glyphicon-edit"></i></span>
+                                <span class="btn btn-xs btn-info edit" data-action="edit" title="Edit"><i class="fas fa-edit"></i></span>
                             </g:if>
-                            <span class="action btn btn-xs btn-warning view" data-action="view" title="View/Print"><i class="glyphicon glyphicon-print"></i></span>
+                            <span class="action btn btn-xs btn-warning view" data-action="view" title="View/Print"><i class="fas fa-print"></i></span>
                             <g:if test="${order.active && order.paymentStatus == "PAID" && order.deliveryStatus != 'DELIVERED'}">
-                                <span class="btn btn-xs btn-warning" data-action="delivery" title="Complete Delivery"><i class="glyphicon glyphicon-send"></i></span>
+                                <span class="btn btn-xs btn-warning" data-action="delivery" title="Complete Delivery"><i class="fas fa-share-square"></i></span>
                             </g:if>
                             <g:if test="${order.paymentStatus != 'PAID'}">
-                                <span class="btn btn-xs btn-warning" data-action="cancel" title="Cancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                                <span class="btn btn-xs btn-warning" data-action="cancel" title="Cancel"><i class="fas fa-ban"></i></span>
                             </g:if>
                             <g:elseif test="${!order.active}">
-                                <span class="btn btn-xs btn-warning" title="Activate" data-action="activate"><i class="glyphicon glyphicon-ok"></i></span>
+                                <span class="btn btn-xs btn-warning" title="Activate" data-action="activate"><i class="fas fa-check-circle"></i></span>
                             </g:elseif>
                         </td>
                     </tr>

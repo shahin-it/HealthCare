@@ -6,7 +6,7 @@
         <div class="panel-heading">
             <div class="panel-title">Clinic Information</div>
             <div class="panel-options">
-                <g:link controller="setting" action="global" data-rel="collapse" title="Reload"><i class="glyphicon glyphicon-refresh"></i></g:link>
+                <g:link controller="setting" action="global" data-rel="collapse" title="Reload"><i class="fas fa-sync-alt"></i></g:link>
             </div>
         </div>
         <div class="panel-body">
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>

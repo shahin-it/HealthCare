@@ -8,9 +8,9 @@
     <div class="content-box-large sui-tabular-content" id="employee-tab">
         <div class="panel-heading">
             <div class="panel-title">Employee Register</div>
-            <div class="panel-options tab-action-container">
+            <div class="row panel-options tab-action-container">
                 <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                <button class="add-new-button btn btn-default"><i class="fas fa-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">
@@ -38,11 +38,11 @@
                         <td class="center"><span class="value">${employee.user?.userId}</span></td>
                         <td class="center"><span class="value">${employee.user?.role}</span></td>
                         <td class="action-navigator btn-group center" data-id="${employee.id}">
-                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="glyphicon glyphicon-edit"></i></span>
-                            <span action="pay-salary" class="btn btn-xs btn-info" title="Pay Salary"><i class="glyphicon glyphicon-usd"></i></span>
-                            <span action="pay-bonus" class="btn btn-xs btn-info" title="Pay Bonus"><i class="glyphicon glyphicon-leaf"></i></span>
-                            <span action="payment-history" class="btn btn-xs btn-info" title="Payment History"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <span class="btn btn-xs btn-warning remove" title="Delete"><i class="glyphicon glyphicon-trash"></i></span>
+                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
+                            <span action="pay-salary" class="btn btn-xs btn-info" title="Pay Salary"><i class="fas fa-dollar-sign"></i></span>
+                            <span action="pay-bonus" class="btn btn-xs btn-info" title="Pay Bonus"><i class="fas fa-envira"></i></span>
+                            <span action="payment-history" class="btn btn-xs btn-info" title="Payment History"><i class="fas fa-list-ul"></i></span>
+                            <span class="btn btn-xs btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

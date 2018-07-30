@@ -43,7 +43,7 @@ class UITagLib {
                         <div class="input-group">
                             <input type="text" name="searchText" class="search-text form-control" placeholder="Search anything"/>
                             <div class="input-group-btn">
-                                <button class="btn clear-button btn-warning" title="Clear Filter" type="reset"><i class="glyphicon glyphicon-remove"></i></button>
+                                <button class="btn clear-button btn-warning" title="Clear Filter" type="reset"><i class="fas fa-backspace"></i></button>
                                 <button class="btn submit-button btn-primary" type="button">Search</button>
                             </div>
                         </div>

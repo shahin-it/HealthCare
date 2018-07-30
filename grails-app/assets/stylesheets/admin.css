@@ -1,17 +1,7 @@
-/*.header-banner {
-    background: url("/static/resources/system/banner.jpg");
-    background-size: 100% 100%;
+.header.banner {
+    background: url('/static/resources/system/banner.jpg');
     background-repeat: no-repeat;
-    opacity: 1;
-}*/
-.header .header-banner .image {
-    width: 100%;
-    height: 55px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    opacity: 0.5;
+    background-size: cover;
 }
 .header .navbar {
     margin: 0;
@@ -56,7 +46,7 @@
     color: red;
 }
 .tab-action-container .filter-form {
-    display: inline-block;
+    /* display: inline-block; */
 }
 .filter-form input {
     max-width: 100px;

@@ -13,7 +13,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <asset:javascript src="vendor/jquery-3.3.1.js"/>
+    <asset:javascript src="vendor/jquery-3.3.1.min.js"/>
     <asset:javascript src="vendor/bootstrap.min.js"/>
 </head>
 
@@ -33,7 +33,7 @@
 
 <div class="page-content container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 offset-md-4">
             <div class="login-wrapper">
                 <div class="box">
                     <g:include view="template/loginForm.gsp"/>

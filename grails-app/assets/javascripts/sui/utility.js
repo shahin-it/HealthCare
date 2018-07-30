@@ -190,7 +190,7 @@ var sui = {
         $.notify({
             title: type.toUpperCase() + ": ",
             message: message,
-            icon: 'glyphicon glyphicon-ok-circle'
+            icon: 'fas fas-check-circle'
         }, {
             type: type,
             placement: {
@@ -217,7 +217,7 @@ var sui = {
         if (typeof url != "string") {
             content = url;
         }
-        var panel = $('<div class="content-box-large sui-create-edit-panel ' + config.class + '"><span class="close glyphicon glyphicon-remove"></span><div class="panel-body"></div></div>');
+        var panel = $('<div class="content-box-large sui-create-edit-panel ' + config.class + '"><span class="close fas fa-window-close"></span><div class="panel-body"></div></div>');
         var body = panel.find(".panel-body");
         if (content && content.length) {
             panelLoaded(content);

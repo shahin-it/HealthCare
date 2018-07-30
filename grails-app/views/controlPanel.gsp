@@ -10,7 +10,7 @@
             <div class="content-box-header">
                 <div class="panel-title ">Latest Test Assignment</div>
                 <div class="panel-options">
-                    <g:link controller="page" action="pathology" title="View All" data-rel="collapse"><i class="glyphicon glyphicon-info-sign"></i> View All</g:link>
+                    <g:link controller="page" action="pathology" title="View All" data-rel="collapse"><i class="fas fa-info-circle"></i> View All</g:link>
                 </div>
             </div>
             <div class="content-box-large box-with-header">
@@ -44,7 +44,7 @@
             <div class="content-box-header panel-heading">
                 <div class="panel-title">Over-all Status</div>
                 <div class="panel-options">
-                    <a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
+                    <a href="#" data-rel="collapse"><i class="fas fa-sync-alt"></i></a>
                 </div>
             </div>
             <div class="content-box-large box-with-header">

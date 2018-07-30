@@ -2,7 +2,7 @@
     <input type="hidden" name="id" value="${order.id}">
     <div class="panel-heading">
         <div class="panel-title">Create/Edit Test Service</div>
-        <div class="panel-options form-group service-select">
+        <div class="row panel-options form-group service-select">
             <label class="col-sm-3 control-label">Select Test</label>
             <div class="col-sm-6">
                 <g:select name="#" class="form-control" from="${services.collect {it.value}}" keys="${services.collect {it.key}}" noSelection="['': 'None']"/>
@@ -128,7 +128,7 @@
                     </tbody>
                 </table>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="offset-sm-2 col-sm-10">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <button class="btn btn-danger cancel">Cancel</button>
                     </div>

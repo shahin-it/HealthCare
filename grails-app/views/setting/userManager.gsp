@@ -8,9 +8,9 @@
     <div class="content-box-large sui-tabular-content" id="user-setting-tab">
         <div class="panel-heading">
             <div class="panel-title">Manage Users</div>
-            <div class="panel-options tab-action-container">
+            <div class="row panel-options tab-action-container">
                 <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-default"><i class="glyphicon glyphicon-plus"></i> Add</button>
+                <button class="add-new-button btn btn-default"><i class="fas fa-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">
@@ -36,8 +36,8 @@
                         <td class="center"><span class="value">${user.userId}</span></td>
                         <td class="center"><span class="value">${user.role}</span></td>
                         <td class="action-navigator btn-group center" data-id="${user.id}">
-                            <span class="btn btn-xs btn-info edit"><i class="glyphicon glyphicon-edit"></i></span>
-                            <span class="btn btn-xs btn-warning remove"><i class="glyphicon glyphicon-trash"></i></span>
+                            <span class="btn btn-xs btn-info edit"><i class="fas fa-edit"></i></span>
+                            <span class="btn btn-xs btn-warning remove"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

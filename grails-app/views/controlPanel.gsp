@@ -4,7 +4,7 @@
     <asset:javascript src="vendor/Chart.bundle.min.js"/>
     <asset:javascript src="dashboard.js"/>
 </g:if>
-<div class="col-md-12">
+<div class="page-content control-panel">
     <div class="row">
         <div class="col-md-7">
             <div class="content-box-header">

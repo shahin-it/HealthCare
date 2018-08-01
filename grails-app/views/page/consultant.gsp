@@ -39,8 +39,8 @@
                         <td><span class="value">${consultant.visitingFee}</span></td>
                         <td><span class="value">${consultant.created.toAdminFormat()}</span></td>
                         <td class="action-navigator btn-group center" data-id="${consultant.id}">
-                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
-                            <span class="btn btn-xs btn-warning remove" title="Remove"><i class="fas fa-trash-alt"></i></span>
+                            <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
+                            <span class="btn btn-sm btn-warning remove" title="Remove"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

@@ -1,6 +1,6 @@
 <%@ page import="com.healthcare.DomainConstant; com.healthcare.util.AppUtil" %>
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -47,79 +47,50 @@
     <![endif]-->
 </head>
 
-<body>
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
-<div class="header banner">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-5">
-                <h2 class="store-name"><g:link controller="dashboard" action="controlPanel">${name}</g:link></h2>
-            </div>
-            <div class="col-sm-5">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="input-group form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">Search</button>
-                            </span>
-                        </div>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark flex-md-row">
+        <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap"><i class="fas fa-home logo"></i> ${name}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item ${pathology}"><g:link class="nav-link" controller="page" action="pathology"><i class="fas fa-notes-medical"></i> Pathology</g:link></li>
+                <li class="nav-item ${patient}"><g:link class="nav-link" controller="page" action="patient"><i class="fas fa-file-prescription"></i> Patients</g:link></li>
+                <li class="nav-item ${consultant}"><g:link class="nav-link" controller="page" action="consultant"><i class="fas fa-user-md"></i> Consultants</g:link></li>
+                <li class="nav-item ${users}"><g:link class="nav-link" controller="setting" action="userManager"><i class="fas fa-user-lock"></i> Manage User</g:link></li>
+                <li class="nav-item ${service}"><g:link class="nav-link" controller="setting" action="services"><i class="fas fa-vials"></i> Service Manager</g:link></li>
+                <li class="nav-item ${employee}"><g:link class="nav-link" controller="setting" action="employee"><i class="fas fa-people-carry"></i> Employee</g:link></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-list-ul"></i> Bills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-hdd"></i> Inventory</a></li>
+            </ul>
+            <ul class="navbar-nav d-lg-none d-md-flex">
+                <li class="nav-item ${profile}"><g:link class="nav-link" controller="setting" action="profile"><i class="fas fa-user"></i> Profile</g:link></li>
+                <li class="nav-item ${settings}"><g:link class="nav-link" controller="setting" action="global"><i class="fas fa-cogs"></i> Preferences</g:link></li>
+                <li class="nav-item"><g:link class="nav-link" controller="dashboard" action="doLogout"><i class="fas fa-power-off"></i> Logout</g:link></li>
+            </ul>
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-block">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <g:link class="dropdown-item ${profile}" controller="setting" action="profile"><i class="fas fa-user"></i> Profile [${AppUtil.currentUser.userId}]</g:link>
+                        <g:link class="dropdown-item ${settings}" controller="setting" action="global"><i class="fas fa-cogs"></i> Preferences</g:link>
+                        <div class="dropdown-divider"></div>
+                        <g:link class="dropdown-item" controller="dashboard" action="doLogout"><i class="fas fa-power-off"></i> Logout</g:link>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="bs-navbar-collapse navbar-right" role="navigation">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b
-                                        class="caret"></b></a>
-                                <ul class="dropdown-menu animated fadeInUp">
-                                    <li><g:link controller="setting" action="profile">Profile [${AppUtil.currentUser.userId}]</g:link></li>
-                                    <li><g:link controller="setting" action="global">Settings</g:link></li>
-                                    <li><g:link controller="dashboard" action="doLogout">Logout</g:link></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
-    </div>
-</div>
+    </nav>
+</header>
 
-<div class="page-content">
-    <g:if test="${!pathology}">
-        <div class="row">
-        <div class="col-md-2">
-            <div class="sidebar content-box" style="display: block;">
-                <g:if test="${controllerName == 'setting'}">
-                    <g:include view="template/settingsNav.gsp"/>
-                </g:if>
-                <g:else>
-                    <ul class="nav">
-                        <!-- Main menu -->
-                        <li class="${dashboard}"><g:link controller="dashboard" action="controlPanel"><i class="fas fa-home"></i> Dashboard</g:link></li>
-                        <li class="${pathology}"><g:link controller="page" action="pathology"><i class="fas fa-notes-medical"></i> Pathology</g:link></li>
-                        <li class="${patient}"><g:link controller="page" action="patient"><i class="fas fa-file-prescription"></i> Patients</g:link></li>
-                        <li class="${consultant}"><g:link controller="page" action="consultant"><i class="fas fa-user-md"></i> Consultants</g:link></li>
-                        <li class=""><a href="#"><i class="fas fa-list-ul"></i> Bills</a></li>
-                        <li class=""><a href="#"><i class="fas fa-hdd"></i> Inventory</a></li>
-                    </ul>
-                </g:else>
-
-            </div>
-        </div>
-        <div class="loayout-body col-md-10">
-            <g:layoutBody/>
-        </div>
-        </div>
-    </g:if>
-    <g:else>
-        <div class="loayout-body">
-            <g:layoutBody/>
-        </div>
-    </g:else>
+<div class="body container-fluid">
+    <g:layoutBody/>
 </div>
 
 <footer>

@@ -1,18 +1,16 @@
-.header.banner {
+/*.header .logo {
     background: url('/static/resources/system/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+}*/
+header {
+    background-color: #003c5f;
 }
-.header .navbar {
-    margin: 0;
+header .dropdown-menu {
+    font-size: 0.75rem;
 }
-.header .store-name {
-    margin: 10px 0;
-    color: white;
-}
-.header .store-name a {
-    text-decoration: none;
-    color: white;
+.btn-warning, .btn-warning:hover, .btn-warning {
+    color: #ffffff;
 }
 .overlay {
     position: absolute;

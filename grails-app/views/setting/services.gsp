@@ -37,8 +37,8 @@
                         <td class="center"><span class="value">${service.costPrice}</span></td>
                         <td class="center"><span class="value">${service.discount ?: 0}${service.discountType}</span></td>
                         <td class="action-navigator btn-group center" data-id="${service.id}">
-                            <span class="btn btn-xs btn-info edit"><i class="fas fa-edit"></i></span>
-                            <span class="btn btn-xs btn-warning remove"><i class="fas fa-trash-alt"></i></span>
+                            <span class="btn btn-sm btn-info edit"><i class="fas fa-edit"></i></span>
+                            <span class="btn btn-sm btn-warning remove"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

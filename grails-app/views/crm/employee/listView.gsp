@@ -38,11 +38,11 @@
                         <td class="center"><span class="value">${employee.user?.userId}</span></td>
                         <td class="center"><span class="value">${employee.user?.role}</span></td>
                         <td class="action-navigator btn-group center" data-id="${employee.id}">
-                            <span class="btn btn-xs btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
-                            <span action="pay-salary" class="btn btn-xs btn-info" title="Pay Salary"><i class="fas fa-dollar-sign"></i></span>
-                            <span action="pay-bonus" class="btn btn-xs btn-info" title="Pay Bonus"><i class="fas fa-envira"></i></span>
-                            <span action="payment-history" class="btn btn-xs btn-info" title="Payment History"><i class="fas fa-list-ul"></i></span>
-                            <span class="btn btn-xs btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
+                            <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
+                            <span action="pay-salary" class="btn btn-sm btn-info" title="Pay Salary"><i class="fas fa-dollar-sign"></i></span>
+                            <span action="pay-bonus" class="btn btn-sm btn-info" title="Pay Bonus"><i class="fas fa-envira"></i></span>
+                            <span action="payment-history" class="btn btn-sm btn-info" title="Payment History"><i class="fas fa-list-ul"></i></span>
+                            <span class="btn btn-sm btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
                         </td>
                     </tr>
                 </g:each>

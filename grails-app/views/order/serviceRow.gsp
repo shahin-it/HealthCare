@@ -6,6 +6,6 @@
     <td class="discount"><span class="value"><input name="service_${service.id}.discount" type="number" step="0.01" required value="${service.plainDiscount}" min="0"></span></td>
     <td class="price"><span class="value">0.0</span></td>
     <td class="action-navigator btn-group center">
-        <span class="btn btn-xs btn-warning remove" title="Remove"><i class="fas fa-trash-alt"></i></span>
+        <span class="btn btn-sm btn-warning remove" title="Remove"><i class="fas fa-trash-alt"></i></span>
     </td>
 </tr>

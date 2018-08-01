@@ -7,7 +7,7 @@
 <div class="card sui-tabular-content page-content orders" id="order-manager-tab">
     <div class="card-header panel-header row">
         <h5 class="panel-title col-sm-4">Manage Test Report</h5>
-        <div class="panel-options tab-action-container col-sm-8 justi">
+        <div class="panel-options tab-action-container col-sm-8">
             <ui:basicTableFilter createBtn="true"/>
         </div>
     </div>

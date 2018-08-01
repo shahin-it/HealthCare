@@ -482,7 +482,7 @@ var sui = {
         inputs.each(function() {
             var input = this.jq;
             var target = input.attr("data-toggle-target");
-            var selected = container.find("[class^='" + target + "-']")
+            var selected = container.find("[class^='" + target + "-'], [class*=' " + target + "-']")
             if (!selected.hasClass(target + "-" + input.val())) {
                 selected.hide();
             }

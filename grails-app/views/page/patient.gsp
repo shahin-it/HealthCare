@@ -5,16 +5,16 @@
     <asset:javascript src="feature/feature.crud.js"/>
 </g:if>
 <div class="page-content patients">
-    <div class="content-box-large sui-tabular-content" id="patient-tab">
-        <div class="panel-heading">
-            <div class="panel-title">Manage Patients</div>
-            <div class="row panel-options tab-action-container">
-                <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-sm btn-default"><i class="fas fa-plus"></i> Add</button>
+    <div class="card sui-tabular-content" id="patient-tab">
+        <div class="card-header panel-header row">
+            <h5 class="panel-title col-sm-4">Manage Patients</h5>
+            <div class="tab-action-container col-sm-8">
+                <ui:basicTableFilter createBtn="true"/>
             </div>
         </div>
-        <div class="panel-body table-responsive tabular-body">
+        <div class="card-body panel-body table-responsive tabular-body">
             <span class="label label-info">Showing ${items.size()} of ${count}</span>
+            <ul class="pagination pagination-sm float-right" data-count="${count ?: 0}"></ul>
             <table class="table">
                 <thead>
                 <tr>
@@ -44,13 +44,9 @@
                 </g:each>
                 </tbody>
             </table>
-            <div class="fc-row table-footer">
-                <div class="col-sm-8 left">
-                </div>
-                <div class="col-sm-4 right">
-                    <ul class="pagination pagination-sm" data-count="${count ?: 0}"></ul>
-                </div>
-            </div>
+        </div>
+        <div class="card-footer panel-footer">
+            <ul class="pagination pagination-sm justify-content-end" data-count="${count ?: 0}"></ul>
         </div>
     </div>
 </div>

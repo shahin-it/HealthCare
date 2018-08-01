@@ -72,7 +72,7 @@
                 <li class="nav-item ${settings}"><g:link class="nav-link" controller="setting" action="global"><i class="fas fa-cogs"></i> Preferences</g:link></li>
                 <li class="nav-item"><g:link class="nav-link" controller="dashboard" action="doLogout"><i class="fas fa-power-off"></i> Logout</g:link></li>
             </ul>
-            <ul class="navbar-nav flex-row ml-md-auto d-none d-md-block">
+            <ul class="navbar-nav flex-row ml-md-auto d-none d-sm-none d-md-none d-lg-block d-xl-block">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown

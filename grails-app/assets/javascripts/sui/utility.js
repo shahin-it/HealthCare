@@ -241,7 +241,7 @@ var sui = {
         function panelLoaded(content) {
             config.target.hide();
             config.target.after(panel);
-            panel.find(".panel-body").before(content.find(".panel-heading"));
+            panel.find(".panel-body").before(content.find(".panel-header"));
             body.append(content);
             content.updateUi();
             var form = panel.find("form:first");

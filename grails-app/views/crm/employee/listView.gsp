@@ -10,7 +10,7 @@
             <div class="panel-title">Employee Register</div>
             <div class="row panel-options tab-action-container">
                 <ui:basicTableFilter/>
-                <button class="add-new-button btn btn-default"><i class="fas fa-plus"></i> Add</button>
+                <button class="add-new-button btn btn-sm btn-default"><i class="fas fa-plus"></i> Add</button>
             </div>
         </div>
         <div class="panel-body table-responsive tabular-body">

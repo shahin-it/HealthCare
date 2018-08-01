@@ -32,21 +32,17 @@ class UITagLib {
     }
 
     def basicTableFilter = { attrs, body ->
-        out << """<form class="form-inline create-edit-form filter-form" role="form">
-                        <div class="form-group"><label>Filter</label></div>
-                        <div class="form-group">
-                            <input name="createdFrom" readonly class="from form-control form-control-sm date-picker" placeholder="From date">
-                        </div>
-                        <div class="form-group">
-                            <input name="createdTo" readonly class="to form-control form-control-sm date-picker" id="exampleInputPassword2" placeholder="To date">
-                        </div>
-                        <div class="input-group">
-                            <input type="text" name="searchText" class="search-text form-control form-control-sm" placeholder="Search anything"/>
-                            <div class="input-group-btn">
-                                <button class="btn btn-sm clear-button btn-warning" title="Clear Filter" type="reset"><i class="fas fa-backspace"></i></button>
-                                <button class="btn btn-sm submit-button btn-primary" type="button">Search</button>
-                            </div>
-                        </div>
-                    </form>"""
+        out << """<form class="form-inline create-edit-form filter-form justify-content-lg-end" role="form">
+                        <label class="mr-sm-1">Filter</label>
+                        <input name="createdFrom" readonly class="from form-control form-control-sm date-picker" placeholder="From date">
+                        <input name="createdTo" readonly class="to form-control form-control-sm date-picker" id="exampleInputPassword2" placeholder="To date">
+                        <input type="text" name="searchText" class="search-text form-control ml-sm-1 form-control-sm" placeholder="Search anything"/>
+                        <button class="btn btn-sm clear-button btn-warning" title="Clear Filter" type="reset"><i class="fas fa-backspace"></i></button>
+                        <button class="btn btn-sm submit-button btn-default mr-sm-2" type="button">Search</button>"""
+
+        if(attrs.createBtn) {
+            out << """<button class="add-new-button btn btn-sm btn-primary" type="button"><i class="fas fa-plus"></i> Add</button>"""
+        }
+        out << """</form>"""
     }
 }

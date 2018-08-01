@@ -9,6 +9,9 @@ header {
 header .dropdown-menu {
     font-size: 0.75rem;
 }
+header .nav-item:hover {
+    color: #ffffff;
+}
 .btn-warning, .btn-warning:hover, .btn-warning {
     color: #ffffff;
 }
@@ -40,15 +43,16 @@ header .dropdown-menu {
     margin-top: 15px;
 }
 .sui-create-edit-panel .close {
-    font-size: 25px;
+    font-size: 30px;
     color: red;
-}
-.tab-action-container .filter-form {
-    /* display: inline-block; */
 }
 .filter-form input {
     max-width: 100px;
-    margin-right: -5px;
+    border-radius: 0;
+}
+.filter-form .clear-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .cart-table .summary-row {
     font-weight: bold;
@@ -59,6 +63,12 @@ header .dropdown-menu {
 .due-total.paid {
     color: green;
 }
-.date-picker {
-
+.card .row {
+    margin: 0 0;
+}
+.panel-header .add-button {
+    margin-left: 10px;
+}
+.cart-table .order-items input{
+    width: 100%;
 }

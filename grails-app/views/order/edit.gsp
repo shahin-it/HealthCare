@@ -1,85 +1,83 @@
 <g:form class="create-edit-form form-horizontal" role="form" controller="order" action="save" method="post">
     <input type="hidden" name="id" value="${order.id}">
-    <div class="panel-heading">
-        <div class="panel-title">Create/Edit Test Service</div>
-        <div class="row panel-options form-group service-select">
-            <label class="col-sm-3 control-label">Select Test</label>
-            <div class="col-sm-6">
-                <g:select name="#" class="form-control" from="${services.collect {it.value}}" keys="${services.collect {it.key}}" noSelection="['': 'None']"/>
-            </div>
-            <div class="col-sm-2">
-                <button type="button" class="btn btn-success add-button">Add</button>
+    <div class="panel-header row">
+        <h5 class="panel-title col-sm-4">Create/Edit Test Service #${order.id}</h5>
+        <div class="panel-options service-select col-sm-8">
+            <div action="#" class="form-inline justify-content-end">
+                <label class="mr-1">Select Test</label>
+                <g:select name="#" class="form-control form-control-sm" from="${services.collect {it.value}}" keys="${services.collect {it.key}}" noSelection="['': 'None']"/>
+                <button type="button" class="btn btn-sm btn-success add-button"><i class="fas fa-plus-circle"></i> Add</button>
             </div>
         </div>
     </div>
     <div class="cart-table">
         <div class="row">
-            <div class="additional-info col-md-4">
+            <div class="additional-info col-lg-4">
                 <ui:fieldSet legend="Patient Info">
                     <g:set var="patient" value="${order.patient ?: [:]}"/>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Patient</label>
+                    <div class="form-row">
+                        <label class="col-sm-2">Patient</label>
                         <div class="col-sm-10">
-                            <g:select name="patientId" data-toggle-target="patient-info" class="form-control" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
+                            <g:select name="patientId" data-toggle-target="patient-info" class="form-control form-control-sm" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
                         </div>
                     </div>
                     <div class="patient-info-">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="patient.name" class="form-control" placeholder="Name" required maxlength="250">
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Name</label>
+                                <input type="text" name="patient.name" class="form-control form-control-sm" placeholder="Name" required maxlength="250">
                             </div>
-                            <label class="col-sm-2 control-label">Father Name</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="patient.fatherName" class="form-control" placeholder="Father Name" maxlength="250" required>
+                            <div class="form-group col-sm-6">
+                                <label>Father Name</label>
+                                <input type="text" name="patient.fatherName" class="form-control form-control-sm" placeholder="Father Name" maxlength="250" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">Gender</label>
-                            <div class="col-md-4">
-                                <g:select name="patient.sex" class="form-control" from="['MALE', 'FEMALE']"/>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Gender</label>
+                                <g:select name="patient.sex" class="form-control form-control-sm" from="['MALE', 'FEMALE']"/>
                             </div>
-                            <label class="col-sm-2 control-label">Mobile Number</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="patient.mobile" class="form-control" placeholder="Mobile Number">
+                            <div class="form-group col-sm-6">
+                                <label>Mobile Number</label>
+                                <input type="text" name="patient.mobile" class="form-control form-control-sm" placeholder="Mobile Number">
                             </div>
                         </div>
                     </div>
                 </ui:fieldSet>
                 <ui:fieldSet legend="Consultant Info">
                     <g:set var="consultant" value="${order.consultant ?: [:]}"/>
-                    <div class="form-group">
+                    <div class="form-row">
                         <label class="col-md-2 control-label">Consultant</label>
                         <div class="col-md-10">
-                            <g:select name="consultantId" data-toggle-target="consultant-info" class="form-control" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
+                            <g:select name="consultantId" data-toggle-target="consultant-info" class="form-control form-control-sm" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
                         </div>
                     </div>
                     <div class="consultant-info-">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="consultant.name" class="form-control" placeholder="Name" required maxlength="250">
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Name</label>
+                                <input type="text" name="consultant.name" class="form-control form-control-sm" placeholder="Name" required maxlength="250">
                             </div>
-                            <label class="col-sm-2 control-label">Designation</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="consultant.designation" class="form-control" placeholder="Designation" maxlength="250" required>
+                            <div class="form-group col-sm-6">
+                                <label>Designation</label>
+                                <input type="text" name="consultant.designation" class="form-control form-control-sm" placeholder="Designation" maxlength="250" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-2 control-label">Gender</label>
-                            <div class="col-md-4">
-                                <g:select name="consultant.sex" class="form-control" from="['MALE', 'FEMALE']"/>
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <label>Gender</label>
+                                <g:select name="consultant.sex" class="form-control form-control-sm" from="['MALE', 'FEMALE']"/>
                             </div>
-                            <label class="col-sm-2 control-label">Mobile Number</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="consultant.mobile" class="form-control" placeholder="Mobile Number">
+                            <div class="form-group col-sm-6">
+                                <label>Mobile Number</label>
+                                <input type="text" name="consultant.mobile" class="form-control form-control-sm" placeholder="Mobile Number">
                             </div>
                         </div>
                     </div>
                 </ui:fieldSet>
             </div>
-            <div class="col-md-8">
-                <table class="table table-striped">
+            <div class="col-lg-8">
+                <table class="table table-striped order-items">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -127,12 +125,12 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="form-group">
-                    <div class="offset-sm-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button class="btn btn-danger cancel">Cancel</button>
-                    </div>
-                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button class="btn btn-danger cancel">Cancel</button>
             </div>
         </div>
     </div>

@@ -43,7 +43,8 @@
                         <g:if test="${!order.isPaid}">
                             <span class="btn btn-sm btn-info edit" data-action="edit" title="Edit"><i class="fas fa-edit"></i></span>
                         </g:if>
-                        <span class="action btn btn-sm btn-warning view" data-action="view" title="View/Print"><i class="fas fa-print"></i></span>
+                        <span class="action btn btn-sm btn-warning view" data-action="view" title="View/Print Customer Copy"><i class="fas fa-print"></i></span>
+                        <span class="action btn btn-sm btn-warning view" data-action="view" data-title="Office Copy" title="View/Print Office Copy"><i class="fas fa-eye"></i></span>
                         <g:if test="${order.active && order.paymentStatus == "PAID" && order.deliveryStatus != 'DELIVERED'}">
                             <span class="btn btn-sm btn-warning" data-action="delivery" title="Complete Delivery"><i class="fas fa-share-square"></i></span>
                         </g:if>

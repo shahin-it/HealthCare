@@ -12,6 +12,10 @@ header .dropdown-menu {
 header .nav-item:hover {
     color: #ffffff;
 }
+header .nav-item.current {
+    color: #ffffff;
+    font-weight: bolder;
+}
 .btn-warning, .btn-warning:hover, .btn-warning {
     color: #ffffff;
 }

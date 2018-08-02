@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Customer Receipt #${order.patient.id}</title>
+    <title>${params.title ?: "Customer Copy"} #${order.patient.id}</title>
     <asset:stylesheet src="invoice/invoice.css" media="all"/>
 </head>
 <body>
@@ -103,7 +103,7 @@
         </div>
     </div>
     <div class="footer">
-        Invoice was created on a computer and is valid without the signature and seal.
+        Invoice was created on a computer and is valid without the signature and seal. (Copyright © 2018 || ${global.name})
     </div>
 </footer>
 </body>

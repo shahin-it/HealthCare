@@ -36,7 +36,7 @@ class UITagLib {
 
     def basicTableFilter = { attrs, body ->
         out << """<form class="form-inline create-edit-form filter-form d-inline-flex" role="form">
-                    <label class="mr-sm-1">Filter</label>
+                    <label class="mr-sm-1 d-none d-sm-block">Filter</label>
                     <input name="createdFrom" readonly class="from form-control form-control-sm date-picker" placeholder="From date">
                     <input name="createdTo" readonly class="to form-control form-control-sm date-picker" id="exampleInputPassword2" placeholder="To date">
                     <div class="input-group">

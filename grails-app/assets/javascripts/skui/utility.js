@@ -1,7 +1,7 @@
 /**
  * Created by shahin on 05-Aug-16.
  */
-var sui = {
+var skui = {
     ajax: function(settings) {
         if (!settings) {
             return;
@@ -19,13 +19,13 @@ var sui = {
             dataType: "json",
             success: function(resp) {
                 response && response.call(this);
-                if (sui.silentLogin(resp)) {
+                if (skui.silentLogin(resp)) {
                     success && success.apply(this, arguments);
                 }
             },
             error: function(errorObj) {
                 response && response.call(this);
-                if (sui.silentLogin(errorObj.responseText)) {
+                if (skui.silentLogin(errorObj.responseText)) {
                     error && error.apply(this, arguments);
                 }
             }
@@ -64,13 +64,13 @@ var sui = {
             },
             success: function(resp, type) {
                 response && response.call(this);
-                if (sui.silentLogin(resp)) {
+                if (skui.silentLogin(resp)) {
                     success && success.apply(this, arguments);
                 }
             },
             error: function(errorObj) {
                 response && response.call(this);
-                if (sui.silentLogin(errorObj.responseText)) {
+                if (skui.silentLogin(errorObj.responseText)) {
                     error && error.apply(this, arguments);
                 }
             }
@@ -80,7 +80,7 @@ var sui = {
     },
     singleTab: function(container, data, config) {
         var _self = this;
-        if (!container.is(".sui-tabular-content")) {
+        if (!container.is(".skui-tabular-content")) {
             return;
         }
         var filterForm = container.find(".filter-form");
@@ -117,7 +117,7 @@ var sui = {
             }
             var reqData = $.extend(data, reloadData);
             container.loader();
-            sui.ajax({
+            skui.ajax({
                 method: "post",
                 url: config.url,
                 data: reqData,
@@ -138,8 +138,7 @@ var sui = {
                     }
                 }
             });
-        }
-        ;
+        };
         _self.pagination(container);
         return $.extend(config, {
             reload: function() {
@@ -205,7 +204,7 @@ var sui = {
     renderCreateEdit: function(url, data, config) {
         var content, _self = this;
         config = $.extend({
-            target: $(".sui-tabular-content").first(),
+            target: $(".skui-tabular-content").first(),
             class: "sidebar-mini fixed",
             title: "",
             popupLoad: null,
@@ -217,13 +216,13 @@ var sui = {
         if (typeof url != "string") {
             content = url;
         }
-        var panel = $('<div class="content-box-large sui-create-edit-panel ' + config.class + '"><span class="close fas fa-window-close"></span><div class="panel-body"></div></div>');
+        var panel = $('<div class="card skui-create-edit-panel ' + config.class + '"><span class="close fas fa-window-close"></span><div class="card-body panel-body"></div></div>');
         var body = panel.find(".panel-body");
         if (content && content.length) {
             panelLoaded(content);
         } else {
             body.loader();
-            sui.ajax({
+            skui.ajax({
                 url: url,
                 data: data,
                 dataType: "html",
@@ -241,7 +240,7 @@ var sui = {
         function panelLoaded(content) {
             config.target.hide();
             config.target.after(panel);
-            panel.find(".panel-body").before(content.find(".panel-header"));
+            panel.find(".panel-body").before(content.find(".panel-header").addClass("card-header"));
             body.append(content);
             content.updateUi();
             var form = panel.find("form:first");
@@ -250,7 +249,7 @@ var sui = {
                 saveAndNew = true;
                 form.submit();
             });
-            sui.ajaxForm(form, {
+            skui.ajaxForm(form, {
                 type: "POST",
                 dataType: "json",
                 beforeSubmit: function(arr, $form, options) {
@@ -264,7 +263,7 @@ var sui = {
                 },
                 success: function(resp, type) {
                     if (resp && resp.message) {
-                        sui.notify(resp.message, resp.status);
+                        skui.notify(resp.message, resp.status);
                     }
                     if (config.success) {
                         config.success.apply(this, arguments);
@@ -307,7 +306,7 @@ var sui = {
         if (typeof url != "string") {
             content = url;
         }
-        var popup = $('<div class="modal fade sui-edit-popup ' + config.class + '" role="dialog">\
+        var popup = $('<div class="modal fade skui-edit-popup ' + config.class + '" role="dialog">\
             <div class="modal-dialog modal-content ' + config.size + '">\
                    <div class="modal-header">\
                         <button type="button" class="close" data-dismiss="modal">&times;</button>\
@@ -329,7 +328,7 @@ var sui = {
                 popupLoaded(content);
             } else {
                 body.loader();
-                sui.ajax({
+                skui.ajax({
                     url: url,
                     data: data,
                     dataType: "html",
@@ -355,7 +354,7 @@ var sui = {
                 body.html(content);
                 content.updateUi();
 
-                sui.ajaxForm(form, {
+                skui.ajaxForm(form, {
                     type: "POST",
                     dataType: "json",
                     beforeSubmit: function(arr, $form, options) {
@@ -366,7 +365,7 @@ var sui = {
                     },
                     success: function(resp, type) {
                         if (resp && resp.message) {
-                            sui.notify(resp.message, resp.status);
+                            skui.notify(resp.message, resp.status);
                         }
                         if (config.success) {
                             config.success.apply(this, arguments);
@@ -422,7 +421,7 @@ var sui = {
     confirmAjax: function(url, title, data, success) {
         this.confirm(title, function() {
             "body".jq.loader();
-            sui.ajax({
+            skui.ajax({
                 url: url,
                 dataType: "json",
                 data: data,
@@ -431,7 +430,7 @@ var sui = {
                 },
                 success: function(resp) {
                     if (resp && resp.message) {
-                        sui.notify(resp.message, resp.status);
+                        skui.notify(resp.message, resp.status);
                     }
                     if (success) {
                         success.apply(this, arguments);
@@ -441,24 +440,24 @@ var sui = {
         });
     },
     accordion: function(panel) {
-        if (!panel.is(".sui-accordion-panel")) {
+        if (!panel.is(".skui-accordion-panel")) {
             return
         }
         panel.expand = function(label) {
-            panel.find(".sui-accordion-label").removeClass("expanded");
-            panel.find(".sui-accordion-item").removeClass("expanded").hide();
+            panel.find(".skui-accordion-label").removeClass("expanded");
+            panel.find(".skui-accordion-item").removeClass("expanded").hide();
             label.addClass("expanded");
-            label.next(".sui-accordion-item").addClass("expanded").show();
+            label.next(".skui-accordion-item").addClass("expanded").show();
         }
-        panel.expand(panel.find(".sui-accordion-label:first"));
-        panel.on("click", ".sui-accordion-label", function() {
+        panel.expand(panel.find(".skui-accordion-label:first"));
+        panel.on("click", ".skui-accordion-label", function() {
             panel.expand(this.jq);
         })
         return panel;
     },
     imageInput: function(inputControl) {
         var fileInput = inputControl.find("input[type=file]")
-        var imgPrev = inputControl.find(".sui-image-preview")
+        var imgPrev = inputControl.find(".skui-image-preview")
 
         fileInput.on("change", function(evt) {
             var files = evt.target.files
@@ -489,7 +488,7 @@ var sui = {
 
             if (input.is("select")) {
                 input.change(function() {
-                    container.find("[class^='" + target + "-']").hide().find("input, select, textarea").attr("disabled", true);
+                    container.find("[class^='" + target + "-'], [class*=' " + target + "-']").hide().find("input, select, textarea").attr("disabled", true);
                     container.find("." + target + "-" + input.val()).show().find("input, select, textarea").removeAttr("disabled");
                 }).trigger("change")
             }
@@ -502,7 +501,7 @@ var sui = {
             resp = $()
         }
         if (resp.is(".silent-login-popup")) {
-            sui.editPopup(resp)
+            skui.editPopup(resp)
             return false
         }
         return true

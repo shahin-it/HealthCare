@@ -23,7 +23,7 @@ app.tab.order = function() {
             case "cancel":
             case "activate":
                 data = $.extend(data, {type: action});
-                sui.confirmAjax(app.base + "order/changeStatus", "Are you confirm to change?", data, function() {
+                skui.confirmAjax(app.base + "order/changeStatus", "Are you confirm to change?", data, function() {
                     _self.reload();
                 });
                 break;
@@ -32,7 +32,7 @@ app.tab.order = function() {
 
     _o.onCreateEditLoad = function (panel) {
         var _self = _o;
-        var popup = panel.parents(".sui-create-edit-panel");
+        var popup = panel.parents(".skui-create-edit-panel");
         var cartTable = popup.find(".cart-table");
         var serviceSelection = popup.find(".service-select");
         var select = serviceSelection.find("select");
@@ -45,7 +45,7 @@ app.tab.order = function() {
                     _self.calculatePrice(cartTable);
                 } else {
                     panel.loader()
-                    sui.ajax({
+                    skui.ajax({
                         dataType: "html",
                         url: app.base + "order/serviceRow",
                         data: {id: select.val()},
@@ -76,7 +76,7 @@ app.tab.order = function() {
         })
         popup.find(".create-edit-form").on("preSubmit", function (evt) {
             if(!cartTable.find(".order-item").length) {
-                sui.notify("Please add test item!", "danger");
+                skui.notify("Please add test item!", "danger");
                 return false;
             }
         })
@@ -128,7 +128,7 @@ app.tab.order = function() {
 
     _o.printPreview = function (data) {
         var _self = this;
-        sui.renderCreateEdit.call(_self, app.base + "order/view", data, {
+        skui.renderCreateEdit.call(_self, app.base + "order/view", data, {
             target: _self.body,
             popupLoad: function(resp) {
                 var popup = this

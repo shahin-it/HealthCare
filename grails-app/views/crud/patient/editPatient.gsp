@@ -21,7 +21,7 @@
         </div>
         <div class="form-group col-sm-6 is-married-true">
             <label>Spouse Name</label>
-            <input type="text" name="spouseName" class="form-control" placeholder="Spouse Name" maxlength="250" value="${patient.spouseName}">
+            <input type="text" name="spouseName" class="form-control" placeholder="Spouse Name" maxlength="250" required value="${patient.spouseName}">
         </div>
     </div>
     <div class="form-row">
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group col-sm-6">
             <label>Mobile Number</label>
-            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" value="${patient.mobile}">
+            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" required value="${patient.mobile}">
         </div>
     </div>
     <div class="form-group">
@@ -39,7 +39,7 @@
         <g:select name="sex" class="form-control" from="['MALE', 'FEMALE']" value="${patient.sex}"/>
     </div>
     <ui:addressFieldSet domain="${patient.address ?: [:]}" prefix="address."/>
-    <div class="form-group button-line">
+    <div class="form-group">
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Save</button>
             <button class="btn btn-danger cancel">Cancel</button>

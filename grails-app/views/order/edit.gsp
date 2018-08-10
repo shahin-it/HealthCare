@@ -15,11 +15,9 @@
             <div class="additional-info col-lg-4">
                 <ui:fieldSet legend="Patient Info">
                     <g:set var="patient" value="${order.patient ?: [:]}"/>
-                    <div class="form-row">
-                        <label class="col-sm-2">Patient</label>
-                        <div class="col-sm-10">
-                            <g:select name="patientId" data-toggle-target="patient-info" class="form-control form-control-sm" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
-                        </div>
+                    <div class="form-group">
+                        <label>Patient</label>
+                        <g:select name="patientId" data-toggle-target="patient-info" class="form-control form-control-sm" keys="${patients.collect{it.id}}" from="${patients.collect {it.name + " : " + it.mobile}}" value="${order.patientId}" noSelection="['': 'None']"/>
                     </div>
                     <div class="patient-info-">
                         <div class="form-row">
@@ -46,11 +44,9 @@
                 </ui:fieldSet>
                 <ui:fieldSet legend="Consultant Info">
                     <g:set var="consultant" value="${order.consultant ?: [:]}"/>
-                    <div class="form-row">
-                        <label class="col-md-2 control-label">Consultant</label>
-                        <div class="col-md-10">
-                            <g:select name="consultantId" data-toggle-target="consultant-info" class="form-control form-control-sm" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
-                        </div>
+                    <div class="form-group">
+                        <label>Consultant</label>
+                        <g:select name="consultantId" data-toggle-target="consultant-info" class="form-control form-control-sm" keys="${consultants.collect{it.id}}" from="${consultants.collect {it.name + " : " + it.mobile}}" value="${order.consultantId}" noSelection="['': 'None']"/>
                     </div>
                     <div class="consultant-info-">
                         <div class="form-row">

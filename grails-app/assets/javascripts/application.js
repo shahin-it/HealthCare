@@ -12,7 +12,7 @@
     })
 
     var form = layoutBody.find(".create-edit-form");
-    sui.ajaxForm(form, {
+    skui.ajaxForm(form, {
         type: "POST",
         dataType: "json",
         beforeSubmit: function(arr, $form, options) {
@@ -23,7 +23,7 @@
         },
         success: function(resp, type) {
             if(resp && resp.message) {
-                sui.notify(resp.message, resp.status);
+                skui.notify(resp.message, resp.status);
             }
         }
     });

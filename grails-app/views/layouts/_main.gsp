@@ -4,9 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>
-        HEALTHCARE <g:layoutTitle/>
-    </title>
+    <title>HEALTHCARE <g:layoutTitle/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
 
@@ -36,9 +34,9 @@
     <asset:javascript src="vendor/bootstrap-datepicker.min.js"/>
     <asset:javascript src="vendor/sweetalert2.js"/>
     <asset:javascript src="vendor/jquery.twbsPagination.min.js"/>
-    <asset:javascript src="sui/utility.js"/>
-    <asset:javascript src="sui/common-ui.js"/>
-    <asset:javascript src="sui/table.js"/>
+    <asset:javascript src="skui/utility.js"/>
+    <asset:javascript src="skui/common-ui.js"/>
+    <asset:javascript src="skui/table.js"/>
     <asset:javascript src="admin.js"/>
     <g:layoutHead/>
     <!--[if lt IE 9]>
@@ -49,8 +47,8 @@
 
 <g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark flex-md-row">
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark flex-md-row py-0">
         <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap"><i class="fas fa-home logo"></i> ${name}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -75,7 +73,7 @@
             <ul class="navbar-nav flex-row ml-md-auto d-none d-sm-none d-md-none d-lg-block d-xl-block">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        <b>My Account</b>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <g:link class="dropdown-item ${profile}" controller="setting" action="profile"><i class="fas fa-user"></i> Profile [${AppUtil.currentUser.userId}]</g:link>
@@ -89,8 +87,8 @@
     </nav>
 </header>
 
-<div class="body container-fluid">
-    <g:layoutBody/>
+<div class="layout-body container-fluid">
+    <g:layoutBody class="page-content"/>
 </div>
 
 <footer>

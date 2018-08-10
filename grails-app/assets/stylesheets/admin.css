@@ -12,9 +12,11 @@ header .dropdown-menu {
 header .nav-item:hover {
     color: #ffffff;
 }
-header .nav-item.current {
-    color: #ffffff;
-    font-weight: bolder;
+header .nav-item.current .nav-link {
+    color: #ffc107 !important;
+}
+.layout-body {
+    padding-bottom: 10px;
 }
 .btn-warning, .btn-warning:hover, .btn-warning {
     color: #ffffff;
@@ -46,7 +48,10 @@ header .nav-item.current {
     font-size: 24px;
     margin-top: 15px;
 }
-.sui-create-edit-panel .close {
+.skui-create-edit-panel .close {
+    position: absolute;
+    right: 0;
+    top: 0;
     font-size: 30px;
     color: red;
 }
@@ -72,6 +77,15 @@ header .nav-item.current {
 }
 .panel-header .add-button {
     margin-left: 10px;
+}
+.panel-header {
+    clear: both;
+}
+.panel-header .panel-title {
+    float: left;
+}
+.panel-header .panel-options {
+    float: right !important;
 }
 .cart-table .order-items input{
     width: 100%;

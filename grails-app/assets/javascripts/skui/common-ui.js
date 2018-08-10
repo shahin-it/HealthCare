@@ -56,10 +56,10 @@ $.extend($.prototype, {
         return o;
     },
     updateUi: function() {
-        this.find(".sui-file-chooser").on("change", "input[type=file]:last", function() {
+        this.find(".skui-file-chooser").on("change", "input[type=file]:last", function() {
             if(this.value) {
                 if((this.files[0].size/1024) > (+this.jq.attr("max-size"))) {
-                    sui.notify("Max size 2 MB");
+                    skui.notify("Max size 2 MB");
                     this.jq.replaceWith(this.jq.val('').clone(true));
                     return false;
                 }
@@ -72,13 +72,13 @@ $.extend($.prototype, {
                 }
             }
         });
-        this.find(".sui-accordion-panel").each(function() {
-            sui.accordion(this.jq);
+        this.find(".skui-accordion-panel").each(function() {
+            skui.accordion(this.jq);
         })
-        this.find(".sui-image-chooser").each(function () {
-            sui.imageInput(this.jq);
+        this.find(".skui-image-chooser").each(function () {
+            skui.imageInput(this.jq);
         })
-        sui.toggle(this);
+        skui.toggle(this);
         this.find('.date-picker').datepicker({
             format: app.dateFormat,
             autoclose: true,
@@ -90,7 +90,7 @@ $.extend($.prototype, {
 
         });
         var form = this.find(".ajax-submit")
-        sui.ajaxForm(form, {
+        skui.ajaxForm(form, {
             type: "POST",
             dataType: "json",
             beforeSubmit: function(arr, $form, options) {
@@ -101,7 +101,7 @@ $.extend($.prototype, {
             },
             success: function(resp, type) {
                 if(resp && resp.message) {
-                    sui.notify(resp.message, resp.status);
+                    skui.notify(resp.message, resp.status);
                 }
             }
         });
@@ -125,7 +125,7 @@ $.extend($.prototype, {
             this.jq.parents(".product-details").find(".product-image img").attr("src", this.jq.attr("src").replace(data[0], data[1]));
         })
 
-        _self.find(".sui-accordion-panel").on("click", ".item-label", function () {
+        _self.find(".skui-accordion-panel").on("click", ".item-label", function () {
             var item = this.jq.next(".item-body");
             if(!item.length) {
                 item = this.jq.parent().next(".item-body");

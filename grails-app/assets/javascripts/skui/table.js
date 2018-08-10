@@ -2,7 +2,7 @@
  * Created by shahin on 14-Aug-16.
  */
 $(function() {
-    var content = $(".sui-tabular-content")
+    var content = $(".skui-tabular-content")
     $.each(app.tab, function(k, _processor) {
         var tab = {createEditUrl: "", removeUrl: ""};
         var base = _processor.apply(tab);
@@ -12,7 +12,7 @@ $(function() {
             return;
         }
         tab.body.updateUi();
-        var table = sui.singleTab(tab.body, {}, {
+        var table = skui.singleTab(tab.body, {}, {
             url: tab.loading_url,
             afterLoad: function() {
             }
@@ -29,7 +29,7 @@ $(function() {
             });
             _self.body.on("click", ".add-new-button, .action-navigator .edit", function() {
                 var data = this.jq.parent().data();
-                sui.renderCreateEdit.call(_self, tab.createEditUrl, data, {
+                skui.renderCreateEdit.call(_self, tab.createEditUrl, data, {
                     target: _self.body,
                     popupLoad: _self.onCreateEditLoad,
                     success: function() {
@@ -39,7 +39,7 @@ $(function() {
             });
             _self.body.on("click", ".action-navigator .remove", function() {
                 var data = this.jq.parent().data() || {};
-                sui.confirmAjax(tab.removeUrl, "Are you confirm to remove?", data, function() {
+                skui.confirmAjax(tab.removeUrl, "Are you confirm to remove?", data, function() {
                     _self.reload();
                 });
             });

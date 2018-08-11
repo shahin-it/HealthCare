@@ -45,7 +45,7 @@
     <![endif]-->
 </head>
 
-<g:set var="name" value="${AppUtil.getConfig("global", "name")}"/>
+<g:set var="name" value="${AppUtil.getConfig("general", "name")}"/>
 <body>
 <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar-dark flex-md-row py-0">
@@ -67,7 +67,7 @@
             </ul>
             <ul class="navbar-nav d-lg-none d-md-flex">
                 <li class="nav-item ${profile}"><g:link class="nav-link" controller="setting" action="profile"><i class="fas fa-user"></i> Profile</g:link></li>
-                <li class="nav-item ${settings}"><g:link class="nav-link" controller="setting" action="global"><i class="fas fa-cogs"></i> Preferences</g:link></li>
+                <li class="nav-item ${settings}"><g:link class="nav-link" controller="setting"><i class="fas fa-cogs"></i> Preferences</g:link></li>
                 <li class="nav-item"><g:link class="nav-link" controller="dashboard" action="doLogout"><i class="fas fa-power-off"></i> Logout</g:link></li>
             </ul>
             <ul class="navbar-nav flex-row ml-md-auto d-none d-sm-none d-md-none d-lg-block d-xl-block">
@@ -77,7 +77,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <g:link class="dropdown-item ${profile}" controller="setting" action="profile"><i class="fas fa-user"></i> Profile [${AppUtil.currentUser.userId}]</g:link>
-                        <g:link class="dropdown-item ${settings}" controller="setting" action="global"><i class="fas fa-cogs"></i> Preferences</g:link>
+                        <g:link class="dropdown-item ${settings}" controller="setting"><i class="fas fa-cogs"></i> Preferences</g:link>
                         <div class="dropdown-divider"></div>
                         <g:link class="dropdown-item" controller="dashboard" action="doLogout"><i class="fas fa-power-off"></i> Logout</g:link>
                     </div>
@@ -91,7 +91,7 @@
     <g:layoutBody class="page-content"/>
 </div>
 
-<footer>
+<footer class="position-absolute">
     <div class="container">
         <div class="copy text-center">
             Copyright &copy; ${AppUtil.getCurrentDate()} || <a href='https://www.fb.com/shahin31' target="_blank">${name}</a>

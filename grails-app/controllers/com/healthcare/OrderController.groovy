@@ -41,7 +41,7 @@ class OrderController {
     }
 
     def print(Order order) {
-        Map config = AppUtil.getConfig("global")
+        Map config = AppUtil.getConfig("general")
         [order: order, global: config]
     }
 

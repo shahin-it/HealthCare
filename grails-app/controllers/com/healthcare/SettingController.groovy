@@ -10,14 +10,31 @@ class SettingController {
     SettingService settingService
     CommonService commonService
 
-    def global() {
-        Map config = AppUtil.getConfig("global")
-        [global: "current", config: config]
+    def index() {
+        Map config = AppUtil.getConfig("general")
+        render(view: "setting", model: [config: config])
     }
 
-    def saveGlobalConfig() {
-        params.global['banner'] = DomainConstant.BANNER_IMAGE_PATH
-        params.global['logo'] = DomainConstant.LOGO_IMAGE_PATH
+    def loadSettings() {
+        String type = params.type;
+        Map config = AppUtil.getConfig(type)
+
+        switch (type) {
+            case "global":
+                break;
+            case "global":
+                break;
+            case "global":
+                break;
+            case "global":
+                break;
+            case "global":
+                break;
+        }
+        render(view: "${type}Settings", model: [config: config])
+    }
+
+    def saveConfig() {
         try {
             settingService.saveConfig(params)
         } catch (Exception e) {
@@ -25,12 +42,25 @@ class SettingController {
             e.printStackTrace()
             return
         }
-        if(!params.global['banner']) {
-            def banner = request.getPart("global.banner")
+        render([message: "Successfully saved", status: "success"] as JSON)
+    }
+
+    def saveGeneralConfig() {
+        params.general['banner'] = DomainConstant.BANNER_IMAGE_PATH
+        params.general['logo'] = DomainConstant.LOGO_IMAGE_PATH
+        try {
+            settingService.saveConfig(params)
+        } catch (Exception e) {
+            render([message: "Settings save failed", status: "error"] as JSON)
+            e.printStackTrace()
+            return
+        }
+        if(!params.general['banner']) {
+            def banner = request.getPart("general.banner")
             commonService.uploadImage(banner, DomainConstant.BANNER_IMAGE_PATH)
         }
-        if(!params.global['logo']) {
-            def logo = request.getPart("global.logo")
+        if(!params.general['logo']) {
+            def logo = request.getPart("general.logo")
             commonService.uploadImage(logo, DomainConstant.LOGO_IMAGE_PATH)
         }
         render([message: "Successfully saved", status: "success"] as JSON)

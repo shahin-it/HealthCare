@@ -3,6 +3,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }*/
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+}
 header {
     background-color: #003c5f;
 }
@@ -13,10 +19,17 @@ header .nav-item:hover {
     color: #ffffff;
 }
 header .nav-item.current .nav-link {
-    color: #ffc107 !important;
+    color: white !important;
 }
 .layout-body {
     padding-bottom: 10px;
+}
+footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% - 40px);
+    min-height: 40px;
 }
 .btn-warning, .btn-warning:hover, .btn-warning {
     color: #ffffff;
@@ -89,4 +102,21 @@ header .nav-item.current .nav-link {
 }
 .cart-table .order-items input{
     width: 100%;
+}
+.skui-tab .nav-tabs {
+    background-color: #003c5f;
+    font-weight: bold;
+    padding-right: 0;
+}
+.skui-tab .nav-tabs a {
+    color: white;
+    border-radius: 0;
+}
+.skui-tab .nav-tabs a.active {
+    background-color: #eff0f3;
+    border: 0;
+}
+.skui-tab .nav-tabs a:hover:not(.active) {
+    border: initial;
+    background-color: #1d5987;
 }

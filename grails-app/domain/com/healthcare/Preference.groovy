@@ -12,26 +12,37 @@ class Preference {
     }
 
     static void initialize() {
-        if(Preference.countByType("global") == 0) {
-            _global.each {
-                new Preference(type: "global", configKey: it.key, value: it.value).save()
+        if (Preference.countByType("general") == 0) {
+            _config.each { type, v ->
+                v.each {
+                    new Preference(type: type, configKey: it.key, value: it.value).save()
+                }
             }
         }
     }
 
-    static _global = [
-            name: "Health Care Admin",
-            banner: "resources/system/banner.jpg",
-            logo: "resources/system/logo.png",
-            address1: "GP-GA 88/1, Middle Badda, Dhaka",
-            address2: null,
-            contact: "+8801700000000",
-            email: "admin@example.com",
-            web: "http://www.example.com",
-            deliver_order_within: "2",
-            details: "Service First",
-            date_formate: "dd-MM-yyyy",
-            time_formate: "hh:mm:ss a",
-            item_per_page: "15"
+    static _config = [
+            general       : [
+                    name    : "Health Care Admin",
+                    details : "Service First",
+                    logo    : "resources/system/logo.png",
+                    banner  : "resources/system/banner.jpg",
+                    address1: "GP-GA 88/1, Middle Badda, Dhaka",
+                    address2: null,
+                    contact : "+8801700000000",
+                    email   : "admin@example.com",
+                    web     : "http://www.example.com",
+            ],
+            dashboard     : [],
+            access_control: [],
+            invoice       : [
+                    deliver_order_within: "2",
+            ],
+            others        : [
+                    item_per_page: "15",
+                    date_formate : "dd-MM-yyyy",
+                    time_formate : "hh:mm:ss a",
+            ]
     ]
+
 }

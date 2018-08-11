@@ -17,6 +17,7 @@ class Patient extends DomainBase {
     Boolean isInTrash = false
 
     static constraints = {
+        fatherName(nullable: true)
         spouseName(nullable: true)
         email(nullable: true, unique: true)
         mobile2(nullable: true)

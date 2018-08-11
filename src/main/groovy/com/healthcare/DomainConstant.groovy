@@ -38,7 +38,7 @@ class DomainConstant {
     static final DATE_PICKER_TIME_FORMATE = "hh:mm:ss a"
 
     static final getMAX_RESULT() {
-        return (AppUtil.getConfig("global", "item_per_page") as int) ?: 15
+        return (AppUtil.getConfig("others", "item_per_page") as int) ?: 15
     }
 
 }

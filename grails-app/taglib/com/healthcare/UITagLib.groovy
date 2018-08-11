@@ -9,7 +9,7 @@ class UITagLib {
         out << """<div class="form-row skui-image-chooser">
                     <div class="col-sm-6 form-group">
                         <label class="control-label">${attrs.label}</label>
-                        <input class="form-control ${attrs.clazz}" type="file" name="${attrs.name}" accept="image/*" placeholder="Invoice Banner" max="${attrs.max ?: (5*1024*1024)}" data-value="${attrs.value}">
+                        <input class="form-control form-control-sm ${attrs.clazz}" type="file" name="${attrs.name}" accept="image/*" placeholder="Invoice Banner" max="${attrs.max ?: (5*1024*1024)}" data-value="${attrs.value}">
                     </div>
                     <div class="col-sm-6 form-group">
                         <label>Image</label>

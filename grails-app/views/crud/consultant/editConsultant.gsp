@@ -48,10 +48,8 @@
         <label class="control-label">Visiting Fee</label>
         <input type="number" step="0.01" name="visitingFee" class="form-control" placeholder="Visiting Fee" max="5000" required maxlength="9" value="${consultant.visitingFee}">
     </div>
-    <div class="form-group">
-        <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Save</button>
-            <button class="btn btn-danger cancel">Cancel</button>
-        </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-danger cancel">Cancel</button>
     </div>
 </g:form>

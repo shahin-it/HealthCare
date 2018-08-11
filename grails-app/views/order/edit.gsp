@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Father Name</label>
-                                <input type="text" name="patient.fatherName" class="form-control form-control-sm" placeholder="Father Name" maxlength="250" required>
+                                <input type="text" name="patient.fatherName" class="form-control form-control-sm" placeholder="Father Name" maxlength="250">
                             </div>
                         </div>
                         <div class="form-row">

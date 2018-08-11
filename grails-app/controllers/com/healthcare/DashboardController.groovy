@@ -9,7 +9,7 @@ class DashboardController {
     DashboardService dashboardService
 
     def controlPanel() {
-        Map config = AppUtil.getConfig("global")
+        Map config = AppUtil.getConfig("general")
         Map reports = [:]
         reports.sellByMonth = dashboardService.sellByMonth
         reports.testChart = dashboardService.testChart

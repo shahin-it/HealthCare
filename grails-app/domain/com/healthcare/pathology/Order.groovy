@@ -36,7 +36,7 @@ class Order extends DomainBase {
     def beforeValidate() {
         super.beforeValidate()
         if (!this.delivery) {
-            this.delivery = new Date().toGMT().plus((int)AppUtil.getConfig("global", "deliver_order_within"))
+            this.delivery = new Date().toGMT().plus((int)AppUtil.getConfig("invoice", "deliver_order_within"))
         }
     }
 

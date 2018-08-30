@@ -10,7 +10,7 @@ import grails.web.servlet.mvc.GrailsParameterMap
 
 @Transactional
 class OrderService {
-    TransectionService transectionService
+    TransactionService transactionService
 
     void save(Order order, GrailsParameterMap params) {
         List items = params.items = params.list("items").collect { params[it] }

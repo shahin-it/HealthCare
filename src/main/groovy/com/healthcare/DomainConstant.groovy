@@ -4,11 +4,12 @@ import com.healthcare.util.AppUtil
 
 class DomainConstant {
 
-    static  final TRANSECTION_TYPES = [
+    static  final TRANAECTION_TYPES = [
             ASSET: "ASSET",
             ORDER: "ORDER",
             SERVICE: "SERVICE",
             SALARY: "SALARY",
+            BONUS: "BONUS",
             PURCHASE: "PURCHASE",
             BILL: "BILL",
             VISIT: "VISIT"

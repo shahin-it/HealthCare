@@ -18,6 +18,8 @@ import javax.xml.transform.Transformer
 import javax.xml.transform.TransformerFactory
 import javax.xml.transform.dom.DOMSource
 import javax.xml.transform.stream.StreamResult
+import java.text.DateFormatSymbols
+import java.time.Year
 
 class AppUtil {
     static ServletContext servletContext
@@ -221,5 +223,16 @@ class AppUtil {
 
     static Object getBean(String beanName) {
         return Holders.applicationContext.getBean(beanName)
+    }
+
+    static List getMonth(Boolean years = false) {
+        List months = new DateFormatSymbols().months.findAll {it}
+        if(years) {
+            int year = Year.now().getValue()
+            return [year-1, year, year+1].collect { y->
+                months.collect { (it + " " + y).toUpperCase()}
+            }.flatten()
+        }
+        return months
     }
 }

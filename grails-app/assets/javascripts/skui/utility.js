@@ -55,11 +55,8 @@ var skui = {
                 if (form.triggerHandler("preSubmit") == false) {
                     return false;
                 }
-                if (beforeSubmit) {
-                    beforeSubmit = beforeSubmit.apply(this, arguments);
-                    if (beforeSubmit == false) {
-                        return false
-                    }
+                if (beforeSubmit && beforeSubmit.apply(this, arguments) == false) {
+                    return false
                 }
             },
             success: function(resp, type) {

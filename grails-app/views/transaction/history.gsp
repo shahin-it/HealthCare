@@ -4,7 +4,7 @@
     <title>- Manage Pathologies</title>
     <asset:javascript src="feature/feature.crud.js"/>
 </g:if>
-<div class="card employee skui-tabular-content" id="employee-tab">
+<div class="card employee skui-tabular-content" id="transaction-tab">
     <div class="card-header panel-header">
         <h5 class="card-title panel-title">Employee Register</h5>
         <div class="panel-options tab-action-container">
@@ -39,7 +39,7 @@
                     <td class="action-navigator btn-group center" data-id="${employee.id}">
                         <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
                         <span class="btn btn-sm btn-info" data-action="pay-salary" title="Pay Salary/Bonus"><i class="fas fa-dollar-sign"></i></span>
-                        <span class="btn btn-sm btn-info" data-action="payment-history" title="Payment History"><i class="fas fa-list-ul"></i></span>
+                        <span class="btn btn-sm btn-info" data-action="payment-history" data-domain-id="${employee.id}" title="Payment History"><i class="fas fa-list-ul"></i></span>
                         <span class="btn btn-sm btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
                     </td>
                 </tr>

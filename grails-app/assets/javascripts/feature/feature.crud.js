@@ -76,7 +76,54 @@ app.tab.employee = function() {
     _employee.init = function() {
         var _self = this;
     }
+
+    _employee.onActionClick = function(action, data) {
+        var _self = this;
+        switch (action) {
+            case "pay-salary":
+                skui.renderCreateEdit(app.base + "crm/editPayEmployee", data);
+                break;
+            case "payment-history":
+                _self.paymentHistory(data);
+                break;
+        }
+    }
+
     _employee.onCreateEditLoad = function (panel) {
+        var _self = this;
+    }
+
+    _employee.paymentHistory = function (data) {
+        data = $.extend(data, {
+            domainId: data.id,
+            id: undefined,
+            type: "SALARY"
+        })
+        skui.renderCreateEdit(app.base + "transaction/history", data);
+    }
+
+})();
+
+
+var _transaction = {};
+app.tab.transaction = function() {
+    this.loading_url = app.base + "transaction/history";
+    this.id = "transaction-tab";
+    this.createEditUrl = app.base + "transaction/edit";
+    this.removeUrl = app.base + "transaction/delete";
+    this.processor = _transaction;
+    return this;
+};
+(function () {
+    _transaction.init = function() {
+        var _self = this;
+    }
+
+    _transaction.onActionClick = function(action, data) {
+        var _self = this;
+    }
+
+    _transaction.onCreateEditLoad = function (panel) {
         var _self = this;
     }
 

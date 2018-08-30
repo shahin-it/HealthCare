@@ -8,35 +8,35 @@ import com.healthcare.util.EventManager
 class Transaction extends DomainBase {
 
     String title
-    String type = DomainConstant.TRANSECTION_TYPES.SERVICE
+    String type = DomainConstant.TRANAECTION_TYPES.SERVICE
     Boolean isRefund = false
-    Long effectiveId
+    Long domainId
 
-    Double unitPrice = 0.0
+    Double unitAmount = 0.0
     Integer quantity = 1
 
     String note
 
     static constraints = {
         type(maxSize: 50)
-        effectiveId(nullable: true)
+        domainId(nullable: true)
         note(nullable: true, maxSize: 500)
     }
 
     static transients = ['getTotal']
 
     Double getTotal() {
-        return unitPrice * quantity
+        return unitAmount * quantity
     }
 
     static void initialize() {
-        EventManager.on("after-order-save",  { orderId, Map params ->
+        EventManager.on("after-order-save", { orderId, Map params ->
             Order order = Order.proxy(orderId)
-            if(params.newPayment) {
+            if (params.newPayment) {
                 Transaction transaction = new Transaction(
-                        type: DomainConstant.TRANSECTION_TYPES.ORDER,
-                        effectiveId: orderId,
-                        unitPrice: params.newPayment,
+                        type: DomainConstant.TRANAECTION_TYPES.ORDER,
+                        domainId: orderId,
+                        unitAmount: params.newPayment,
                         title: "Payment for order #$orderId"
                 )
                 transaction.save()

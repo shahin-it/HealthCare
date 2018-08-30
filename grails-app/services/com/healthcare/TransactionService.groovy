@@ -4,7 +4,7 @@ import com.healthcare.crm.Transaction
 import grails.gorm.transactions.Transactional
 
 @Transactional
-class TransectionService {
+class TransactionService {
 
     private Double _getTotalPayment(Map params) {
         Double sum = 0
@@ -13,7 +13,7 @@ class TransectionService {
                 eq("type", params.type)
             }
             if(params.effectiveId) {
-                eq("effectiveId", params.effectiveId)
+                eq("domainId", params.effectiveId)
             }
             if(params.isRefund) {
                 eq("isRefund", params.isRefund)
@@ -30,6 +30,19 @@ class TransectionService {
 
     Double getTotalRefund(String type, Long id = null) {
         return _getTotalPayment([type: type, effectiveId: id, isRefund: true])
+    }
+
+    Transaction pay(String title, String type, Long domainId, Double amount, String note = null) {
+        return new Transaction(title: title, type: type, domainId: domainId, unitAmount: amount, note: note).save()
+    }
+
+    List getHistory(String type, Map params = [:]) {
+        return Transaction.createCriteria().list {
+            eq("type", type)
+            if(params.effectiveId) {
+                eq("domainId", params.effectiveId)
+            }
+        }
     }
 
 }

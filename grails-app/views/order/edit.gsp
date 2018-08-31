@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Mobile Number</label>
-                                <input type="text" name="patient.mobile" class="form-control form-control-sm" placeholder="Mobile Number">
+                                <input type="text" name="patient.mobile" class="form-control form-control-sm" required placeholder="Mobile Number">
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@ class TransactionController {
     TransactionService transactionService
 
     def pay(Long domainId, Double amount) {
-        if(transactionService.pay(params.title, params.type, id, amount, params.note)) {
+        if(transactionService.pay(params.title, params.type, domainId, amount, params.note)) {
             render([status: "success", message: "$params.type successfully paid"] as JSON)
         } else {
             render([status: "error", message: "Could'nt pay $params.type"] as JSON)

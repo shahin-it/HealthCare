@@ -81,7 +81,7 @@ app.tab.employee = function() {
         var _self = this;
         switch (action) {
             case "pay-salary":
-                skui.renderCreateEdit(app.base + "crm/editPayEmployee", data);
+                skui.renderCreateEdit.call(_self, app.base + "crm/editPayEmployee", data);
                 break;
             case "payment-history":
                 _self.paymentHistory(data);
@@ -94,12 +94,15 @@ app.tab.employee = function() {
     }
 
     _employee.paymentHistory = function (data) {
+        var _self = this;
         data = $.extend(data, {
             domainId: data.id,
             id: undefined,
             type: "SALARY"
         })
-        skui.renderCreateEdit(app.base + "transaction/history", data);
+        skui.renderCreateEdit.call(_self, app.base + "transaction/history", data, {
+            title: "Transaction History",
+        });
     }
 
 })();

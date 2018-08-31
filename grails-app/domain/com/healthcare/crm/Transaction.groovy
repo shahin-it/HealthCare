@@ -16,6 +16,7 @@ class Transaction extends DomainBase {
     Integer quantity = 1
 
     String note
+    Date updated
 
     static constraints = {
         type(maxSize: 50)

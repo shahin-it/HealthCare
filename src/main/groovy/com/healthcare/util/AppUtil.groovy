@@ -113,21 +113,6 @@ class AppUtil {
         return size.toString() + " GB";
     }
 
-    static String pluginPackageCase(string) {
-        def parts = string.split("-");
-        if(parts.size() == 1) {
-            return string;
-        }
-        parts.eachWithIndex { v, i ->
-            if(i == 0) {
-                string = v;
-                return;
-            }
-            string += v.capitalize()
-        }
-        return string;
-    }
-
     static waitFor(Object obj, String property, Object compareValue, Long timeout = 30000) {
         if(obj."$property" != compareValue && timeout > 0) {
             Thread.sleep(1000)
@@ -196,16 +181,6 @@ class AppUtil {
 
     static User getCurrentUser() {
         return User.get(loggedUser)
-    }
-
-    static Integer getIntervalInMinute(Map config) {
-        if(config.interval_type == "day") {
-            return config.interval.toInteger() * 24 * 60
-        } else if(config.interval_type == "hr") {
-            return config.interval.toInteger() * 60
-        } else {
-            return config.interval.toInteger()
-        }
     }
 
     static getTimeZone() {

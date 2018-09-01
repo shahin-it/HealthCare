@@ -62,7 +62,7 @@
                 <li class="nav-item ${users}"><g:link class="nav-link" controller="setting" action="userManager"><i class="fas fa-user-lock"></i> Manage User</g:link></li>
                 <li class="nav-item ${service}"><g:link class="nav-link" controller="setting" action="services"><i class="fas fa-vials"></i> Service Manager</g:link></li>
                 <li class="nav-item ${employee}"><g:link class="nav-link" controller="setting" action="employee"><i class="fas fa-people-carry"></i> Employee</g:link></li>
-                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-list-ul"></i> Bills</a></li>
+                <li class="nav-item ${transection}"><g:link class="nav-link" controller="transaction" action="history"><i class="fas fa-list-ul"></i> Bills</g:link></li>
                 <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-hdd"></i> Inventory</a></li>
             </ul>
             <ul class="navbar-nav d-lg-none d-md-flex">

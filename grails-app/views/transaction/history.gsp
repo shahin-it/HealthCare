@@ -20,7 +20,7 @@
                 <th>Type</th>
                 <th>Created</th>
                 <th>Updated</th>
-                <th>Tranx By</th>
+                <th>Trnx By</th>
                 <th>Domain Id</th>
                 <th>Amount</th>
                 <th>Note</th>

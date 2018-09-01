@@ -18,6 +18,6 @@ class TransactionController {
 
     def history() {
         Map data = domainService.dataTableElement(Transaction, params)
-        [patient: "current", items: data.items as List<Transaction>, count: data.count]
+        [transection: "current", items: data.items as List<Transaction>, count: data.count]
     }
 }

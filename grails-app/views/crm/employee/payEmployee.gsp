@@ -14,7 +14,7 @@
             <div class="form-row">
                 <div class="col-sm-6 form-group">
                     <label>Amount</label>
-                    <input name="amount" type="number" step="0.01" class="form-control" minlength="2" maxlength="9" value="${employee.salary}">
+                    <input name="unitAmount" type="number" step="0.01" class="form-control" minlength="2" maxlength="9" value="${employee.salary}">
                 </div>
                 <div class="col-sm-6 form-group">
                     <label>Month of</label>

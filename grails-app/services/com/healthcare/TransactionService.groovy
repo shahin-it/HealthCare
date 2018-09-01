@@ -32,8 +32,18 @@ class TransactionService {
         return _getTotalPayment([type: type, effectiveId: id, isRefund: true])
     }
 
-    Transaction pay(String title, String type, Long domainId, Double amount, String note = null) {
-        return new Transaction(title: title, type: type, domainId: domainId, unitAmount: amount, note: note).save()
+    Transaction pay(def id, String title, String type, Long domainId, Double amount, Integer quantity = 1, String note = null) {
+        quantity = quantity ?: 1
+        Transaction transaction = Transaction.get(id) ?: new Transaction()
+
+        transaction.title = title
+        transaction.type = type
+        transaction.domainId = domainId
+        transaction.unitAmount = amount
+        transaction.quantity = quantity
+        transaction.note = note
+
+        return transaction.save()
     }
 
     List getHistory(String type, Map params = [:]) {

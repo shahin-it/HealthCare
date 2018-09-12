@@ -39,7 +39,7 @@
                     <td class="action-navigator btn-group center" data-id="${employee.id}">
                         <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
                         <span class="btn btn-sm btn-info" data-action="pay-salary" title="Pay Salary/Bonus"><i class="fas fa-dollar-sign"></i></span>
-                        <span class="btn btn-sm btn-info" data-action="payment-history" title="Payment History"><i class="fas fa-list-ul"></i></span>
+                        <span class="btn btn-sm btn-info" data-action="payment-history" title="Payment History" data-history-only="true"><i class="fas fa-list-ul"></i></span>
                         <span class="btn btn-sm btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
                     </td>
                 </tr>

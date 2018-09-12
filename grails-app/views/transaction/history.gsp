@@ -6,10 +6,12 @@
 </g:if>
 <div class="card employee skui-tabular-content page-content" id="transaction-tab">
     <div class="card-header panel-header">
-        <h5 class="card-title panel-title">Transection History</h5>
-        <div class="panel-options tab-action-container">
-            <ui:basicTableFilter createBtn="true"/>
-        </div>
+        <h5 class="card-title panel-title">Transaction History</h5>
+        <g:if test="${!params.historyOnly}">
+            <div class="panel-options tab-action-container">
+                <ui:basicTableFilter createBtn="true"/>
+            </div>
+        </g:if>
     </div>
     <div class="card-body table-responsive tabular-body panel-body">
         <span class="label label-info">Showing ${items.size()} of ${count}</span>
@@ -24,7 +26,9 @@
                 <th>Domain Id</th>
                 <th>Amount</th>
                 <th>Note</th>
-                <th>Actions</th>
+                <g:if test="${!params.historyOnly}">
+                    <th>Actions</th>
+                </g:if>
             </tr>
             </thead>
             <tbody>
@@ -38,10 +42,12 @@
                     <td><span class="value">#${item.domainId}</span></td>
                     <td><span class="value">${item.unitAmount} x ${item.quantity} = ${item.total}</span></td>
                     <td><span class="value">${item.note}</span></td>
-                    <td class="action-navigator btn-group center" data-id="${item.id}">
-                        <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
-                        <span class="btn btn-sm btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
-                    </td>
+                    <g:if test="${!params.historyOnly}">
+                        <td class="action-navigator btn-group center" data-id="${item.id}">
+                            <span class="btn btn-sm btn-info edit" title="Edit"><i class="fas fa-edit"></i></span>
+                            <span class="btn btn-sm btn-warning remove" title="Delete"><i class="fas fa-trash-alt"></i></span>
+                        </td>
+                    </g:if>
                 </tr>
             </g:each>
             </tbody>
